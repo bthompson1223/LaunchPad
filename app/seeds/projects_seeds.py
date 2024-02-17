@@ -1,13 +1,13 @@
 projects = [
     {
-        "title": "GreenHarbor: Sailing Towards Sustainable Seas",
-        "subtitle": "Preserving Oceans, Empowering Coastal Communities",
+        "title": "Revolutionary Smart Garden: Cultivating Tomorrow's Greens Today",
+        "subtitle":  "Bringing Sustainable Agriculture to Your Home",
         "owner_id": 2,
         "category_id": 3,
         "location": "Vancouver, British Columbia, Canada",
-        "story": "In the vibrant coastal city of Vancouver, British Columbia, a dedicated group of environmentalists, led by Olivia Rodriguez, has embarked on a groundbreaking project named GreenHarbor. Their vision is to preserve the world's oceans while simultaneously empowering coastal communities. Olivia, a marine biologist with a passion for sustainability, founded GreenHarbor to address the pressing issues faced by our oceans today. With a team of like-minded individuals, Olivia envisions deploying innovative solutions to combat pollution, overfishing, and the myriad challenges threatening the delicate balance of marine ecosystems.  \n\nGreenHarbor's story began when Olivia, having witnessed firsthand the impact of human activities on marine life, decided to channel her expertise and determination into creating positive change. The project aims to utilize cutting-edge technologies, such as autonomous marine vehicles for ocean cleanup and sustainable fishing practices, to ensure a healthier and more resilient marine environment. Additionally, GreenHarbor seeks to empower coastal communities by providing education on sustainable practices, supporting local economies, and fostering a sense of stewardship for the oceans.",
-        "risks": "Despite the noble goals of GreenHarbor, the project faces various risks that demand careful consideration. Financially, securing adequate funding for the deployment and maintenance of advanced technologies poses a challenge. Unforeseen technical issues or regulatory hurdles may escalate costs, potentially impacting the project's long-term viability. Moreover, external factors such as extreme weather events and natural disasters could hinder the effectiveness of GreenHarbor's initiatives. To mitigate these risks, Olivia and her team are committed to transparent communication, strategic planning, and adaptive management to ensure the success and sustainability of GreenHarbor's mission in safeguarding our oceans.",
-        "funding_goal": 75000,
+        "story": "Welcome to the future of farming at your fingertips! We are excited to introduce our groundbreaking project, the Revolutionary Smart Garden. Imagine having a lush, thriving garden right in your own home, regardless of space constraints or weather conditions. Our innovative system combines technology and nature to make sustainable agriculture accessible to everyone.\n\nThe Revolutionary Smart Garden utilizes state-of-the-art hydroponics and artificial intelligence to create an optimal environment for plant growth. Whether you're a seasoned gardener or a complete novice, our user-friendly app guides you through the process, from seed planting to harvesting. Say goodbye to pesticides and harmful chemicals - our system prioritizes organic and eco-friendly practices.\n\nWith your support, we aim to make homegrown, fresh produce a reality for individuals and families everywhere. Join us in fostering a sustainable future, one seed at a time.",
+        "risks": "While we are confident in our technology and design, every project comes with its set of challenges. Potential risks include production delays due to unforeseen circumstances, and any changes in technology that may affect the performance of the Smart Garden. Rest assured, our team is committed to transparent communication and addressing challenges head-on to deliver the best possible product to our backers.",
+        "funding_goal": 50000,
         "end_date": "2024-08-10"
     },
     {
@@ -22,14 +22,14 @@ projects = [
         "end_date": "2024-09-05"
     },
     {
-        "title": "HealthHarmony: Holistic Wellness for All",
-        "subtitle": "Integrating Mind, Body, and Community Health",
+        "title": "Interactive Lightscapes: A Fusion of Art and Technology",
+        "subtitle": "Immerse Yourself in the Beauty of Illuminated Dreams",
         "owner_id": 3,
-        "category_id": 3,
+        "category_id": 1,
         "location": "San Francisco, California, USA",
-        "story": "In the bustling city of San Francisco, California, HealthHarmony stands as a beacon of holistic wellness, driven by the visionary leader, Dr. Emily Turner. Dr. Turner, a renowned medical practitioner with a background in integrative medicine, founded HealthHarmony with the mission of transforming healthcare by integrating mind, body, and community health. Having witnessed the limitations of traditional healthcare systems, Dr. Turner envisions a future where individuals have access to comprehensive wellness programs that address not only physical ailments but also mental and community well-being. With a passion for preventative care and community outreach, Dr. Turner is dedicated to creating a paradigm shift in how we approach healthcare. \n\nThe story of HealthHarmony is deeply intertwined with Dr. Turner's personal experiences and commitment to a patient-centric approach. Fueled by a desire to break down the barriers that often separate medical disciplines, HealthHarmony offers a range of services, including holistic health assessments, mental health support, and community health initiatives. Dr. Turner believes that by fostering a sense of harmony within individuals and communities, we can achieve better health outcomes and create a ripple effect of positive change.",
-        "risks": "While HealthHarmony strives to revolutionize healthcare, there are inherent risks that must be considered. Financially, sustaining holistic wellness programs may face challenges due to the complexities of billing structures within traditional healthcare systems. Additionally, resistance to integrative medicine practices within certain medical communities poses a risk to widespread adoption. Other potential risks include the need for ongoing education to overcome skepticism and ensuring the scalability of community health initiatives. Dr. Turner and the HealthHarmony team are actively addressing these risks through collaborations with like-minded healthcare professionals, ongoing education, and strategic partnerships to ensure the success of their mission in promoting holistic wellness for all.",
-        "funding_goal": 60000,
+        "story": "Step into a world where art comes to life! Our project aims to create interactive light installations that transform spaces into enchanting realms of color and movement. Each piece is carefully crafted to engage the audience, creating a unique and mesmerizing experience. Imagine strolling through a park at night, surrounded by ethereal lights that react to your presence, or attending an event where the venue itself becomes a canvas for dynamic, ever-changing visuals. Your support will help us bring these magical installations to public spaces, spreading joy and wonder through the power of interactive art. We believe that art should not be confined to galleries but should be an immersive experience for everyone to enjoy. Let's make interactive lightscapes a reality together!",
+        "risks": "While we are confident in our vision and expertise, the challenges lie in scaling up production for public spaces. Coordinating with city authorities and ensuring the seamless integration of technology into various environments may present obstacles. We are committed to addressing these challenges transparently and diligently, working towards a successful realization of our interactive dreamscape.",
+        "funding_goal": 20000,
         "end_date": "2024-10-20"
     },
     {
@@ -44,14 +44,14 @@ projects = [
         "end_date": "2024-11-15"
     },
     {
-        "title": "WildGuardians: Protecting Endangered Species",
-        "subtitle": "Conservation through Community Engagement",
+        "title": "Urban Murals Revitalization Project",
+        "subtitle": "Transforming Cityscapes, One Wall at a Time",
         "owner_id": 1,
-        "category_id": ,
+        "category_id": 1,
         "location": "Nairobi, Kenya",
-        "story": "Nestled in the heart of Nairobi, Kenya, WildGuardians is a noble initiative led by environmentalist and wildlife advocate, Dr. Demo Lition. Dr. Lition, a renowned conservationist with a deep love for Africa's diverse ecosystems, founded WildGuardians with the mission of protecting endangered species through community engagement. Growing up in the lush landscapes of Kenya, Dr. Lition witnessed the rapid decline of iconic species due to poaching, habitat loss, and human-wildlife conflicts. With a background in ecology and a commitment to biodiversity conservation, Dr. Lition envisions a future where local communities actively participate in safeguarding the rich tapestry of African wildlife. \n\nThe story of WildGuardians unfolds as Dr. Lition collaborates with local communities, researchers, and government agencies to implement sustainable conservation practices. Through education programs, community-led patrols, and habitat restoration initiatives, WildGuardians fosters a sense of shared responsibility for the protection of endangered species. Dr. Lition's approach recognizes the interconnectedness of wildlife conservation and community well-being, emphasizing the importance of harmonious coexistence between people and nature.",
-        "risks": "While WildGuardians strives to protect endangered species, there are inherent risks that must be addressed. Financially, securing adequate funding for anti-poaching efforts, community engagement programs, and wildlife habitat preservation can be challenging. External factors, such as political instability or changes in government policies, may impact the project's continuity. Additionally, addressing human-wildlife conflicts may require navigating complex socio-economic dynamics and potential resistance from local communities. Dr. Lition and the WildGuardians team actively address these risks through diversified funding sources, ongoing community dialogue, and adaptive conservation strategies to ensure the success of their mission in protecting endangered species through community engagement.",
-        "funding_goal": 80000,
+        "story": "Let's turn the city into a canvas! The Urban Murals Revitalization Project aims to breathe new life into urban spaces by commissioning local artists to create vibrant and meaningful murals. These large-scale artworks will not only beautify neighborhoods but also tell stories that resonate with the community. Imagine walking through the city and encountering captivating murals that depict the history, culture, and aspirations of the people who call it home. Your support will enable us to fund artist commissions, materials, and community events surrounding the mural installations. Join us in transforming dull walls into powerful storytellers that unite and inspire.",
+        "risks": "Navigating city regulations and permissions might pose challenges, as each mural contributes to the visual identity of the city. We are dedicated to working closely with local authorities, building strong community partnerships, and navigating the bureaucratic landscape to ensure a smooth process. Your contribution is not just about funding murals; it's about revitalizing communities through the power of public art.",
+        "funding_goal": 15000,
         "end_date": "2024-12-05"
     },
     {
