@@ -22,6 +22,7 @@ class Project(db.Model):
     owner = db.relationship('User', back_populates = 'projects')
     rewards = db.relationship('Reward', back_populates = 'project', cascade = 'all, delete-orphan')
     comments = db.relationship('Comment', back_populates = 'project', cascade = 'all, delete-orphan')
+    likes = db.relationship('Like', back_populates = 'project', cascade = 'all, delete-orphan')
 
 
     def to_dict(self):

@@ -11,4 +11,12 @@ class Like(db.Model):
     user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')), ondelete='CASCADE', nullable=False)
     project_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('projects.id')), ondelete='CASCADE', nullable=False)
 
-    user = db.relationship
+    user = db.relationship('User', back_populates = 'likes')
+    project = db.relationship('Project', back_populates = 'likes')
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            'user_id': self.user_id,
+            'project_id': self.project_id
+        }

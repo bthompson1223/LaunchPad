@@ -20,6 +20,8 @@ class User(db.Model, UserMixin):
     projects = db.relationship('Project', back_populates = 'owner', cascade = 'all, delete-orphan')
     comments = db.relationship('Comment', back_populates = 'user', cascade = 'all, delete-orphan')
     backers = db.relationship('Backer', back_populates = 'user', cascade = 'all, delete-orphan')
+    likes = db.relationship('Like', back_populates = 'user', cascade = 'all, delete-orphan')
+    
 
     @property
     def password(self):
