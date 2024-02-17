@@ -29,6 +29,8 @@ class Reward(db.Model):
             "quantity": self.quantity,
             "project_id": self.project_id
         }
+    
+    
 
 
 
