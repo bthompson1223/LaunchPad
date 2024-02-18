@@ -10,8 +10,8 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")), ondelete='CASCADE', nullable=False)
-    project_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("projects.id")), ondelete='CASCADE', nullable=False)
+    user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    project_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("projects.id")), nullable=False)
     parent = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)

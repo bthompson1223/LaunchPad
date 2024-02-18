@@ -11,7 +11,7 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title= db.Column(db.String(255), nullable=False)
     subtitle= db.Column(db.String(255), nullable=False)
-    owner_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")), ondelete='CASCADE', nullable=False)
+    owner_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     category_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("categories.id")), nullable=False)
     location = db.Column(db.String(255), nullable=False)
     story = db.Column(db.Text, nullable=False)
@@ -25,9 +25,9 @@ class Project(db.Model):
     owner = db.relationship('User', back_populates = 'projects')
     rewards = db.relationship('Reward', back_populates = 'project', cascade = 'all, delete-orphan')
     comments = db.relationship('Comment', back_populates = 'project', cascade = 'all, delete-orphan')
+    backers = db.relationship('Backer', back_populates = 'project', cascade = 'all, delete-orphan')
     likes = db.relationship('Like', back_populates = 'project', cascade = 'all, delete-orphan')
-
-
+    
     def to_dict(self):
         return {
             "id": self.id,

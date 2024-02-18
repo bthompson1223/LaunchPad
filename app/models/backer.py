@@ -9,9 +9,9 @@ class Backer(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')), ondelete='CASCADE', nullable=False)
-    project_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('projects.id')), ondelete='CASCADE', nullable=False)
-    reward_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('rewards.id')), ondelete='CASCADE', nullable=False)
+    user_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+    project_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('projects.id')), nullable=False)
+    reward_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod('rewards.id')), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
