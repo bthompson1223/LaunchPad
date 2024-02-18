@@ -1,6 +1,6 @@
 projects = [
         {
-            "title": "Revolutionary Smart Garden: Cultivating Tomorrow's Greens Today",
+            1"title": "Revolutionary Smart Garden: Cultivating Tomorrow's Greens Today",
             "subtitle":  "Bringing Sustainable Agriculture to Your Home",
             "owner_id": 2,
             "category_id": 3,
@@ -11,7 +11,7 @@ projects = [
             "end_date": "2024-08-10"
         },
         {
-            "title": "TechFusion: Empowering Rural Entrepreneurs",
+            2"title": "TechFusion: Empowering Rural Entrepreneurs",
             "subtitle": "Bridging the Digital Divide for Economic Growth",
             "owner_id": 4,
             "category_id": 3,
@@ -22,7 +22,7 @@ projects = [
             "end_date": "2024-09-05"
         },
         {
-            "title": "Interactive Lightscapes: A Fusion of Art and Technology",
+            3"title": "Interactive Lightscapes: A Fusion of Art and Technology",
             "subtitle": "Immerse Yourself in the Beauty of Illuminated Dreams",
             "owner_id": 3,
             "category_id": 1,
@@ -33,7 +33,7 @@ projects = [
             "end_date": "2024-10-20"
         },
         {
-            "title": "ArtVibes: Inspiring Creativity in Every Corner",
+            4"title": "ArtVibes: Inspiring Creativity in Every Corner",
             "subtitle": "Empowering Communities Through Public Art",
             "owner_id": 5,
             "category_id": 1,
@@ -44,7 +44,7 @@ projects = [
             "end_date": "2024-11-15"
         },
         {
-            "title": "Urban Murals Revitalization Project",
+            5"title": "Urban Murals Revitalization Project",
             "subtitle": "Transforming Cityscapes, One Wall at a Time",
             "owner_id": 1,
             "category_id": 1,
@@ -55,7 +55,7 @@ projects = [
             "end_date": "2024-12-05"
         },
         {
-            "title": "Chronicles of Lumina: A Sci-Fi Comic Adventure",
+            6"title": "Chronicles of Lumina: A Sci-Fi Comic Adventure",
             "subtitle": "Embark on a Galactic Journey Beyond the Stars",
             "owner_id": 4,
             "category_id": 2,
@@ -66,7 +66,7 @@ projects = [
             "end_date": "2025-01-15"
         },
         {
-            "title": "Whimsical Wonders: An Illustrated Journey for Kids",
+            7"title": "Whimsical Wonders: An Illustrated Journey for Kids",
             "subtitle": "Spark Imagination and Delight in Every Page",
             "owner_id": 2,
             "category_id": 2,
@@ -77,7 +77,7 @@ projects = [
             "end_date": "2025-02-28"
         },
         {
-            "title": "Echoes of Eternity: An Indie Sci-Fi Odyssey",
+            8"title": "Echoes of Eternity: An Indie Sci-Fi Odyssey",
             "subtitle": "Unraveling Time and Space Through Cinematic Exploration",
             "owner_id": 5,
             "category_id": 4,
@@ -88,7 +88,7 @@ projects = [
             "end_date": "2025-03-20"
         },
         {
-            "title": "Bean to Cup: A Small Coffee Farm Documentary",
+            9"title": "Bean to Cup: A Small Coffee Farm Documentary",
             "subtitle": "Cultivating Stories, Savoring Journeys",
             "owner_id": 3,
             "category_id": 4,
@@ -99,7 +99,7 @@ projects = [
             "end_date": "2025-04-10"
         },
         {
-            "title": "Taco Haven",
+            10"title": "Taco Haven",
             "subtitle": "Crafting Flavorful Memories, One Taco at a Time",
             "owner_id": 3,
             "category_id": 5,
@@ -110,7 +110,7 @@ projects = [
             "end_date": "2025-05-25"
         },
         {
-            "title": "Quilted Comforts",
+            11"title": "Quilted Comforts",
             "subtitle": "Wrap Yourself in Warmth, A Cozy Revolution in Outerwear",
             "owner_id": 4,
             "category_id": 5,
@@ -121,7 +121,7 @@ projects = [
             "end_date": "2025-06-15"
         },
         {
-            "title": "Luminary Quest: A Strategy Board Game Adventure",
+            12"title": "Luminary Quest: A Strategy Board Game Adventure",
             "subtitle": "Embark on a Journey Through the Cosmos",
             "owner_id": 2,
             "category_id": 6,
@@ -132,7 +132,7 @@ projects = [
             "end_date": "2025-07-05"
         },
         {
-            "title": "ChronoRealms: An Epic Adventure Awaits",
+            13"title": "ChronoRealms: An Epic Adventure Awaits",
             "subtitle": "Unravel the Threads of Time in a Virtual Universe",
             "owner_id": 5,
             "category_id": 6,
@@ -143,7 +143,7 @@ projects = [
             "end_date": "2025-08-20"
         },
         {
-            "title": "Harmony Unveiled",
+            14"title": "Harmony Unveiled",
             "subtitle": "Debut Album by EchoScape",
             "owner_id": 1,
             "category_id": 7,
@@ -154,7 +154,7 @@ projects = [
             "end_date": "2025-09-10"
         },
         {
-            "title": "Melody Sprouts: A Harmonious Haven for Tiny Tunes",
+            15"title": "Melody Sprouts: A Harmonious Haven for Tiny Tunes",
             "subtitle": "Nurturing Young Minds through Musical Exploration",
             "owner_id": 3,
             "category_id": 7,
@@ -165,7 +165,7 @@ projects = [
             "end_date": "2025-10-05"
         },
         {
-            "title": "Voices of Tomorrow: Illuminating Ideas Through Conversation",
+            16"title": "Voices of Tomorrow: Illuminating Ideas Through Conversation",
             "subtitle": "Exploring Innovations and the Minds Shaping Our Future",
             "owner_id": 5,
             "category_id": 8,
@@ -176,7 +176,7 @@ projects = [
             "end_date": "2024-07-15"
         },
        {
-            "title": "Echoes of the Ancient: Rediscovering Lost Wisdom",
+            17"title": "Echoes of the Ancient: Rediscovering Lost Wisdom",
             "subtitle": "A Journey Through Time and Myth",
             "owner_id": 4,
             "category_id": 8,
@@ -187,7 +187,7 @@ projects = [
             "end_date": "2024-09-30"
         },
         {
-            "title": "Kingdoms & Quests: The Board Game of Legendary Adventures",
+            18"title": "Kingdoms & Quests: The Board Game of Legendary Adventures",
             "subtitle": "Bringing Fantasy Worlds to Life, Uniting Players in Strategy and Story",
             "owner_id": 3,
             "category_id": 6,
@@ -198,7 +198,7 @@ projects = [
             "end_date": "2024-05-20"
         },
         {
-            "title": "MusicHarmony: Empowering Aspiring Musicians",
+           19 "title": "Music Harmony: Empowering Aspiring Musicians",
             "subtitle": "Providing Access to Instruments and Music Education",
             "owner_id": 1,
             "category_id": 7,
