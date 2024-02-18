@@ -161,49 +161,31 @@ rewards = [
         "quantity": 4,
         "project_id": 9
     },
-     {
-        "name": "Taco Lover's Feast",
-        "description": "Indulge in a Taco Lover's Feast for two at Taco Haven! Enjoy a delicious spread of our signature tacos, including carne asada, al pastor, and vegetarian options, paired with refreshing drinks and homemade salsa.",
-        "image_url": "https://example.com/taco_lovers_feast.jpg",
-        "amount": 50,
-        "est_delivery_date": "2025-06-01",
-        "quantity": 20,
-        "project_id": 10
-    },
     {
         "name": "Taco Haven Insider's Pass",
         "description": "Become a Taco Haven Insider with exclusive access to behind-the-scenes tours, taco-making workshops, and tasting events. Immerse yourself in the world of tacos and gain insights into our culinary secrets!",
         "image_url": "https://example.com/taco_haven_insiders_pass.jpg",
-        "amount": 100,
+        "amount": 200,
         "est_delivery_date": "2025-07-01",
-        "quantity": 10,
+        "quantity": 5,
         "project_id": 10
     },
     {
         "name": "Taco Haven Founder's Club Membership",
         "description": "Join the Taco Haven Founder's Club and receive VIP perks for life! Enjoy priority seating, discounts on all purchases, exclusive tasting menus, and invitations to special events.",
         "image_url": "https://example.com/taco_haven_founders_club.jpg",
-        "amount": 500,
+        "amount": 300,
         "est_delivery_date": "2025-08-01",
-        "quantity": 5,
+        "quantity": 6,
         "project_id": 10
-    },
-    {
-        "name": "Early Bird Quilted Jacket",
-        "description": "Be among the first to receive our stylish quilted jacket at a special early bird price! Made with premium materials and designed for both warmth and style, this jacket will be your go-to outerwear for any occasion.",
-        "image_url": "https://example.com/early_bird_jacket.jpg",
-        "amount": 100,
-        "est_delivery_date": "2025-08-01",
-        "quantity": 50,
-        "project_id": 11
     },
     {
         "name": "Quilted Comforts Fashion Show Ticket",
         "description": "Attend an exclusive Quilted Comforts fashion show and be the first to see our latest collection of stylish quilted jackets. Experience the runway in style and mingle with fashion enthusiasts and industry insiders.",
         "image_url": "https://example.com/fashion_show_ticket.jpg",
-        "amount": 150,
-        "est_delivery_date": "2025-09-15",
-        "quantity": 30,
+        "amount": 300,
+        "est_delivery_date": "2025-04-14",
+        "quantity": 3,
         "project_id": 11
     },
     {
@@ -211,35 +193,26 @@ rewards = [
         "description": "Get a one-of-a-kind quilted jacket customized to your preferences! Choose your favorite colors, patterns, and features to create a personalized jacket that perfectly matches your style.",
         "image_url": "https://example.com/customized_jacket.jpg",
         "amount": 300,
-        "est_delivery_date": "2025-10-31",
-        "quantity": 10,
+        "est_delivery_date": "2025-08-20",
+        "quantity": 2,
         "project_id": 11
     },
     {
         "name": "Explorer's Edition of Luminary Quest",
         "description": "Get the Explorer's Edition of Luminary Quest, which includes the base game and exclusive expansion packs. Dive deep into the cosmos with additional challenges, realms, and mythical creatures!",
         "image_url": "https://example.com/explorers_edition.jpg",
-        "amount": 50,
+        "amount": 120,
         "est_delivery_date": "2025-09-01",
-        "quantity": 100,
+        "quantity": 4,
         "project_id": 12
     },
     {
         "name": "Game Night Bundle",
         "description": "Host the ultimate game night with the Luminary Quest Game Night Bundle! Receive multiple copies of the base game, expansion packs, and exclusive game accessories to share the cosmic adventure with friends and family.",
         "image_url": "https://example.com/game_night_bundle.jpg",
-        "amount": 150,
+        "amount": 300,
         "est_delivery_date": "2025-10-15",
-        "quantity": 50,
-        "project_id": 12
-    },
-    {
-        "name": "Cosmic Conqueror VIP Experience",
-        "description": "Become a Cosmic Conqueror with the VIP Experience! Receive a deluxe edition of Luminary Quest, exclusive behind-the-scenes access to game development updates, and invitations to special gaming events.",
-        "image_url": "https://example.com/cosmic_conqueror_vip.jpg",
-        "amount": 500,
-        "est_delivery_date": "2026-01-01",
-        "quantity": 20,
+        "quantity": 3,
         "project_id": 12
     },
     {
@@ -255,28 +228,19 @@ rewards = [
         "name": "Digital Artbook & Soundtrack",
         "description": "Receive a digital artbook and soundtrack showcasing the stunning visuals and mesmerizing music of ChronoRealms. Immerse yourself in the world of the game even when you're not playing!",
         "image_url": "https://example.com/digital_artbook_soundtrack.jpg",
-        "amount": 50,
+        "amount": 100,
         "est_delivery_date": "2025-11-15",
-        "quantity": 200,
+        "quantity": 2,
         "project_id": 13
     },
     {
         "name": "Founder's Edition Package",
         "description": "Become a founder of ChronoRealms with the Founder's Edition Package! Receive exclusive in-game cosmetics, a physical collector's edition, and special recognition in the game credits.",
         "image_url": "https://example.com/founders_edition_package.jpg",
-        "amount": 200,
+        "amount": 270,
         "est_delivery_date": "2026-03-01",
-        "quantity": 100,
+        "quantity": 3,
         "project_id": 13
-    },
-      {
-        "name": "Digital Download of Harmony Unveiled",
-        "description": "Receive a digital download of EchoScape's debut album, \"Harmony Unveiled.\" Enjoy the mesmerizing melodies and heartfelt lyrics from the comfort of your own device.",
-        "image_url": "https://example.com/digital_download.jpg",
-        "amount": 10,
-        "est_delivery_date": "2025-10-01",
-        "quantity": 500,
-        "project_id": 14
     },
     {
         "name": "Signed CD Copy of Harmony Unveiled",
@@ -292,71 +256,53 @@ rewards = [
         "description": "Attend an exclusive concert experience featuring EchoScape! Get VIP access to a live performance of songs from \"Harmony Unveiled,\" along with meet-and-greet opportunities with the band members.",
         "image_url": "https://example.com/exclusive_concert.jpg",
         "amount": 100,
-        "est_delivery_date": "2026-01-01",
+        "est_delivery_date": "2026-01-03",
         "quantity": 50,
         "project_id": 14
-    },
-    {
-        "name": "Early Bird Enrollment",
-        "description": "Secure early bird enrollment for your little one at Melody Sprouts! Get discounted tuition fees for the first semester and ensure a spot in our inaugural classes.",
-        "image_url": "https://example.com/early_bird_enrollment.jpg",
-        "amount": 50,
-        "est_delivery_date": "2026-01-01",
-        "quantity": 50,
-        "project_id": 15
     },
     {
         "name": "Family Music Workshop Pass",
         "description": "Attend a family music workshop at Melody Sprouts! Enjoy interactive music-making activities with your child and learn how to foster a love for music at home.",
         "image_url": "https://example.com/family_workshop_pass.jpg",
-        "amount": 100,
-        "est_delivery_date": "2026-02-01",
-        "quantity": 30,
+        "amount": 300,
+        "est_delivery_date": "2025-02-09",
+        "quantity": 3,
         "project_id": 15
     },
     {
         "name": "Founder's Plaque Recognition",
         "description": "Receive special recognition as a founding supporter of Melody Sprouts! Your name will be engraved on a commemorative plaque displayed prominently at our music school.",
         "image_url": "https://example.com/founders_plaque.jpg",
-        "amount": 250,
-        "est_delivery_date": "2026-03-01",
-        "quantity": 10,
+        "amount": 500,
+        "est_delivery_date": "2025-04-01",
+        "quantity": 1,
         "project_id": 15
     },
      {
-        "name": "Early Access to Episodes",
-        "description": "Get early access to episodes of 'Voices of Tomorrow' before they're released to the public! Stay ahead of the curve and be the first to hear thought-provoking conversations with innovators shaping our future.",
-        "image_url": "https://example.com/early_access_episodes.jpg",
-        "amount": 10,
-        "est_delivery_date": "2024-08-01",
-        "quantity": 200,
+        "name": "Personalized Thank You Message",
+        "description": "Receive a personalized thank you message from Mia Chen, the host of 'Voices of Tomorrow'! Show your support for the podcast and get a heartfelt message expressing gratitude for your contribution.",
+        "image_url": "https://example.com/personalized_thank_you.jpg",
+        "amount": 25,
+        "est_delivery_date": "2024-10-07",
+        "quantity": 3,
         "project_id": 16
     },
     {
         "name": "Exclusive Behind-the-Scenes Content",
         "description": "Gain access to exclusive behind-the-scenes content from the making of 'Voices of Tomorrow'! Go beyond the episodes and get insights into the production process, interviews, and more.",
         "image_url": "https://example.com/behind_the_scenes_content.jpg",
-        "amount": 25,
-        "est_delivery_date": "2024-09-01",
-        "quantity": 100,
-        "project_id": 16
-    },
-    {
-        "name": "Personalized Thank You Message",
-        "description": "Receive a personalized thank you message from Mia Chen, the host of 'Voices of Tomorrow'! Show your support for the podcast and get a heartfelt message expressing gratitude for your contribution.",
-        "image_url": "https://example.com/personalized_thank_you.jpg",
-        "amount": 50,
-        "est_delivery_date": "2024-10-01",
-        "quantity": 50,
+        "amount": 90,
+        "est_delivery_date": "2024-11-18",
+        "quantity": 1,
         "project_id": 16
     },
     {
         "name": "Signed Copy of Echoes of the Ancient",
         "description": "Receive a signed copy of 'Echoes of the Ancient' by author Fiona Stewart! Delve into the mystical world of ancient wisdom and embark on a journey through time and myth.",
         "image_url": "https://example.com/signed_copy.jpg",
-        "amount": 30,
-        "est_delivery_date": "2024-11-01",
-        "quantity": 200,
+        "amount": 60,
+        "est_delivery_date": "2024-07-25",
+        "quantity": 1,
         "project_id": 17
     },
     {
@@ -364,35 +310,26 @@ rewards = [
         "description": "Attend the exclusive book launch event for 'Echoes of the Ancient'! Meet author Fiona Stewart, hear insights about the book, and get your signed copy in person.",
         "image_url": "https://example.com/book_launch_invitation.jpg",
         "amount": 100,
-        "est_delivery_date": "2024-10-15",
-        "quantity": 50,
+        "est_delivery_date": "2024-12-15",
+        "quantity": 2,
         "project_id": 17
     },
-    {
-        "name": "Personalized Acknowledgment in the Book",
-        "description": "Have your name immortalized in the acknowledgments section of 'Echoes of the Ancient'! Show your support for the project and be recognized for your contribution.",
-        "image_url": "https://example.com/personalized_acknowledgment.jpg",
-        "amount": 250,
-        "est_delivery_date": "2024-12-01",
-        "quantity": 20,
-        "project_id": 17
+     {
+        "name": "Limited Edition Art Print",
+        "description": "Receive a limited edition art print featuring stunning artwork from Kingdoms & Quests! Perfect for framing and displaying your love for fantasy adventure.",
+        "image_url": "https://example.com/art_print.jpg",
+        "amount": 25,
+        "est_delivery_date": "2024-06-28",
+        "quantity": 30,
+        "project_id": 3
     },
     {
         "name": "Early Bird Special: Game Bundle",
         "description": "Get the Early Bird Special and receive a bundle including the Kingdoms & Quests board game, exclusive game expansions, and a set of custom dice. Dive into legendary adventures with this special offer!",
         "image_url": "https://example.com/early_bird_bundle.jpg",
-        "amount": 60,
-        "est_delivery_date": "2024-08-01",
-        "quantity": 100,
-        "project_id": 18
-    },
-    {
-        "name": "Limited Edition Art Print",
-        "description": "Receive a limited edition art print featuring stunning artwork from Kingdoms & Quests! Perfect for framing and displaying your love for fantasy adventure.",
-        "image_url": "https://example.com/art_print.jpg",
-        "amount": 25,
-        "est_delivery_date": "2024-07-01",
-        "quantity": 200,
+        "amount": 75,
+        "est_delivery_date": "2024-08-24",
+        "quantity": 1,
         "project_id": 18
     },
     {
@@ -400,25 +337,16 @@ rewards = [
         "description": "Join the Designer's Guild and gain access to exclusive behind-the-scenes content, designer insights, and early access to future expansions and updates for Kingdoms & Quests.",
         "image_url": "https://example.com/designers_guild_membership.jpg",
         "amount": 100,
-        "est_delivery_date": "2024-06-01",
-        "quantity": 50,
+        "est_delivery_date": "2024-11-25",
+        "quantity": 1,
         "project_id": 18
-    },
-       {
-        "name": "Instrument Starter Kit",
-        "description": "Receive an instrument starter kit, including a beginner-level instrument of your choice (guitar, keyboard, violin, etc.), along with essential accessories and beginner music books to kickstart your musical journey.",
-        "image_url": "https://example.com/instrument_starter_kit.jpg",
-        "amount": 100,
-        "est_delivery_date": "2026-04-01",
-        "quantity": 50,
-        "project_id": 19
     },
     {
         "name": "VIP Music Workshop Pass",
         "description": "Gain access to exclusive VIP music workshops hosted by renowned musicians and instructors. Learn new techniques, receive personalized coaching, and network with fellow aspiring musicians.",
         "image_url": "https://example.com/vip_workshop_pass.jpg",
         "amount": 150,
-        "est_delivery_date": "2026-03-01",
+        "est_delivery_date": "2024-12-18",
         "quantity": 30,
         "project_id": 19
     },
@@ -427,7 +355,7 @@ rewards = [
         "description": "Secure a featured performance slot at a Music Harmony showcase event! Showcase your musical talent to a supportive audience and gain valuable performance experience.",
         "image_url": "https://example.com/featured_performance.jpg",
         "amount": 200,
-        "est_delivery_date": "2026-05-01",
+        "est_delivery_date": "2025-01-04",
         "quantity": 20,
         "project_id": 19
     }
