@@ -6,7 +6,13 @@ from .user_seeds import users
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     for user in users:
-        db.session.add(User(username=user['username'], first_name=user["first_name"], last_name=user['last_name'], email=user['email'], password=user['password']))
+        db.session.add(User(
+            username=user['username'], 
+            first_name=user["first_name"], 
+            last_name=user['last_name'], 
+            email=user['email'], 
+            password=user['password']
+        ))
     db.session.commit()
 
 
