@@ -9,6 +9,10 @@ from alembic import op
 import sqlalchemy as sa
 
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
+
 # revision identifiers, used by Alembic.
 revision = 'ae2706875a0b'
 down_revision = 'ffdc0a98111c'
@@ -96,6 +100,15 @@ def upgrade():
         batch_op.add_column(sa.Column('created_at', sa.DateTime(), nullable=True))
         batch_op.add_column(sa.Column('updated_at', sa.DateTime(), nullable=True))
 
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE categories SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE projects SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE rewards SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE comments SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE likes SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE backers SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
