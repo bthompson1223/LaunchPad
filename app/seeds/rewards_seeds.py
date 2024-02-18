@@ -345,18 +345,18 @@ rewards = [
         "name": "VIP Music Workshop Pass",
         "description": "Gain access to exclusive VIP music workshops hosted by renowned musicians and instructors. Learn new techniques, receive personalized coaching, and network with fellow aspiring musicians.",
         "image_url": "https://example.com/vip_workshop_pass.jpg",
-        "amount": 150,
+        "amount": 99,
         "est_delivery_date": "2024-12-18",
-        "quantity": 30,
+        "quantity": 3,
         "project_id": 19
     },
     {
         "name": "Featured Performance Opportunity",
         "description": "Secure a featured performance slot at a Music Harmony showcase event! Showcase your musical talent to a supportive audience and gain valuable performance experience.",
         "image_url": "https://example.com/featured_performance.jpg",
-        "amount": 200,
+        "amount": 189,
         "est_delivery_date": "2025-01-04",
-        "quantity": 20,
+        "quantity": 1,
         "project_id": 19
     }
 ]

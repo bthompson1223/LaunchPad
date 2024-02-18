@@ -28,17 +28,24 @@ users = [
         "password":'password'
      },
     {
-        "username":'elenarami',
-        "first_name": "Elena",
-        "last_name": "Ramirez",
-        "email":'elena.ramirez@aa.io', 
+        "username":'annieli',
+        "first_name": "Annie",
+        "last_name": "Li",
+        "email":'annie.li@aa.io', 
         "password":'password'
      },
      {
-        "username":'jessicamartiz',
-        "first_name": "Jessica",
+        "username":'chrismartiz',
+        "first_name": "Chris",
         "last_name": "Martinez",
-        "email":'jessica.martinez@aa.io', 
+        "email":'chris.martinez@aa.io', 
+        "password":'password'
+     },
+      {
+        "username":'Issacwm',
+        "first_name": "Issac",
+        "last_name": "WM",
+        "email":'issac.wm@aa.io', 
         "password":'password'
      }
 ]
