@@ -101,7 +101,7 @@ rewards = [
     {
         "name": "Exclusive Comic Variant Cover",
         "description": "Receive a limited edition variant cover of the latest issue of Chronicles of Lumina. This exclusive cover features unique artwork and is available only to backers of this project.",
-        "img_url": "https://example.com/exclusive_variant_cover.jpg",
+        "img_url": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/Rewards_img/6-2_Exclusive+Comic+Variant+Cover.png",
         "amount": 199,
         "est_delivery_date": "2024-11-12",
         "quantity": 5,
