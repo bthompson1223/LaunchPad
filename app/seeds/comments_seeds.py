@@ -153,5 +153,5 @@ comments = [
         "comment": "Kingdoms & Quests is legendary! Can I roll a critical hit with a rubber chicken? 🐔🎲",
         "user_id": 4,
         "project_id": 18
-    },
+    }
 ]

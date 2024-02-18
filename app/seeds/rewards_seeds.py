@@ -278,7 +278,7 @@ rewards = [
         "quantity": 1,
         "project_id": 15
     },
-     {
+    {
         "name": "Personalized Thank You Message",
         "description": "Receive a personalized thank you message from Mia Chen, the host of 'Voices of Tomorrow'! Show your support for the podcast and get a heartfelt message expressing gratitude for your contribution.",
         "image_url": "https://example.com/personalized_thank_you.jpg",
@@ -314,14 +314,14 @@ rewards = [
         "quantity": 2,
         "project_id": 17
     },
-     {
+    {
         "name": "Limited Edition Art Print",
         "description": "Receive a limited edition art print featuring stunning artwork from Kingdoms & Quests! Perfect for framing and displaying your love for fantasy adventure.",
         "image_url": "https://example.com/art_print.jpg",
         "amount": 25,
         "est_delivery_date": "2024-06-28",
         "quantity": 30,
-        "project_id": 3
+        "project_id": 18
     },
     {
         "name": "Early Bird Special: Game Bundle",
