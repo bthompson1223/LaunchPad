@@ -20,6 +20,7 @@ class Reward(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     project = db.relationship('Project', back_populates = 'rewards')
+    backers = db.relationship('Backer', back_populates = 'reward', cascade = 'all, delete-orphan')
 
     def to_dict(self):
         return {

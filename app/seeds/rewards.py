@@ -1,9 +1,11 @@
 from app.models import db, Reward, environment, SCHEMA
 from sqlalchemy.sql import text
 from .rewards_seeds import rewards
+from datetime import datetime
 
 def seed_rewards():
     for reward in rewards:
+        reward['est_delivery_date'] = datetime.strptime(reward['est_delivery_date'], '%Y-%m-%d').date() 
         db.session.add(Reward(
             name= reward['name'],
             description= reward['description'],

@@ -4,7 +4,7 @@ from .categories_seeds import categories
 
 def seed_categories():
     for category in categories:
-        db.session.add(Category(name=category['name'], description=category['description'], ))
+        db.session.add(Category(name=category['name'], description=category['description']))
     db.session.commit()
 
 

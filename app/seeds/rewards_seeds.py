@@ -38,7 +38,7 @@ rewards = [
     {
         "name": "VIP Interactive Lightscapes Experience",
         "description": "Gain VIP access to an exclusive interactive lightscapes event. Be among the first to experience the mesmerizing light installations up close, with a guided tour and behind-the-scenes insights from the creators.",
-        "image_url": "https://example.com/vip_experience.jpg",
+        "img_url": "https://example.com/vip_experience.jpg",
         "amount": 100,
         "est_delivery_date": "2024-08-01",
         "quantity": 50,
@@ -47,7 +47,7 @@ rewards = [
     {
         "name": "Custom Light Art Commission",
         "description": "Commission a custom light art installation tailored to your space or event. Work closely with our team of artists and technologists to bring your vision to life with a unique interactive artwork.",
-        "image_url": "https://example.com/custom_art_commission.jpg",
+        "img_url": "https://example.com/custom_art_commission.jpg",
         "amount": 500,
         "est_delivery_date": "2024-09-15",
         "quantity": 10,
@@ -164,7 +164,7 @@ rewards = [
     {
         "name": "Taco Haven Insider's Pass",
         "description": "Become a Taco Haven Insider with exclusive access to behind-the-scenes tours, taco-making workshops, and tasting events. Immerse yourself in the world of tacos and gain insights into our culinary secrets!",
-        "image_url": "https://example.com/taco_haven_insiders_pass.jpg",
+        "img_url": "https://example.com/taco_haven_insiders_pass.jpg",
         "amount": 200,
         "est_delivery_date": "2025-07-01",
         "quantity": 5,
@@ -173,7 +173,7 @@ rewards = [
     {
         "name": "Taco Haven Founder's Club Membership",
         "description": "Join the Taco Haven Founder's Club and receive VIP perks for life! Enjoy priority seating, discounts on all purchases, exclusive tasting menus, and invitations to special events.",
-        "image_url": "https://example.com/taco_haven_founders_club.jpg",
+        "img_url": "https://example.com/taco_haven_founders_club.jpg",
         "amount": 300,
         "est_delivery_date": "2025-08-01",
         "quantity": 6,
@@ -182,7 +182,7 @@ rewards = [
     {
         "name": "Quilted Comforts Fashion Show Ticket",
         "description": "Attend an exclusive Quilted Comforts fashion show and be the first to see our latest collection of stylish quilted jackets. Experience the runway in style and mingle with fashion enthusiasts and industry insiders.",
-        "image_url": "https://example.com/fashion_show_ticket.jpg",
+        "img_url": "https://example.com/fashion_show_ticket.jpg",
         "amount": 300,
         "est_delivery_date": "2025-04-14",
         "quantity": 3,
@@ -191,7 +191,7 @@ rewards = [
     {
         "name": "Customized Quilted Jacket",
         "description": "Get a one-of-a-kind quilted jacket customized to your preferences! Choose your favorite colors, patterns, and features to create a personalized jacket that perfectly matches your style.",
-        "image_url": "https://example.com/customized_jacket.jpg",
+        "img_url": "https://example.com/customized_jacket.jpg",
         "amount": 300,
         "est_delivery_date": "2025-08-20",
         "quantity": 2,
@@ -200,7 +200,7 @@ rewards = [
     {
         "name": "Explorer's Edition of Luminary Quest",
         "description": "Get the Explorer's Edition of Luminary Quest, which includes the base game and exclusive expansion packs. Dive deep into the cosmos with additional challenges, realms, and mythical creatures!",
-        "image_url": "https://example.com/explorers_edition.jpg",
+        "img_url": "https://example.com/explorers_edition.jpg",
         "amount": 120,
         "est_delivery_date": "2025-09-01",
         "quantity": 4,
@@ -209,7 +209,7 @@ rewards = [
     {
         "name": "Game Night Bundle",
         "description": "Host the ultimate game night with the Luminary Quest Game Night Bundle! Receive multiple copies of the base game, expansion packs, and exclusive game accessories to share the cosmic adventure with friends and family.",
-        "image_url": "https://example.com/game_night_bundle.jpg",
+        "img_url": "https://example.com/game_night_bundle.jpg",
         "amount": 300,
         "est_delivery_date": "2025-10-15",
         "quantity": 3,
@@ -218,7 +218,7 @@ rewards = [
     {
         "name": "Early Access Game Key",
         "description": "Gain early access to ChronoRealms with a digital game key! Be among the first to explore the virtual universe and experience the thrill of time-traveling adventures.",
-        "image_url": "https://example.com/early_access_game_key.jpg",
+        "img_url": "https://example.com/early_access_game_key.jpg",
         "amount": 25,
         "est_delivery_date": "2025-12-01",
         "quantity": 500,
@@ -227,7 +227,7 @@ rewards = [
     {
         "name": "Digital Artbook & Soundtrack",
         "description": "Receive a digital artbook and soundtrack showcasing the stunning visuals and mesmerizing music of ChronoRealms. Immerse yourself in the world of the game even when you're not playing!",
-        "image_url": "https://example.com/digital_artbook_soundtrack.jpg",
+        "img_url": "https://example.com/digital_artbook_soundtrack.jpg",
         "amount": 100,
         "est_delivery_date": "2025-11-15",
         "quantity": 2,
@@ -236,7 +236,7 @@ rewards = [
     {
         "name": "Founder's Edition Package",
         "description": "Become a founder of ChronoRealms with the Founder's Edition Package! Receive exclusive in-game cosmetics, a physical collector's edition, and special recognition in the game credits.",
-        "image_url": "https://example.com/founders_edition_package.jpg",
+        "img_url": "https://example.com/founders_edition_package.jpg",
         "amount": 270,
         "est_delivery_date": "2026-03-01",
         "quantity": 3,
@@ -245,7 +245,7 @@ rewards = [
     {
         "name": "Signed CD Copy of Harmony Unveiled",
         "description": "Get a signed CD copy of EchoScape's debut album, \"Harmony Unveiled.\" Experience the tactile pleasure of physical media while enjoying the band's enchanting music.",
-        "image_url": "https://example.com/signed_cd_copy.jpg",
+        "img_url": "https://example.com/signed_cd_copy.jpg",
         "amount": 25,
         "est_delivery_date": "2025-11-01",
         "quantity": 200,
@@ -254,7 +254,7 @@ rewards = [
     {
         "name": "Exclusive Concert Experience",
         "description": "Attend an exclusive concert experience featuring EchoScape! Get VIP access to a live performance of songs from \"Harmony Unveiled,\" along with meet-and-greet opportunities with the band members.",
-        "image_url": "https://example.com/exclusive_concert.jpg",
+        "img_url": "https://example.com/exclusive_concert.jpg",
         "amount": 100,
         "est_delivery_date": "2026-01-03",
         "quantity": 50,
@@ -263,7 +263,7 @@ rewards = [
     {
         "name": "Family Music Workshop Pass",
         "description": "Attend a family music workshop at Melody Sprouts! Enjoy interactive music-making activities with your child and learn how to foster a love for music at home.",
-        "image_url": "https://example.com/family_workshop_pass.jpg",
+        "img_url": "https://example.com/family_workshop_pass.jpg",
         "amount": 300,
         "est_delivery_date": "2025-02-09",
         "quantity": 3,
@@ -272,7 +272,7 @@ rewards = [
     {
         "name": "Founder's Plaque Recognition",
         "description": "Receive special recognition as a founding supporter of Melody Sprouts! Your name will be engraved on a commemorative plaque displayed prominently at our music school.",
-        "image_url": "https://example.com/founders_plaque.jpg",
+        "img_url": "https://example.com/founders_plaque.jpg",
         "amount": 500,
         "est_delivery_date": "2025-04-01",
         "quantity": 1,
@@ -281,7 +281,7 @@ rewards = [
     {
         "name": "Personalized Thank You Message",
         "description": "Receive a personalized thank you message from Mia Chen, the host of 'Voices of Tomorrow'! Show your support for the podcast and get a heartfelt message expressing gratitude for your contribution.",
-        "image_url": "https://example.com/personalized_thank_you.jpg",
+        "img_url": "https://example.com/personalized_thank_you.jpg",
         "amount": 25,
         "est_delivery_date": "2024-10-07",
         "quantity": 3,
@@ -290,7 +290,7 @@ rewards = [
     {
         "name": "Exclusive Behind-the-Scenes Content",
         "description": "Gain access to exclusive behind-the-scenes content from the making of 'Voices of Tomorrow'! Go beyond the episodes and get insights into the production process, interviews, and more.",
-        "image_url": "https://example.com/behind_the_scenes_content.jpg",
+        "img_url": "https://example.com/behind_the_scenes_content.jpg",
         "amount": 90,
         "est_delivery_date": "2024-11-18",
         "quantity": 1,
@@ -299,7 +299,7 @@ rewards = [
     {
         "name": "Signed Copy of Echoes of the Ancient",
         "description": "Receive a signed copy of 'Echoes of the Ancient' by author Fiona Stewart! Delve into the mystical world of ancient wisdom and embark on a journey through time and myth.",
-        "image_url": "https://example.com/signed_copy.jpg",
+        "img_url": "https://example.com/signed_copy.jpg",
         "amount": 60,
         "est_delivery_date": "2024-07-25",
         "quantity": 1,
@@ -308,7 +308,7 @@ rewards = [
     {
         "name": "Exclusive Book Launch Invitation",
         "description": "Attend the exclusive book launch event for 'Echoes of the Ancient'! Meet author Fiona Stewart, hear insights about the book, and get your signed copy in person.",
-        "image_url": "https://example.com/book_launch_invitation.jpg",
+        "img_url": "https://example.com/book_launch_invitation.jpg",
         "amount": 100,
         "est_delivery_date": "2024-12-15",
         "quantity": 2,
@@ -317,7 +317,7 @@ rewards = [
     {
         "name": "Limited Edition Art Print",
         "description": "Receive a limited edition art print featuring stunning artwork from Kingdoms & Quests! Perfect for framing and displaying your love for fantasy adventure.",
-        "image_url": "https://example.com/art_print.jpg",
+        "img_url": "https://example.com/art_print.jpg",
         "amount": 25,
         "est_delivery_date": "2024-06-28",
         "quantity": 30,
@@ -326,7 +326,7 @@ rewards = [
     {
         "name": "Early Bird Special: Game Bundle",
         "description": "Get the Early Bird Special and receive a bundle including the Kingdoms & Quests board game, exclusive game expansions, and a set of custom dice. Dive into legendary adventures with this special offer!",
-        "image_url": "https://example.com/early_bird_bundle.jpg",
+        "img_url": "https://example.com/early_bird_bundle.jpg",
         "amount": 75,
         "est_delivery_date": "2024-08-24",
         "quantity": 1,
@@ -335,7 +335,7 @@ rewards = [
     {
         "name": "Designer's Guild Membership",
         "description": "Join the Designer's Guild and gain access to exclusive behind-the-scenes content, designer insights, and early access to future expansions and updates for Kingdoms & Quests.",
-        "image_url": "https://example.com/designers_guild_membership.jpg",
+        "img_url": "https://example.com/designers_guild_membership.jpg",
         "amount": 100,
         "est_delivery_date": "2024-11-25",
         "quantity": 1,
@@ -344,7 +344,7 @@ rewards = [
     {
         "name": "VIP Music Workshop Pass",
         "description": "Gain access to exclusive VIP music workshops hosted by renowned musicians and instructors. Learn new techniques, receive personalized coaching, and network with fellow aspiring musicians.",
-        "image_url": "https://example.com/vip_workshop_pass.jpg",
+        "img_url": "https://example.com/vip_workshop_pass.jpg",
         "amount": 99,
         "est_delivery_date": "2024-12-18",
         "quantity": 3,
@@ -353,7 +353,7 @@ rewards = [
     {
         "name": "Featured Performance Opportunity",
         "description": "Secure a featured performance slot at a Music Harmony showcase event! Showcase your musical talent to a supportive audience and gain valuable performance experience.",
-        "image_url": "https://example.com/featured_performance.jpg",
+        "img_url": "https://example.com/featured_performance.jpg",
         "amount": 189,
         "est_delivery_date": "2025-01-04",
         "quantity": 1,
