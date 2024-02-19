@@ -30,3 +30,24 @@ export const thunkGetCategoryProjects = (category) => async (dispatch) => {
     return errs;
   }
 };
+
+const initialState = {}
+
+function projectReducer(state = initialState, action) {
+    switch (action.type) {
+        case GET_PROJECTS: {
+            const newState = { ...state }
+            action.projects.forEach(project => {
+                newState[project.id] = project
+            })
+            return newState;
+        }
+        case RETURN_INITIAL: {
+            return initialState;
+        }
+        default:
+            return state;
+    }
+}
+
+export default projectReducer

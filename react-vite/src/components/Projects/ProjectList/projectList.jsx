@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useEffect } from 'react'
-
+import { ProjectListItem } from '../ProjectListItem/projectListItem';
 
 const ProjectList = () => {
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const ProjectList = () => {
             <ul>
                 {projects.map(project => (
                     <ProjectListItem 
-                        projectId = {project.id}
+                        project = {project}
                         key = {project.id}
                     />
                 ))}
