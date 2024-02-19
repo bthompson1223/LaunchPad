@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from ..models import Project, Category, User, db
+from ..models import Project, Category, User, Reward, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from ..forms import ProjectForm
 
@@ -120,3 +120,12 @@ def delete_project(projectId):
     db.session.commit()
 
     return {"message": f"Successfully deleted project {project['title']}"}
+
+# Get all rewards for a project
+@project_routes.route('/<int:projectId>/rewards')
+def get_rewards(projectId):
+    rewards = Reward.query.filter(Reward.project_id == projectId).all()
+    if rewards:
+        return [reward.to_dict() for reward in rewards]
+    else: 
+        return {"errors": {"message": "Incorrect projectId or Rewards not found"}}, 404
