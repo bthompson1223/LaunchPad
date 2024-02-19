@@ -341,22 +341,22 @@ rewards = [
         "quantity": 1,
         "project_id": 18
     },
-    {
-        "name": "VIP Music Workshop Pass",
-        "description": "Gain access to exclusive VIP music workshops hosted by renowned musicians and instructors. Learn new techniques, receive personalized coaching, and network with fellow aspiring musicians.",
-        "img_url": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/Rewards_img/19-1_VIP+Music+Workshop+Pass.png",
-        "amount": 99,
-        "est_delivery_date": "2024-12-18",
-        "quantity": 3,
-        "project_id": 19
-    },
-    {
-        "name": "Featured Performance Opportunity",
-        "description": "Secure a featured performance slot at a Music Harmony showcase event! Showcase your musical talent to a supportive audience and gain valuable performance experience.",
-        "img_url": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/Rewards_img/19-2_Featured+Performance+Opportunity.png",
-        "amount": 189,
-        "est_delivery_date": "2025-01-04",
-        "quantity": 1,
-        "project_id": 19
-    }
+    # {
+    #     "name": "VIP Music Workshop Pass",
+    #     "description": "Gain access to exclusive VIP music workshops hosted by renowned musicians and instructors. Learn new techniques, receive personalized coaching, and network with fellow aspiring musicians.",
+    #     "img_url": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/Rewards_img/19-1_VIP+Music+Workshop+Pass.png",
+    #     "amount": 99,
+    #     "est_delivery_date": "2024-12-18",
+    #     "quantity": 3,
+    #     "project_id": 19
+    # },
+    # {
+    #     "name": "Featured Performance Opportunity",
+    #     "description": "Secure a featured performance slot at a Music Harmony showcase event! Showcase your musical talent to a supportive audience and gain valuable performance experience.",
+    #     "img_url": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/Rewards_img/19-2_Featured+Performance+Opportunity.png",
+    #     "amount": 189,
+    #     "est_delivery_date": "2025-01-04",
+    #     "quantity": 1,
+    #     "project_id": 19
+    # }
 ]
