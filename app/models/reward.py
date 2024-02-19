@@ -16,11 +16,13 @@ class Reward(db.Model):
     est_delivery_date = db.Column(db.Date, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     project_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("projects.id")), nullable=False)
+    owner_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     project = db.relationship('Project', back_populates = 'rewards')
     backers = db.relationship('Backer', back_populates = 'reward', cascade = 'all, delete-orphan')
+    owner = db.relationship('User', back_populates = 'rewards')
 
     def to_dict(self):
         return {
@@ -32,6 +34,7 @@ class Reward(db.Model):
             "est_delivery_date": self.est_delivery_date,
             "quantity": self.quantity,
             "project_id": self.project_id,
+            "owner_id": self.owner_id,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

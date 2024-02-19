@@ -13,7 +13,8 @@ def seed_rewards():
             amount = reward['amount'],
             est_delivery_date = reward['est_delivery_date'],
             quantity = reward['quantity'],
-            project_id = reward['project_id']
+            project_id = reward['project_id'],
+            owner_id = reward['owner_id']
         ))
     db.session.commit()
 
