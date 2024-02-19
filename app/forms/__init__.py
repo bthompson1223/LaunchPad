@@ -1,3 +1,3 @@
 from .login_form import LoginForm
 from .signup_form import SignUpForm
-from .new_project_form import NewProjectForm
+from .project_form import ProjectForm
