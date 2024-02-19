@@ -88,7 +88,8 @@ def update_project(projectId):
             return upload
 
         remove_file_from_s3(project['cover_image'])
-        
+
+
         project['title'] = form.data['title'] or project['title']
         project['subtitle'] = form.data["subtitle"] or project['subtitle'],
         project['category_id'] = form.data["category_id"],
