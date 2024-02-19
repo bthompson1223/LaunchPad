@@ -66,7 +66,7 @@ const ProjectDetail = () => {
                 <span onClick={() => topic = "comments"}>Comments</span>
             </nav>
             <div className="project-detail-topic">
-                {topic == "story" && <Story project={project} />
+                {topic == "story" && <Story project={project} />}
                 {topic == "risks" && <Risks project={project} />}
                 {topic == "comments" && <Comments />}
             </div>
