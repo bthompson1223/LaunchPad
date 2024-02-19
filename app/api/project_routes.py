@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user, login_required
 from ..models import Project, Category, User, Reward, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
-from ..forms import RewardForm
+from ..forms import ProjectForm
 
 project_routes = Blueprint('projects', __name__)
 
