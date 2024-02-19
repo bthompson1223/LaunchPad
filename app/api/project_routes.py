@@ -80,9 +80,7 @@ def update_project(projectId):
         if "url" not in upload:
             return upload
 
-
         remove_file_from_s3(project['cover_image'])
-
         
         project['title'] = form.data['title'] or project['title']
         project['subtitle'] = form.data["subtitle"] or project['subtitle'],
@@ -93,8 +91,24 @@ def update_project(projectId):
         project['cover_image'] = upload["url"],
         project['funding_goal'] = form.data["funding_goal"] or project['funding_goal'],
         project['end_date'] = form.data["end_date"] or project['end_date']
-        
+    
 
         db.session.commit()
         return project.to_dict()
     return form.errors, 401
+
+@login_required
+@project_routes.route('/<int:projectId>', methods=['DELETE'])
+def delete_project(projectId):
+    project = Project.query.get(projectId)
+
+    if not project:
+        return {'errors': {'message': "Project not found"}}, 404
+    
+    if current_user.id is not project.owner_id:
+        return {'errors': {'message': "Unauthorized"}}, 401
+    
+    db.session.delete(project)
+    db.session.commit()
+
+    return {"message": f"Successfully deleted project {project['title']}"}
