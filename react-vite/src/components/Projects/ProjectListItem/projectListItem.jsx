@@ -1,16 +1,18 @@
 import { useEffect } from "react"
 import {Link} from 'react-router-dom'
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 // backed projects, liked projects, categories page, created projects
 export const ProjectListItem = ({ project }) => {
 
     const daysToGo = Math.round(project.end_date.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
     const fundingPercentage = project.totalFunded / project.fundingGoal
+    const categoryName = project.category.replace("-", " & ")
 
     return (
     <li>
         <div className="card-project-image">
-            <img src="" alt="" />
+            <img src={`${project.coverImage}`} alt="cover image of project" />
         </div>
         <div className="card-text-div">
             <div className="card-titles">
@@ -27,7 +29,8 @@ export const ProjectListItem = ({ project }) => {
             </div>
             
             <div>
-                <Link to={`/category/${project.category}`}></Link>
+                <Link to={`/category/${project.category}`}>{categoryName}</Link>
+                <span><span><FaMapMarkerAlt /></span>{project.location}</span>
             </div>
         </div>
     </li>

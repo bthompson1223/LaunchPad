@@ -14,10 +14,10 @@ def all_projects():
 
 @project_routes.route('/<category>')
 def find_category_projects(category):
-    category = Category.query.get({"name": category})
-    projects = Project.query.filter(Project.category_id == category.id).all()
+    projects = Project.query.all()
+    print(projects)
 
-    return [project.to_dict() for project in projects]
+    return [project.to_dict() for project in projects if project.category == category]
 
 @project_routes.route('/<int:projectId>')
 def get_project(projectId):
