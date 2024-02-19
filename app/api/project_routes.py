@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from ...app.models import Project, Category, db
+from ..models import Project, Category, User, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
-from forms import ProjectForm
+from ..forms import ProjectForm
 
 project_routes = Blueprint('projects', __name__)
 
@@ -12,7 +12,7 @@ def all_projects():
 
     return [project.to_dict() for project in projects]
 
-@project_routes.route('/<str:category>')
+@project_routes.route('/<category>')
 def find_category_projects(category):
     category = Category.query.get({"name": category})
     projects = Project.query.filter(Project.category_id == category.id).all()

@@ -29,11 +29,13 @@ class Project(db.Model):
     likes = db.relationship('Like', back_populates = 'project', cascade = 'all, delete-orphan')
     
     def to_dict(self):
+        owner = self.owner.to_dict()
+
         return {
             "id": self.id,
             "title": self.title,
             "subtitle": self.subtitle,
-            "owner_id": self.owner_id,
+            "owner": owner,
             "category_id": self.category_id,
             "location": self.location,
             "story": self.story,

@@ -11,5 +11,5 @@ class ProjectForm(FlaskForm):
     story = StringField("Story", validators=[DataRequired()])
     risks = StringField("Risks", validators=[DataRequired()])
     cover_image = FileField('Project Image', validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
-    funding_goal = IntegerField("Funding Goal", validators=[DataRequired])
-    end_date = DateField("End Date", validators=[DataRequired])
+    funding_goal = IntegerField("Funding Goal", validators=[DataRequired()])
+    end_date = DateField("End Date", validators=[DataRequired()])
