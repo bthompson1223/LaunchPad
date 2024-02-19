@@ -2,6 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user, login_required
 from ...app.models import Project, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename
+from forms import NewProjectForm
 
 project_routes = Blueprint('projects', __name__)
 
@@ -23,7 +24,7 @@ def get_project(projectId):
 @login_required    
 @project_routes.route('/', methods=["POST"])
 def new_project():
-    form = NewProject()
+    form = NewProjectForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
