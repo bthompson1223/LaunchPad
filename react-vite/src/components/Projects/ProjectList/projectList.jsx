@@ -6,17 +6,19 @@ import {thunkGetCategoryProjects, returnInitial} from '../../../redux/project'
 
 const ProjectList = () => {
     const dispatch = useDispatch();
-    const projects = useSelector(state => state.projects);
+    const projectsObj = useSelector(state => state.projects);
     const {category} = useParams();
 
-    console.log("***************************", projects)
+
+    
     useEffect(() => {
         dispatch(thunkGetCategoryProjects(category));
         return () => {dispatch(returnInitial())}
-    }, [dispatch])
+    }, [dispatch, category])
     
-    if (!projects) return null;
+    if (Object.values(projectsObj).length == 0) return null;
     
+    const projects = Object.values(projectsObj)
     
     return (
         <div>
