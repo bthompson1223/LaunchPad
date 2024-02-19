@@ -30,5 +30,5 @@ categories = [
     {
         "name": "Publishing",
         "description": "Explore how writers and publishers are using Kickstarter to bring new literature, periodicals, podcasts, and more to life."
-    },
+    }
 ]

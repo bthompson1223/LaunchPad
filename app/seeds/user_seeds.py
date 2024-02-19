@@ -1,50 +1,58 @@
 users = [
-    {
-        "id": 1,
+      {
         "username":'Demo',
         "first_name": "Demo",
         "last_name": "Lition",
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/1_DemoUser.png",
         "email":'demo@aa.io', 
         "password":'password'
-     },
-    {
-        "id": 2,
+      },
+      {
         "username":'olirodri',
         "first_name": "Olivia",
         "last_name": "Rodriguez",
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/2_Olivia+Rodriguez.png",
         "email":'olivia.rodriquez@aa.io', 
         "password":'password'
-     },
-    {
-        "id": 3,
+      },
+      {
         "username":'emilyturner',
         "first_name": "Emily",
         "last_name": "Turner",
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/3_Emily+Turner.png",
         "email":'emily.turner@aa.io', 
         "password":'password'
-     },
-    {
-        "id": 4,
+      },
+      {
         "username":'rajpat',
         "first_name": "Rajesh",
         "last_name": "Patel",
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/4_rajesh+patel.png",
         "email":'rajesh.patel@aa.io', 
         "password":'password'
-     },
-    {
-        "id": 5,
-        "username":'elenarami',
-        "first_name": "Elena",
-        "last_name": "Ramirez",
-        "email":'elena.ramirez@aa.io', 
+      },
+      {
+        "username":'annieli',
+        "first_name": "Annie",
+        "last_name": "Li",
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/5_Annie+Li.png",
+        "email":'annie.li@aa.io', 
         "password":'password'
-     },
-     {
-        "id": 6,
-        "username":'jessicamartiz',
-        "first_name": "Jessica",
+      },
+      {
+        "username":'chrismartiz',
+        "first_name": "Chris",
         "last_name": "Martinez",
-        "email":'jessica.martinez@aa.io', 
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/6_Chris+Martinez.png",
+        "email":'chris.martinez@aa.io', 
         "password":'password'
-     }
+      },
+      {
+        "username":'Issacwm',
+        "first_name": "Issac",
+        "last_name": "WM",
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/7_Issac+WM.png",
+        "email":'issac.wm@aa.io', 
+        "password":'password'
+      }
 ]
