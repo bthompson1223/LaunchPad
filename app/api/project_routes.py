@@ -15,9 +15,9 @@ def all_projects():
 @project_routes.route('/<category>')
 def find_category_projects(category):
     projects = Project.query.all()
-    print(projects)
+    projects_dict = [project.to_dict() for project in projects]
 
-    return [project.to_dict() for project in projects if project.category == category]
+    return [project for project in projects_dict if project["category"].lower() == category.lower()]
 
 @project_routes.route('/<int:projectId>')
 def get_project(projectId):
