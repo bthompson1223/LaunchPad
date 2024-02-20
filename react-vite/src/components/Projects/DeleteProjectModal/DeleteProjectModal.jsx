@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
+import { thunkDeleteProject } from "../../../redux/project";
 
 export const DeleteProjectModal = ({ project }) => {
   const dispatch = useDispatch()
@@ -9,7 +10,7 @@ export const DeleteProjectModal = ({ project }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    dispatch(thunkDeleteProject(project))
+    dispatch(thunkDeleteProject(project.id))
     closeModal()
     navigate('/projects/created-projects')
   }

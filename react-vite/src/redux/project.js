@@ -56,7 +56,17 @@ export const thunkGetOneProject = (projectId) => async (dispatch) => {
 }
 
 export const thunkDeleteProject = (projectId) => async (dispatch) => {
-  const res = 
+  const res = await fetch(`/api/projects/${projectId}`, {
+    method: "DELETE"
+  })
+
+  if (res.ok) {
+    dispatch(deleteProject(projectId));
+    return projectId
+  } else {
+    const errs = await res.json();
+        return errs;
+  }
 }
 
 const initialState = {}
@@ -75,6 +85,11 @@ function projectReducer(state = initialState, action) {
         }
         case RETURN_INITIAL: {
             return initialState;
+        }
+        case DELETE_PROJECT: {
+          const newState = {...state}
+          delete newState[action.projectId]
+          return newState;
         }
         default:
             return state;
