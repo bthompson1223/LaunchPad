@@ -27,20 +27,28 @@ class Project(db.Model):
     comments = db.relationship('Comment', back_populates = 'project', cascade = 'all, delete-orphan')
     backers = db.relationship('Backer', back_populates = 'project', cascade = 'all, delete-orphan')
     likes = db.relationship('Like', back_populates = 'project', cascade = 'all, delete-orphan')
+    category = db.relationship('Category', back_populates = 'projects')
     
     def to_dict(self):
+        owner = self.owner.to_dict()
+        backers_amounts = [backer.reward.amount for backer in self.backers]
+        backers = len(backers_amounts)
+        total_funded = sum(backers_amounts)
+
         return {
             "id": self.id,
             "title": self.title,
             "subtitle": self.subtitle,
-            "owner_id": self.owner_id,
-            "category_id": self.category_id,
+            "owner": owner,
+            "category": self.category.name,
             "location": self.location,
             "story": self.story,
             "risks": self.risks,
-            "cover_image": self.cover_image,
-            "funding_goal": self.funding_goal,
+            "coverImage": self.cover_image,
+            "fundingGoal": self.funding_goal,
             "end_date": self.end_date,
-            'created_at': self.created_at,
-            'updated_at': self.updated_at
+            "numOfBackers": backers,
+            "totalFunded": total_funded,
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at
         }
