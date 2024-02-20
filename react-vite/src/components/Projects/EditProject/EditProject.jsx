@@ -3,40 +3,41 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { thunkCreateProject, thunkGetOneProject } from "../../../redux/project";
 
-const CreateProject = () => {
+const UpdateProject = () => {
   const { projectId } = useParams()
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const project = useSelector((state) => state.projects[projectId])
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [subTitle, setSubTitle] = useState("");
-  const [category, setCategory] = useState("placeholder")
-  const [location, setLocation] = useState("");
-  const [story, setStory] = useState("");
-  const [risks, setRisks] = useState("");
-  const [coverImage, setCoverImage] = useState(null);
-  const [fundingGoal, setFundingGoal] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [title, setTitle] = useState(project.title);
+  const [subTitle, setSubTitle] = useState(project.subtitle);
+  const [category, setCategory] = useState(project.category_id)
+  const [location, setLocation] = useState(project.location);
+  const [story, setStory] = useState(project.story);
+  const [risks, setRisks] = useState(project.risks);
+  const [coverImage, setCoverImage] = useState(project.coverImage);
+  const [fundingGoal, setFundingGoal] = useState(project.fundingGoal);
+  const [endDate, setEndDate] = useState(project.end_date);
   const [errors, setErrors] = useState({});
   const [imageLoading, setImageLoading] = useState(false);
-
+  
   useEffect(() => {
     dispatch(thunkGetOneProject(projectId))
   }, [dispatch, projectId])
 
-
+  
   if (!user) {
     return <h2>You must be logged in to edit a new project</h2>;
   }
-
+  
   if (!project) {
     return null;
   }
-
+  
   if (user.id != project.owner.id) {
     return <h2>You are not authorized to edit this project</h2>;
   }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,7 +81,7 @@ const CreateProject = () => {
 
       await dispatch(thunkCreateProject(formData))
         .then((createdProject) => {
-          navigate(`/projects/${createdProject.id}`);
+          navigate(`/projects/${projectId}`);
         })
         .catch(async (res) => {
           console.log("Inside errors catch =>", res);
@@ -90,7 +91,7 @@ const CreateProject = () => {
 
   return (
     <div>
-      <h1>Create a New Project!</h1>
+      <h1>Update Your Project!</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="input-div">
           <h2>What&apos;s the name of your project?</h2>
@@ -198,6 +199,9 @@ const CreateProject = () => {
 
         <div className="input-div">
           <h2>Select a Project Image</h2>
+          <div>
+            <img src={coverImage} alt="" />
+          </div>
           <label htmlFor="coverImage">
             <input
               type="file"
@@ -248,4 +252,4 @@ const CreateProject = () => {
   );
 };
 
-export default CreateProject;
+export default UpdateProject;

@@ -40,6 +40,7 @@ class Project(db.Model):
             "title": self.title,
             "subtitle": self.subtitle,
             "owner": owner,
+            "category_id": self.category_id,
             "category": self.category.name,
             "location": self.location,
             "story": self.story,

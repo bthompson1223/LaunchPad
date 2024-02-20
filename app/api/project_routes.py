@@ -80,15 +80,20 @@ def update_project(projectId):
 
     if form.validate_on_submit():
         cover_image = form.data["cover_image"]
-        cover_image.filename = get_unique_filename(cover_image.filename)
-        upload = upload_file_to_s3(cover_image)
-        print(upload)
+       
+        if not isinstance(cover_image, str):  
+            cover_image.filename = get_unique_filename(cover_image.filename)
+            upload = upload_file_to_s3(cover_image)
+            print(upload)
 
-        if "url" not in upload:
-            return upload
+            if "url" not in upload:
+                return upload
 
-        remove_file_from_s3(project['cover_image'])
-
+            remove_file_from_s3(project['cover_image'])
+        else: 
+            upload = {
+                "url": cover_image,
+            }
 
         project['title'] = form.data['title'] or project['title']
         project['subtitle'] = form.data["subtitle"] or project['subtitle'],
@@ -100,7 +105,6 @@ def update_project(projectId):
         project['funding_goal'] = form.data["funding_goal"] or project['funding_goal'],
         project['end_date'] = form.data["end_date"] or project['end_date']
     
-
         db.session.commit()
         return project.to_dict()
     return form.errors, 401
