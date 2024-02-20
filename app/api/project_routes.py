@@ -80,8 +80,9 @@ def update_project(projectId):
 
     if form.validate_on_submit():
         cover_image = form.data["cover_image"]
-       
-        if not isinstance(cover_image, str) and not None:
+        upload = None
+
+        if not isinstance(cover_image, str) and cover_image is not None:
             print("Inside image replacement")  
             print("COVER IMAGE ============>", project.cover_image)
             cover_image.filename = get_unique_filename(cover_image.filename)
@@ -93,20 +94,21 @@ def update_project(projectId):
 
             remove_file_from_s3(project.cover_image)
         
-
-        project['title'] = form.data['title'] or project['title']
-        project['subtitle'] = form.data["subtitle"] or project['subtitle'],
-        project['category_id'] = form.data["category_id"],
-        project['location'] = form.data["location"] or project['location'],
-        project['story'] = form.data["story"] or project['story'],
-        project['risks'] = form.data["risks"] or project['risks'],
-        project['cover_image'] = upload["url"] or project['cover_image'],
-        project['funding_goal'] = form.data["funding_goal"] or project['funding_goal'],
-        project['end_date'] = form.data["end_date"] or project['end_date']
+        project.title = form.data['title'] or project.title
+        project.subtitle = form.data["subtitle"] or project.subtitle
+        project.category_id = form.data["category_id"] or project.category_id
+        project.location = form.data["location"] or project.location
+        project.story = form.data["story"] or project.story
+        project.risks = form.data["risks"] or project.risks
+        project.cover_image = upload["url"] if upload else project.cover_image
+        project.funding_goal = form.data["funding_goal"] or project.funding_goal
+        print("THIS IS THE FORM DATA END_DATE", form.data['end_date'])
+        project.end_date = form.data["end_date"] or project.end_date
+        print("WE MADE IT PAST END DATE")
+        print("UPLOAD ====================>", form.data)
     
         db.session.commit()
         return project.to_dict()
-    print("UPLOAD ====================>", form.data)
     return form.errors, 401
 
 # Delete a project

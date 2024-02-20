@@ -152,8 +152,7 @@ const CreateProject = () => {
         <div className="input-div">
           <h2>Story</h2>
           <label htmlFor="story">
-            <input
-              type="text"
+            <textarea
               name="story"
               value={story}
               onChange={(e) => setStory(e.target.value)}
@@ -168,8 +167,7 @@ const CreateProject = () => {
         <div className="input-div">
           <h2>Risks</h2>
           <label htmlFor="risks">
-            <input
-              type="text"
+            <textarea
               name="risks"
               value={risks}
               onChange={(e) => setRisks(e.target.value)}

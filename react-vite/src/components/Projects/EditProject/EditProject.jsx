@@ -9,26 +9,40 @@ const UpdateProject = () => {
   const user = useSelector((state) => state.session.user);
   const project = useSelector((state) => state.projects[projectId]);
   const navigate = useNavigate();
-  const [title, setTitle] = useState(project?.title);
-  const [subTitle, setSubTitle] = useState(project?.subtitle);
-  const [category, setCategory] = useState(project?.category_id);
-  const [location, setLocation] = useState(project?.location);
-  const [story, setStory] = useState(project?.story);
-  const [risks, setRisks] = useState(project?.risks);
-  const [coverImage, setCoverImage] = useState(project?.coverImage);
-  const [fundingGoal, setFundingGoal] = useState(project?.fundingGoal);
-  const [endDate, setEndDate] = useState(project?.end_date);
+  const [title, setTitle] = useState("");
+  const [subTitle, setSubTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [location, setLocation] = useState("");
+  const [story, setStory] = useState("");
+  const [risks, setRisks] = useState("");
+  const [coverImage, setCoverImage] = useState("");
+  const [fundingGoal, setFundingGoal] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [errors, setErrors] = useState({});
   const [imageLoading, setImageLoading] = useState(false);
-
+  
   useEffect(() => {
     dispatch(thunkGetOneProject(projectId));
   }, [dispatch, projectId]);
 
+  useEffect(() => {
+    if (project?.id) {
+      setTitle(project.title)
+      setSubTitle(project.subtitle)
+      setCategory(project.category_id)
+      setLocation(project.location)
+      setStory(project.story)
+      setRisks(project.risks)
+      setCoverImage(project.coverImage)
+      setFundingGoal(project.fundingGoal)
+      setEndDate(project.end_date)
+    }
+  }, [project])
+  
   if (!user) {
     return <h2>You must be logged in to edit a new project</h2>;
   }
-
+  
   if (!project) {
     return null;
   }
@@ -79,7 +93,7 @@ const UpdateProject = () => {
       setImageLoading(true);
 
       await dispatch(thunkUpdateProject(formData, projectId))
-        .then((updatedProject) => {
+        .then(() => {
           navigate(`/projects/${projectId}`);
         })
         .catch(async (res) => {
@@ -169,8 +183,7 @@ const UpdateProject = () => {
         <div className="input-div">
           <h2>Story</h2>
           <label htmlFor="story">
-            <input
-              type="text"
+            <textarea             
               name="story"
               value={story}
               onChange={(e) => setStory(e.target.value)}
@@ -185,8 +198,7 @@ const UpdateProject = () => {
         <div className="input-div">
           <h2>Risks</h2>
           <label htmlFor="risks">
-            <input
-              type="text"
+            <textarea
               name="risks"
               value={risks}
               onChange={(e) => setRisks(e.target.value)}
