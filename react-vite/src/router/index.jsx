@@ -5,6 +5,9 @@ import Layout from './Layout';
 import Categories from '../components/Categories/categories';
 import ProjectDetail from '../components/Projects/ProjectDetail/projectDetail';
 import RewardList from '../components/Rewards/RewardList/rewardList';
+import CreateProject from '../components/Projects/CreateProject/CreateProject';
+import EditProject from '../components/Projects/EditProject/EditProject';
+import OwnedProjects from '../components/Projects/OwnedProjects/OwnedProjects';
 
 export const router = createBrowserRouter([
   {
@@ -38,12 +41,30 @@ export const router = createBrowserRouter([
         children:[
             {
                 path: ":projectId",
-                element: <ProjectDetail />
+                element: <Outlet />,
+                children: [
+                  {
+                    index: true,
+                    element: <ProjectDetail />,
+                  },
+                  {
+                    path: "rewards",
+                    element: <RewardList />
+                  },
+                  {
+                    path: "edit",
+                    element: <EditProject />
+                  }
+                ]
             },
             {
-              path: ":projectId/rewards",
-              element: <RewardList />
-          },
+              path: "new",
+              element: <CreateProject />
+            },
+            {
+              path: "created-projects",
+              element: <OwnedProjects />
+            }
         ]
       }
     ],
