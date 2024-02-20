@@ -4,6 +4,7 @@ import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import Categories from '../components/Categories/categories';
 import ProjectDetail from '../components/Projects/ProjectDetail/projectDetail';
+import RewardList from '../components/Rewards/RewardList/rewardList';
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +39,11 @@ export const router = createBrowserRouter([
             {
                 path: ":projectId",
                 element: <ProjectDetail />
-            }
+            },
+            {
+              path: ":projectId/rewards",
+              element: <RewardList />
+          },
         ]
       }
     ],
