@@ -6,7 +6,8 @@ rewards = [
         "amount": 50,
         "est_delivery_date": "2024-08-01",
         "quantity": 2,
-        "project_id": 1
+        "project_id": 1,
+        "owner_id": 2
     },
     {
         "name": "Exclusive Beta Tester Access",
@@ -15,7 +16,8 @@ rewards = [
         "amount": 100,
         "est_delivery_date": "2024-09-15",
         "quantity": 2,
-        "project_id": 1
+        "project_id": 1,
+        "owner_id": 2
     },
     {
         "name": "Digital Skills Workshop Pass",
@@ -24,7 +26,8 @@ rewards = [
         "amount": 50,
         "est_delivery_date": "2024-07-01",
         "quantity": 5,
-        "project_id": 2
+        "project_id": 2,
+        "owner_id": 4
     },
     {
         "name": "Tech Toolkit for Rural Entrepreneurs",
@@ -33,7 +36,8 @@ rewards = [
         "amount": 200,
         "est_delivery_date": "2024-09-10",
         "quantity": 5,
-        "project_id": 2
+        "project_id": 2,
+        "owner_id": 4
     },
     {
         "name": "VIP Interactive Lightscapes Experience",
@@ -42,7 +46,8 @@ rewards = [
         "amount": 100,
         "est_delivery_date": "2024-08-01",
         "quantity": 50,
-        "project_id": 3
+        "project_id": 3,
+        "owner_id": 3
     },
     {
         "name": "Custom Light Art Commission",
@@ -51,7 +56,8 @@ rewards = [
         "amount": 500,
         "est_delivery_date": "2024-09-15",
         "quantity": 10,
-        "project_id": 3
+        "project_id": 3,
+        "owner_id": 3
     },
     {
         "name": "Artistic Inspiration Kit",
@@ -60,7 +66,8 @@ rewards = [
         "amount": 188,
         "est_delivery_date": "2024-07-08",
         "quantity": 5,
-        "project_id": 4
+        "project_id": 4,
+        "owner_id": 5
     },
     {
         "name": "Exclusive Art Workshop Pass",
@@ -69,7 +76,8 @@ rewards = [
         "amount": 288,
         "est_delivery_date": "2024-08-13",
         "quantity": 5,
-        "project_id": 4
+        "project_id": 4,
+        "owner_id": 5
     },
     {
         "name": "Mural Tour Pass",
@@ -78,7 +86,8 @@ rewards = [
         "amount": 90,
         "est_delivery_date": "2024-08-24",
         "quantity": 4,
-        "project_id": 5
+        "project_id": 5,
+        "owner_id": 1
     },
     {
         "name": "Muralist Meet and Greet",
@@ -87,7 +96,8 @@ rewards = [
         "amount": 180,
         "est_delivery_date": "2024-10-11",
         "quantity": 4,
-        "project_id": 5
+        "project_id": 5,
+        "owner_id": 1
     },
     {
         "name": "Digital Comic Bundle",
@@ -96,7 +106,8 @@ rewards = [
         "amount": 79,
         "est_delivery_date": "2024-11-01",
         "quantity": 3,
-        "project_id": 6
+        "project_id": 6,
+        "owner_id": 4
     },
     {
         "name": "Exclusive Comic Variant Cover",
@@ -105,7 +116,8 @@ rewards = [
         "amount": 199,
         "est_delivery_date": "2024-11-12",
         "quantity": 5,
-        "project_id": 6
+        "project_id": 6,
+        "owner_id": 4
     },
     {
         "name": "Digital Coloring Book",
@@ -114,7 +126,8 @@ rewards = [
         "amount": 178,
         "est_delivery_date": "2024-05-07",
         "quantity": 5,
-        "project_id": 7
+        "project_id": 7,
+        "owner_id": 2
     },
     {
         "name": "Personalized Storybook",
@@ -123,7 +136,8 @@ rewards = [
         "amount": 378,
         "est_delivery_date": "2024-06-09",
         "quantity": 5,
-        "project_id": 7
+        "project_id": 7,
+        "owner_id": 2
     },
     {
         "name": "Digital Copy of the Game",
@@ -132,7 +146,8 @@ rewards = [
         "amount": 99,
         "est_delivery_date": "2024-04-01",
         "quantity": 1,
-        "project_id": 8
+        "project_id": 8,
+        "owner_id": 5
     },
     {
         "name": "Exclusive In-Game Content Pack",
@@ -141,7 +156,8 @@ rewards = [
         "amount": 199,
         "est_delivery_date": "2024-07-06",
         "quantity": 1,
-        "project_id": 8
+        "project_id": 8,
+        "owner_id": 5
     },
     {
         "name": "Coffee Lover's Merchandise Pack",
@@ -150,7 +166,8 @@ rewards = [
         "amount": 80,
         "est_delivery_date": "2024-06-17",
         "quantity": 2,
-        "project_id": 9
+        "project_id": 9,
+        "owner_id": 3
     },
     {
         "name": "Exclusive Premiere Screening Ticket",
@@ -159,7 +176,8 @@ rewards = [
         "amount": 100,
         "est_delivery_date": "2024-11-15",
         "quantity": 4,
-        "project_id": 9
+        "project_id": 9,
+        "owner_id": 3
     },
     {
         "name": "Taco Haven Insider's Pass",
@@ -168,7 +186,8 @@ rewards = [
         "amount": 200,
         "est_delivery_date": "2025-07-01",
         "quantity": 5,
-        "project_id": 10
+        "project_id": 10,
+        "owner_id": 3
     },
     {
         "name": "Taco Haven Founder's Club Membership",
@@ -177,7 +196,8 @@ rewards = [
         "amount": 300,
         "est_delivery_date": "2025-08-01",
         "quantity": 6,
-        "project_id": 10
+        "project_id": 10,
+        "owner_id": 3
     },
     {
         "name": "Quilted Comforts Fashion Show Ticket",
@@ -186,7 +206,8 @@ rewards = [
         "amount": 300,
         "est_delivery_date": "2025-04-14",
         "quantity": 3,
-        "project_id": 11
+        "project_id": 11,
+        "owner_id": 4
     },
     {
         "name": "Customized Quilted Jacket",
@@ -195,7 +216,8 @@ rewards = [
         "amount": 300,
         "est_delivery_date": "2025-08-20",
         "quantity": 2,
-        "project_id": 11
+        "project_id": 11,
+        "owner_id": 4
     },
     {
         "name": "Explorer's Edition of Luminary Quest",
@@ -204,7 +226,8 @@ rewards = [
         "amount": 120,
         "est_delivery_date": "2025-09-01",
         "quantity": 4,
-        "project_id": 12
+        "project_id": 12,
+        "owner_id": 2
     },
     {
         "name": "Game Night Bundle",
@@ -213,7 +236,8 @@ rewards = [
         "amount": 300,
         "est_delivery_date": "2025-10-15",
         "quantity": 3,
-        "project_id": 12
+        "project_id": 12,
+        "owner_id": 2
     },
     {
         "name": "Early Access Game Key",
@@ -222,7 +246,8 @@ rewards = [
         "amount": 25,
         "est_delivery_date": "2025-12-01",
         "quantity": 500,
-        "project_id": 13
+        "project_id": 13,
+        "owner_id": 5
     },
     {
         "name": "Digital Artbook & Soundtrack",
@@ -231,7 +256,8 @@ rewards = [
         "amount": 100,
         "est_delivery_date": "2025-11-15",
         "quantity": 2,
-        "project_id": 13
+        "project_id": 13,
+        "owner_id": 5
     },
     {
         "name": "Founder's Edition Package",
@@ -240,7 +266,8 @@ rewards = [
         "amount": 270,
         "est_delivery_date": "2026-03-01",
         "quantity": 3,
-        "project_id": 13
+        "project_id": 13,
+        "owner_id": 5
     },
     {
         "name": "Signed CD Copy of Harmony Unveiled",
@@ -249,7 +276,8 @@ rewards = [
         "amount": 25,
         "est_delivery_date": "2025-11-01",
         "quantity": 200,
-        "project_id": 14
+        "project_id": 14,
+        "owner_id": 1
     },
     {
         "name": "Exclusive Concert Experience",
@@ -258,7 +286,8 @@ rewards = [
         "amount": 100,
         "est_delivery_date": "2026-01-03",
         "quantity": 50,
-        "project_id": 14
+        "project_id": 14,
+        "owner_id": 1
     },
     {
         "name": "Family Music Workshop Pass",
@@ -267,7 +296,8 @@ rewards = [
         "amount": 300,
         "est_delivery_date": "2025-02-09",
         "quantity": 3,
-        "project_id": 15
+        "project_id": 15,
+        "owner_id": 3
     },
     {
         "name": "Founder's Plaque Recognition",
@@ -276,7 +306,8 @@ rewards = [
         "amount": 500,
         "est_delivery_date": "2025-04-01",
         "quantity": 1,
-        "project_id": 15
+        "project_id": 15,
+        "owner_id": 3
     },
     {
         "name": "Personalized Thank You Message",
@@ -285,7 +316,8 @@ rewards = [
         "amount": 25,
         "est_delivery_date": "2024-10-07",
         "quantity": 3,
-        "project_id": 16
+        "project_id": 16,
+        "owner_id": 5
     },
     {
         "name": "Exclusive Behind-the-Scenes Content",
@@ -294,7 +326,8 @@ rewards = [
         "amount": 90,
         "est_delivery_date": "2024-11-18",
         "quantity": 1,
-        "project_id": 16
+        "project_id": 16,
+        "owner_id": 5
     },
     {
         "name": "Signed Copy of Echoes of the Ancient",
@@ -303,7 +336,8 @@ rewards = [
         "amount": 60,
         "est_delivery_date": "2024-07-25",
         "quantity": 1,
-        "project_id": 17
+        "project_id": 17,
+        "owner_id": 4
     },
     {
         "name": "Exclusive Book Launch Invitation",
@@ -312,7 +346,8 @@ rewards = [
         "amount": 100,
         "est_delivery_date": "2024-12-15",
         "quantity": 2,
-        "project_id": 17
+        "project_id": 17,
+        "owner_id": 4
     },
     {
         "name": "Limited Edition Art Print",
@@ -321,7 +356,8 @@ rewards = [
         "amount": 25,
         "est_delivery_date": "2024-06-28",
         "quantity": 30,
-        "project_id": 18
+        "project_id": 18,
+        "owner_id": 3
     },
     {
         "name": "Early Bird Special: Game Bundle",
@@ -330,7 +366,8 @@ rewards = [
         "amount": 75,
         "est_delivery_date": "2024-08-24",
         "quantity": 1,
-        "project_id": 18
+        "project_id": 18,
+        "owner_id": 3
     },
     {
         "name": "Designer's Guild Membership",
@@ -339,7 +376,8 @@ rewards = [
         "amount": 100,
         "est_delivery_date": "2024-11-25",
         "quantity": 1,
-        "project_id": 18
+        "project_id": 18,
+        "owner_id": 3
     },
     {
         "name": "VIP Music Workshop Pass",
@@ -348,7 +386,8 @@ rewards = [
         "amount": 99,
         "est_delivery_date": "2024-12-18",
         "quantity": 3,
-        "project_id": 19
+        "project_id": 19,
+        "owner_id": 1
     },
     {
         "name": "Featured Performance Opportunity",
@@ -357,6 +396,7 @@ rewards = [
         "amount": 189,
         "est_delivery_date": "2025-01-04",
         "quantity": 1,
-        "project_id": 19
+        "project_id": 19,
+        "owner_id": 1
     }
 ]
