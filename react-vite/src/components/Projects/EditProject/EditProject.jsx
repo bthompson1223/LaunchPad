@@ -1,43 +1,41 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { thunkCreateProject, thunkGetOneProject } from "../../../redux/project";
+import { thunkUpdateProject, thunkGetOneProject } from "../../../redux/project";
 
 const UpdateProject = () => {
-  const { projectId } = useParams()
+  const { projectId } = useParams();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
-  const project = useSelector((state) => state.projects[projectId])
+  const project = useSelector((state) => state.projects[projectId]);
   const navigate = useNavigate();
-  const [title, setTitle] = useState(project.title);
-  const [subTitle, setSubTitle] = useState(project.subtitle);
-  const [category, setCategory] = useState(project.category_id)
-  const [location, setLocation] = useState(project.location);
-  const [story, setStory] = useState(project.story);
-  const [risks, setRisks] = useState(project.risks);
-  const [coverImage, setCoverImage] = useState(project.coverImage);
-  const [fundingGoal, setFundingGoal] = useState(project.fundingGoal);
-  const [endDate, setEndDate] = useState(project.end_date);
+  const [title, setTitle] = useState(project?.title);
+  const [subTitle, setSubTitle] = useState(project?.subtitle);
+  const [category, setCategory] = useState(project?.category_id);
+  const [location, setLocation] = useState(project?.location);
+  const [story, setStory] = useState(project?.story);
+  const [risks, setRisks] = useState(project?.risks);
+  const [coverImage, setCoverImage] = useState(project?.coverImage);
+  const [fundingGoal, setFundingGoal] = useState(project?.fundingGoal);
+  const [endDate, setEndDate] = useState(project?.end_date);
   const [errors, setErrors] = useState({});
   const [imageLoading, setImageLoading] = useState(false);
-  
-  useEffect(() => {
-    dispatch(thunkGetOneProject(projectId))
-  }, [dispatch, projectId])
 
-  
+  useEffect(() => {
+    dispatch(thunkGetOneProject(projectId));
+  }, [dispatch, projectId]);
+
   if (!user) {
     return <h2>You must be logged in to edit a new project</h2>;
   }
-  
+
   if (!project) {
     return null;
   }
-  
+
   if (user.id != project.owner.id) {
     return <h2>You are not authorized to edit this project</h2>;
   }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +62,8 @@ const UpdateProject = () => {
     } else {
       // console.log(typeof category)
       // console.log(typeof parseInt(category))
-      const categoryNum = parseInt(category)
+      const categoryNum = parseInt(category);
+      console.log(coverImage);
 
       const formData = new FormData();
       formData.append("title", title);
@@ -79,8 +78,8 @@ const UpdateProject = () => {
 
       setImageLoading(true);
 
-      await dispatch(thunkCreateProject(formData))
-        .then((createdProject) => {
+      await dispatch(thunkUpdateProject(formData, projectId))
+        .then((updatedProject) => {
           navigate(`/projects/${projectId}`);
         })
         .catch(async (res) => {
@@ -133,7 +132,9 @@ const UpdateProject = () => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option disabled value={"placeholder"}>Select a Category</option>
+              <option disabled value={"placeholder"}>
+                Select a Category
+              </option>
               <option value="1">Arts</option>
               <option value="2">Comics & Illustrations</option>
               <option value="3">Design & Tech</option>

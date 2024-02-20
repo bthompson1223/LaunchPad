@@ -3,6 +3,7 @@ const RETURN_INITIAL = "projects/RETURN_INITIAL";
 const GET_ONE_PROJECT = "projects/GET_ONE_PROJECT";
 const DELETE_PROJECT = "projects/DELETE_PROJECT";
 const CREATE_PROJECT = "projects/CREATE_PROJECT";
+const UPDATE_PROJECT = "projects/UPDATE_PROJECT";
 
 export const returnInitial = () => {
   return {
@@ -29,6 +30,11 @@ const deleteProject = (projectId) => ({
 
 const createProject = (project) => ({
   type: CREATE_PROJECT,
+  project,
+});
+
+const updateProject = (project) => ({
+  type: UPDATE_PROJECT,
   project,
 });
 
@@ -91,6 +97,22 @@ export const thunkCreateProject = (formData) => async (dispatch) => {
   }
 };
 
+export const thunkUpdateProject = (formData, projectId) => async (dispatch) => {
+  const res = await fetch(`/api/projects/${projectId}`, {
+    method: "PUT",
+    body: formData,
+  });
+
+  if (res.ok) {
+    const project = await res.json();
+    dispatch(updateProject(project));
+    return project;
+  } else {
+    const errs = await res.json();
+    return errs;
+  }
+};
+
 const initialState = {};
 
 function projectReducer(state = initialState, action) {
@@ -114,6 +136,11 @@ function projectReducer(state = initialState, action) {
       return newState;
     }
     case CREATE_PROJECT: {
+      const newState = { ...state };
+      newState[action.project.id] = action.project;
+      return newState;
+    }
+    case UPDATE_PROJECT: {
       const newState = { ...state };
       newState[action.project.id] = action.project;
       return newState;

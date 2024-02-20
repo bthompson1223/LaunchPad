@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user, login_required
 from ..models import Project, Category, User, Reward, Comment, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
-from ..forms import ProjectForm, RewardForm
+from ..forms import ProjectForm, RewardForm, EditProjectForm
 
 project_routes = Blueprint('projects', __name__)
 
@@ -74,14 +74,16 @@ def update_project(projectId):
     if current_user.id is not project.owner_id:
         return {'errors': {'message': "Unauthorized"}}, 401
     
-    form = ProjectForm()
+    form = EditProjectForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         cover_image = form.data["cover_image"]
        
-        if not isinstance(cover_image, str):  
+        if not isinstance(cover_image, str) and not None:
+            print("Inside image replacement")  
+            print("COVER IMAGE ============>", project.cover_image)
             cover_image.filename = get_unique_filename(cover_image.filename)
             upload = upload_file_to_s3(cover_image)
             print(upload)
@@ -89,11 +91,8 @@ def update_project(projectId):
             if "url" not in upload:
                 return upload
 
-            remove_file_from_s3(project['cover_image'])
-        else: 
-            upload = {
-                "url": cover_image,
-            }
+            remove_file_from_s3(project.cover_image)
+        
 
         project['title'] = form.data['title'] or project['title']
         project['subtitle'] = form.data["subtitle"] or project['subtitle'],
@@ -101,12 +100,13 @@ def update_project(projectId):
         project['location'] = form.data["location"] or project['location'],
         project['story'] = form.data["story"] or project['story'],
         project['risks'] = form.data["risks"] or project['risks'],
-        project['cover_image'] = upload["url"],
+        project['cover_image'] = upload["url"] or project['cover_image'],
         project['funding_goal'] = form.data["funding_goal"] or project['funding_goal'],
         project['end_date'] = form.data["end_date"] or project['end_date']
     
         db.session.commit()
         return project.to_dict()
+    print("UPLOAD ====================>", form.data)
     return form.errors, 401
 
 # Delete a project
