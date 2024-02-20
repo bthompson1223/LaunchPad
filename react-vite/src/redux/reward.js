@@ -1,4 +1,5 @@
 // action type
+const RETURN_INITIAL = "projects/RETURN_INITIAL";
 const GET_REWARDS = "rewards/GET_REWARDS"
 
 // action creator
@@ -6,6 +7,12 @@ const getRewards = (rewards) => ({
     type: GET_REWARDS,
     rewards
 })
+
+export const returnInitial = () => {
+    return {
+      type: RETURN_INITIAL,
+    };
+  };
 
 // thunk - get rewards
 export const thunkGetRewards = (projectId) => async (dispatch) => {
@@ -30,6 +37,9 @@ function rewardReducer(state = initialState, action) {
                 newState[reward.id] = reward
             })
             return newState;
+        }
+        case RETURN_INITIAL: {
+            return initialState;
         }
         default:
             return state;
