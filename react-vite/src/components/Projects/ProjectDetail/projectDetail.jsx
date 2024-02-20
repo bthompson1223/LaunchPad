@@ -1,15 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaMapMarkerAlt, FaRegCompass } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { thunkGetOneProject } from "../../../redux/project";
+import { Story } from "./story";
+import { Risks } from "./risks";
+import { Comments } from "./comments";
 
 const ProjectDetail = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { projectId } = useParams();
     const project = useSelector(state => state.projects[projectId]);
-    let topic = "story";
+    const [topic, setTopic] = useState("story")
+
     
     useEffect(() => {
         dispatch(thunkGetOneProject(projectId))
@@ -47,12 +51,12 @@ const ProjectDetail = () => {
                     </div>
 
                     <div>
-                        <h3>${project.numOfBackers}</h3>
+                        <h3>{project.numOfBackers}</h3>
                         <p>backers</p>
                     </div>
 
                     <div>
-                        <h3>${daysToGo}</h3>
+                        <h3>{daysToGo}</h3>
                         <p>days to go</p>
                     </div>
                     <button onClick = {() => navigate(`/projects/${project.id}/rewards`)}>Back this project</button>
@@ -61,14 +65,14 @@ const ProjectDetail = () => {
         </section>
         <section className="project-detail-in-depth">
             <nav className="project-detail-nav">
-                <span onClick={() => topic = "story"}>Story</span>
-                <span onClick={() => topic = "risks"}>Risks</span>
-                <span onClick={() => topic = "comments"}>Comments</span>
+                <NavLink onClick={() => setTopic("story")}>Story</NavLink>
+                <NavLink onClick={() => setTopic("risks")}>Risks</NavLink>
+                <NavLink onClick={() => setTopic("comments")}>Comments</NavLink>
             </nav>
             <div className="project-detail-topic">
                 {topic == "story" && <Story project={project} />}
                 {topic == "risks" && <Risks project={project} />}
-                {topic == "comments" && <Comments />}
+                {topic == "comments" && <Comments project={project}/>}
             </div>
         </section>
         </div>

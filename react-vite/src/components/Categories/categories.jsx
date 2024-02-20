@@ -9,7 +9,7 @@ const Categories = () => {
             <nav>
                 <NavLink to='/categories/all'>All</NavLink>
                 <NavLink to='/categories/arts'>Arts</NavLink>
-                <NavLink to='/categories/commics-illustration'>Comics & Illustration</NavLink>
+                <NavLink to='/categories/comics-illustration'>Comics & Illustration</NavLink>
                 <NavLink to='/categories/design-tech'>Design & Tech</NavLink>
                 <NavLink to='/categories/film'>Film</NavLink>
                 <NavLink to='/categories/food-craft'>Food & Craft</NavLink>
