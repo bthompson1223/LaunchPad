@@ -1,8 +1,8 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from ..models import Project, Category, User, Reward, db
+from ..models import Project, Category, User, Reward, Comment, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
-from ..forms import ProjectForm
+from ..forms import ProjectForm, RewardForm
 
 project_routes = Blueprint('projects', __name__)
 
@@ -151,7 +151,7 @@ def new_reward():
             name = form.data["name"],
             description = form.data["description"],
             img_url = upload["url"],
-            amuont = form.data["amuont"],
+            amount = form.data["amount"],
             est_delivery_date  = form.data["est_delivery_date"],
             quantity = form.data["quantity"]
         )
@@ -161,3 +161,15 @@ def new_reward():
         return new_reward.to_dict()
     return form.errors, 401
 
+
+@project_routes.route('/<int:projectId>/comments')
+def get_comments(projectId):
+  comments = Comment.query.filter(Comment.project_id == projectId)
+
+  return [comment.to_dict() for comment in comments]
+
+
+@login_required
+@project_routes.route('/<int:projectId>/comments', methods=["POST"])
+def create_comment(projectId):
+  
