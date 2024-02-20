@@ -13,8 +13,9 @@ const CreateProject = () => {
   const [risks, setRisks] = useState("");
   const [coverImage, setCoverImage] = useState(null);
   const [fundingGoal, setFundingGoal] = useState(0.0);
-  const [endDate, setEndDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
   const [errors, setErrors] = useState({});
+  const [imageLoading, setImageLoading] = useState(false);
 
   if (!user) {
     return (
@@ -22,9 +23,46 @@ const CreateProject = () => {
     )
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setErrors({})
+    const validationErrors = {}
 
+    if (!title) validationErrors.title = "Title is required"
+    if (!subTitle) validationErrors.subTitle = "Subtitle is required"
+    if (!location) validationErrors.location = "Location is required"
+    if (!story) validationErrors.story = "Story is required"
+    if (!risks) validationErrors.risks = "Risks is required"
+    if (!coverImage) validationErrors.coverImage = "CoverImage is required"
+    if (!fundingGoal) validationErrors.fundingGoal = "FundingGoal is required"
+    if (fundingGoal < 1) validationErrors.fundingGoal = "FundingGoal must be a positive figure"
+    if (!endDate) validationErrors.endDate = "EndDate is required"
+    if (new Date(endDate).getTime() <= new Date().getTime()) validationErrors.endDate = "The last day of your project can not be today or in the past"
+
+    if (Object.values(validationErrors).length) {
+      setErrors(validationErrors)
+    } else {
+      const formData = new FormData()
+      formData.append("title",title)
+      formData.append("subtitle",subTitle)
+      formData.append("location",location)
+      formData.append("story",story)
+      formData.append("risks",risks)
+      formData.append("cover_image",coverImage)
+      formData.append("funding_goal",fundingGoal)
+      formData.append("end_date", endDate)
+
+      setImageLoading(true)
+
+      await dispatch(thunkCreateProject(formData))
+      .then(createdProject => {
+        navigate(`/projects/${createdProject.id}`)
+      })
+      .catch(res => {
+        const errors = res.json()
+        setErrors(errors)
+      })
+    }
 
   }
 
@@ -151,6 +189,8 @@ const CreateProject = () => {
         </div>
 
         <button type="submit">Create a Project</button>
+
+        {(imageLoading)&& <p>Loading...</p>}
       </form>
     </div>
   );
