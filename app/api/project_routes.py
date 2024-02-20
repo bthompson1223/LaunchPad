@@ -169,7 +169,7 @@ def get_comments(projectId):
   return [comment.to_dict() for comment in comments]
 
 
-@login_required
-@project_routes.route('/<int:projectId>/comments', methods=["POST"])
-def create_comment(projectId):
+# @login_required
+# @project_routes.route('/<int:projectId>/comments', methods=["POST"])
+# def create_comment(projectId):
   
