@@ -164,11 +164,12 @@ def new_reward():
 
 @project_routes.route('/<int:projectId>/comments')
 def get_comments(projectId):
-    comments = Comment.query.filter(Comment.project_id == projectId)
+  comments = Comment.query.filter(Comment.project_id == projectId)
 
-    return [comment.to_dict() for comment in comments]
+  return [comment.to_dict() for comment in comments]
 
 
-# @login_required
-# @project_routes.route('/<int:projectId>/comments', methods=["POST"])
-# def create_comment(projectId):
+@login_required
+@project_routes.route('/<int:projectId>/comments', methods=["POST"])
+def create_comment(projectId):
+  
