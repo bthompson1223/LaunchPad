@@ -3,6 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import Categories from '../components/Categories/categories';
+import ProjectDetail from '../components/Projects/ProjectDetail/projectDetail';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,16 @@ export const router = createBrowserRouter([
           }
         ]
       },
+      {
+        path: "projects",
+        element: <Outlet />,
+        children:[
+            {
+                path: ":projectId",
+                element: <ProjectDetail />
+            }
+        ]
+      }
     ],
   },
 ]);
