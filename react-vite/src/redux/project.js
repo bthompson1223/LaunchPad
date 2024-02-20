@@ -1,6 +1,7 @@
 const GET_PROJECTS = "projects/GET_PROJECTS";
 const RETURN_INITIAL = "projects/RETURN_INITIAL";
-const GET_ONE_PROJECT = "projcets/GET_ONE_PROJECT";
+const GET_ONE_PROJECT = "projects/GET_ONE_PROJECT";
+const DELETE_PROJECT = 'projects/DELETE_PROJECT';
 
 export const returnInitial = () => {
   return {
@@ -18,6 +19,11 @@ const getProjects = (projects) => {
 const getOneProject = (project) => ({
     type: GET_ONE_PROJECT,
     project
+})
+
+const deleteProject = (projectId) => ({
+  type: DELETE_PROJECT,
+  projectId
 })
 
 export const thunkGetCategoryProjects = (category) => async (dispatch) => {
@@ -49,6 +55,20 @@ export const thunkGetOneProject = (projectId) => async (dispatch) => {
       }
 }
 
+export const thunkDeleteProject = (projectId) => async (dispatch) => {
+  const res = await fetch(`/api/projects/${projectId}`, {
+    method: "DELETE"
+  })
+
+  if (res.ok) {
+    dispatch(deleteProject(projectId));
+    return projectId
+  } else {
+    const errs = await res.json();
+        return errs;
+  }
+}
+
 const initialState = {}
 
 function projectReducer(state = initialState, action) {
@@ -65,6 +85,11 @@ function projectReducer(state = initialState, action) {
         }
         case RETURN_INITIAL: {
             return initialState;
+        }
+        case DELETE_PROJECT: {
+          const newState = {...state}
+          delete newState[action.projectId]
+          return newState;
         }
         default:
             return state;

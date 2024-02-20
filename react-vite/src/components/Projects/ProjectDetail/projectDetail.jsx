@@ -6,14 +6,17 @@ import { thunkGetOneProject } from "../../../redux/project";
 import { Story } from "./story";
 import { Risks } from "./risks";
 import { Comments } from "./comments";
+import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
+import OpenModalButton from "../../OpenModalButton/OpenModalButton";
+
 
 const ProjectDetail = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { projectId } = useParams();
     const project = useSelector(state => state.projects[projectId]);
+    const user = useSelector(state => state.session.user)
     const [topic, setTopic] = useState("story")
-
     
     useEffect(() => {
         dispatch(thunkGetOneProject(projectId))
@@ -24,6 +27,11 @@ const ProjectDetail = () => {
 
     // if (Object.values(project).length == 0) return null;
     if (!project) return null
+
+    let isOwner = false;
+    if (user?.id == project.owner.id) {
+      isOwner = true;
+    }
 
     const daysToGo = Math.floor(((new Date(project.end_date) - new Date()) / msDay));
     
@@ -59,7 +67,12 @@ const ProjectDetail = () => {
                         <h3>{daysToGo}</h3>
                         <p>days to go</p>
                     </div>
-                    <button onClick = {() => navigate(`/projects/${project.id}/rewards`)}>Back this project</button>
+                    {isOwner == false && <button onClick = {() => navigate(`/projects/${project.id}/rewards`)}>Back this project</button>}
+                    {isOwner && <button onClick = {() => navigate(`/projects/${project.id}/edit`)}>Edit this project</button>}
+                    {isOwner && 
+                      <OpenModalButton
+                        buttonText="Delete"
+                        modalComponent={<DeleteProjectModal project={project}/>}/>}
                 </div>
             </div>
         </section>

@@ -105,10 +105,13 @@ def update_project(projectId):
         return project.to_dict()
     return form.errors, 401
 
+# Delete a project
 @login_required
 @project_routes.route('/<int:projectId>', methods=['DELETE'])
 def delete_project(projectId):
+    
     project = Project.query.get(projectId)
+    print("🚀 ~ project:", "Inside delete project route")
 
     if not project:
         return {'errors': {'message': "Project not found"}}, 404
@@ -119,7 +122,7 @@ def delete_project(projectId):
     db.session.delete(project)
     db.session.commit()
 
-    return {"message": f"Successfully deleted project {project['title']}"}
+    return {"message": f"Successfully deleted project"}
 
 # Get all rewards for a project
 @project_routes.route('/<int:projectId>/rewards')
