@@ -9,6 +9,7 @@ const CreateProject = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
+  const [category, setCategory] = useState("placeholder")
   const [location, setLocation] = useState("");
   const [story, setStory] = useState("");
   const [risks, setRisks] = useState("");
@@ -29,6 +30,7 @@ const CreateProject = () => {
 
     if (!title) validationErrors.title = "Title is required";
     if (!subTitle) validationErrors.subTitle = "Subtitle is required";
+    if (!category) validationErrors.category = "Category is required";
     if (!location) validationErrors.location = "Location is required";
     if (!story) validationErrors.story = "Story is required";
     if (!risks) validationErrors.risks = "Risks is required";
@@ -44,9 +46,14 @@ const CreateProject = () => {
     if (Object.values(validationErrors).length) {
       setErrors(validationErrors);
     } else {
+      // console.log(typeof category)
+      // console.log(typeof parseInt(category))
+      const categoryNum = parseInt(category)
+
       const formData = new FormData();
       formData.append("title", title);
       formData.append("subtitle", subTitle);
+      formData.append("category_id", categoryNum);
       formData.append("location", location);
       formData.append("story", story);
       formData.append("risks", risks);
@@ -62,8 +69,6 @@ const CreateProject = () => {
         })
         .catch(async (res) => {
           console.log("Inside errors catch =>", res);
-          //   const errors = await res.json();
-          //   setErrors(errors);
         });
     }
   };
@@ -101,6 +106,30 @@ const CreateProject = () => {
           </label>
           <div className="errors">
             {"subtitle" in errors && <p>{errors.subtitle}</p>}
+          </div>
+        </div>
+
+        <div className="input-div">
+          <h2>Category</h2>
+          <label htmlFor="category">
+            <select
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option disabled value={"placeholder"}>Select a Category</option>
+              <option value="1">Arts</option>
+              <option value="2">Comics & Illustrations</option>
+              <option value="3">Design & Tech</option>
+              <option value="4">Film</option>
+              <option value="5">Food & Craft</option>
+              <option value="6">Games</option>
+              <option value="7">Music</option>
+              <option value="8">Publishing</option>
+            </select>
+          </label>
+          <div className="errors">
+            {"category" in errors && <p>{errors.category}</p>}
           </div>
         </div>
 
