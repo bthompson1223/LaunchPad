@@ -65,7 +65,7 @@ def delete_reward(rewardId):
 
 # add a backer (pledge a reward)
 @login_required
-@reward_routes.route('/<int:rewardId>', methods=['POST'])
+@reward_routes.route('/<int:rewardId>/backing', methods=['POST'])
 def add_backer(rewardId):
     reward = Reward.query.get(rewardId)
     if not reward:
@@ -83,3 +83,8 @@ def add_backer(rewardId):
     db.session.add(new_backer)
     db.session.commit()
     return new_backer.to_dict()   
+
+@login_required
+@reward_routes.route('/<int:rewardId>/backing', methods=["DELETE"])
+def remove_backer(rewardId):
+    pass
