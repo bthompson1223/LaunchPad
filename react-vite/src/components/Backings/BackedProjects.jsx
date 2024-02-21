@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
+import { thunkGetBackings, clearBackings } from "../../redux/backings"
 import BackedListItem from "./BackedListItem"
-import { thunkGetBackings, clearBackings } from "../../../redux/backings"
 
 const BackedProjects = () => {
   const dispatch = useDispatch()
@@ -25,7 +25,7 @@ const BackedProjects = () => {
       <h1>Backed Projects</h1>
       <ul>
         {backings.map((backing) => (
-          <BackedListItem project={backing.project} reward={backing.reward} key={backing.id} />
+          <BackedListItem backing={backing} key={backing.id} />
         ))}
       </ul>
     </div>

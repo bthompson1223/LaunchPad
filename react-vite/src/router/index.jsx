@@ -10,7 +10,7 @@ import EditProject from "../components/Projects/EditProject/EditProject";
 import OwnedProjects from "../components/Projects/OwnedProjects/OwnedProjects";
 import SplashPage from "../components/SplashPage/splashPage";
 import CreateReward from '../components/Rewards/CreateReward/CreateReward';
-import BackedProjects from "../components/Projects/BackedProjects/BackedProjects";
+import BackedProjects from "../components/Backings/BackedProjects";
 
 export const router = createBrowserRouter([
   {

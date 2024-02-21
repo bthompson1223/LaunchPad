@@ -87,6 +87,17 @@ def delete_reward(rewardId):
  
 
 @login_required
-@reward_routes.route('/<int:rewardId>/backing', methods=["DELETE"])
-def remove_backer(rewardId):
-    pass
+@reward_routes.route('/<int:rewardId>/backing/<int:backingId>', methods=["DELETE"])
+def remove_backer(rewardId, backingId):
+    backing = Backer.query.get(backingId)
+
+    if not backing:
+      return {'errors': {'message': "Backing not found"}}, 404
+    
+    if current_user.id is not backing.user_id:
+      return {'errors': {'message': "Unauthorized"}}, 401
+    
+    db.session.delete(backing)
+    db.session.commit()
+
+    return {"message": "Successfully deleted backing"}
