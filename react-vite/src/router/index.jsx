@@ -8,6 +8,7 @@ import RewardList from '../components/Rewards/RewardList/rewardList';
 import CreateProject from '../components/Projects/CreateProject/CreateProject';
 import EditProject from '../components/Projects/EditProject/EditProject';
 import OwnedProjects from '../components/Projects/OwnedProjects/OwnedProjects';
+import CreateReward from '../components/Rewards/CreateReward/CreateReward';
 
 export const router = createBrowserRouter([
   {
@@ -49,7 +50,18 @@ export const router = createBrowserRouter([
                   },
                   {
                     path: "rewards",
-                    element: <RewardList />
+                    element: <Outlet />,
+                    children: [
+                      {
+                        index: true,
+                        element: <RewardList />
+                      }, 
+                      {
+                        path: 'new',
+                        element: <CreateReward />
+                      }, 
+                    ]
+                    
                   },
                   {
                     path: "edit",

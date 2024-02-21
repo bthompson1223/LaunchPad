@@ -48,7 +48,7 @@ def update_reward(rewardId):
 
 # delete reward 
 @login_required
-@reward_routes.route('/<int:rewardId>', methods=['Delete'])
+@reward_routes.route('/<int:rewardId>', methods=['DELETE'])
 def delete_reward(rewardId):
     reward = Reward.query.get(rewardId)
 
@@ -65,7 +65,7 @@ def delete_reward(rewardId):
 
 # add a backer (pledge a reward)
 @login_required
-@reward_routes.route('/<int:rewardId>', methods=['Post'])
+@reward_routes.route('/<int:rewardId>', methods=['POST'])
 def add_backer(rewardId):
     reward = Reward.query.get(rewardId)
     if not reward:
