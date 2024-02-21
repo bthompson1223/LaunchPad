@@ -1,11 +1,17 @@
 // action type
 const RETURN_INITIAL = "projects/RETURN_INITIAL";
 const GET_REWARDS = "rewards/GET_REWARDS"
+const CREATE_REWARD = "rewards/CREATE_REWARD"
 
 // action creator
 const getRewards = (rewards) => ({
     type: GET_REWARDS,
     rewards
+})
+
+const createReward = (reward) => ({
+    type: CREATE_REWARD,
+    reward
 })
 
 export const returnInitial = () => {
@@ -27,6 +33,24 @@ export const thunkGetRewards = (projectId) => async (dispatch) => {
       }
 }
 
+// thunk - create a reward for a project
+export const thunkCreateReward = (formData, projectId) => async (dispatch) => {
+    const res = await fetch(`/api/projects/${projectId}/rewards`, {
+        method: "POST",
+        body: formData
+    });
+
+    if (res.ok) {
+        const reward = await res.json();
+        dispatch(createReward(reward))
+        console.log("🚀 ~ thunkCreateReward ~ reward:", reward)
+        return reward
+    } else {
+        const errs = await res.json();
+        return errs;
+    }
+ }
+
 const initialState = {}
 
 function rewardReducer(state = initialState, action) {
@@ -36,6 +60,11 @@ function rewardReducer(state = initialState, action) {
             action.rewards.forEach(reward => {
                 newState[reward.id] = reward
             })
+            return newState;
+        }
+        case CREATE_REWARD: {
+            const newState = { ...state }
+            newState[action.reward.id] = action.reward
             return newState;
         }
         case RETURN_INITIAL: {

@@ -164,7 +164,15 @@ def get_rewards(projectId):
 # create reward for a project
 @login_required
 @project_routes.route('/<int:projectId>/rewards', methods=['POST'])
-def new_reward():
+def new_reward(projectId):
+    project = Project.query.get(projectId)
+
+    if not project:
+        return {'errors': {'message': "Project not found"}}, 404
+
+    if current_user.id is not project.owner_id:
+        return {'errors': {'message': "Unauthorized"}}, 401
+    
     form = RewardForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -184,11 +192,16 @@ def new_reward():
             img_url = upload["url"],
             amount = form.data["amount"],
             est_delivery_date  = form.data["est_delivery_date"],
-            quantity = form.data["quantity"]
+            quantity = form.data["quantity"],
+            project_id = projectId,
+            owner_id = current_user.id
         )
 
         db.session.add(new_reward)
         db.session.commit()
+
+        print("🚀 ~ new_reward router:", new_reward.to_dict())
+    
         return new_reward.to_dict()
     return form.errors, 401
 
