@@ -3,9 +3,9 @@ import { FaMapMarkerAlt, FaRegCompass } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { thunkGetOneProject } from "../../../redux/project";
-import { Story } from "./story";
-import { Risks } from "./risks";
-import { Comments } from "./comments";
+import { Story } from "./StorySection";
+import { Risks } from "./RiskSection";
+import { Comments } from "./CommentSection";
 import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
 import OpenModalButton from "../../OpenModalButton/OpenModalButton";
 
