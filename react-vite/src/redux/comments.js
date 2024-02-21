@@ -43,7 +43,7 @@ export const thunkCreateComment = (projectId, commentData) => async dispatch => 
   })
 
   console.log(res)
-  
+
   if (res.ok) {
     const newComment = await res.json()
     dispatch(createComment(newComment))
@@ -56,7 +56,7 @@ export const thunkCreateComment = (projectId, commentData) => async dispatch => 
 }
 
 export const thunkDeleteComment = (projectId, commentId) => async dispatch => {
-  const res = await fetch(`/api/projects/${projectId}/comments/${commentId}`, {
+  const res = await fetch(`/api/projects/${projectId}/comments/${commentId}/delete`, {
     method: "DELETE"
   })
 

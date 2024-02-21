@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import { thunkDeleteComment } from "../../../redux/comments";
 

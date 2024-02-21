@@ -215,4 +215,17 @@ def create_comment(projectId):
   
 
 @login_required
-@project_routes.route()
+@project_routes.route('/<int:projectId>/comments/<int:commentId>/delete', methods=["DELETE"])
+def delete_comment(projectId, commentId):
+    comment = Comment.query.get(commentId)
+
+    if not comment:
+        return {'errors': {'message': "Comment not found"}}, 404
+    
+    if current_user.id is not comment.user_id:
+        return {'errors': {'message': "Unauthorized"}}, 401
+    
+    db.session.delete(comment)
+    db.session.commit()
+
+    return {"message": f"Successfully deleted comment"}
