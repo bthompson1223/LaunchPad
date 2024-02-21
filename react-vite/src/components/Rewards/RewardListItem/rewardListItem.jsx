@@ -3,7 +3,7 @@ import { useState } from "react";
 import OpenModalButton from '../../OpenModalButton';
 import PledgeRewardModal from "./plegeRewardModel";
 
-const RewardListItem = ({ reward, project, isActive, onRewardClick}) => {
+const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
     const [isClicked, setIsClicked] = useState(false) 
     const rewardId = reward.id   
     
@@ -36,7 +36,7 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick}) => {
             </div>
 
             {
-                isActive && (
+                isActive && !isOwner && (
                     <div className="plege-detail">
                         <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId } />} />
                     </div>
