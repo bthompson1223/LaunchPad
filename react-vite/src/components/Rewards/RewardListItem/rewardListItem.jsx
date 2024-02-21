@@ -1,10 +1,11 @@
 
 import { useState } from "react";
 import OpenModalButton from '../../OpenModalButton';
-import Pledge from "./plege";
+import PledgeRewardModal from "./plegeRewardModel";
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick}) => {
-    const [isClicked, setIsClicked] = useState(false)    
+    const [isClicked, setIsClicked] = useState(false) 
+    const rewardId = reward.id   
     
     return (
         <div onClick={onRewardClick}>
@@ -37,7 +38,7 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick}) => {
             {
                 isActive && (
                     <div className="plege-detail">
-                        <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<Pledge />} />
+                        <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId } />} />
                     </div>
                 )
             }
