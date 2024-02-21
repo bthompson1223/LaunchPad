@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from ..models import Project, Category, User, Reward, Comment, db
+from ..models import Project, Category, User, Backer, Reward, Comment, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from ..forms import ProjectForm, RewardForm, EditProjectForm
 
@@ -36,6 +36,16 @@ def created_projects():
         return [project.to_dict() for project in projects]
     else:
         return {"errors": {"message": "Projects not found"}}, 404
+    
+@login_required
+@project_routes.route('/backed-projects')
+def backed_project_rewards():
+    backings = Backer.query.filter(current_user.id == Backer.user_id).all()
+    if backings:
+        return [backing.to_dict() for backing in backings]
+    else:
+        return {"errors": {"message": "Backings not found"}}, 404
+        
 
 @login_required    
 @project_routes.route('/', methods=["POST"])
