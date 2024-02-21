@@ -34,14 +34,21 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
             <div className="card-reward-image">
                 <img src={`${reward.img_url}`} alt="reward image" />
             </div>
-
-            {
-                isActive && !isOwner && (
-                    <div className="plege-detail">
-                        <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId } />} />
-                    </div>
-                )
-            }
+                <div>
+                    {
+                        isActive && !isOwner && (
+                            <div className="plege-detail">
+                                <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId } />} />
+                            </div>
+                        )
+                    }
+                    {
+                        // isOwner && (
+                        //     <button>Update</button>
+                        //     <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId } />}/>
+                        // )
+                    }
+                </div>
         </div>
     )
 }
