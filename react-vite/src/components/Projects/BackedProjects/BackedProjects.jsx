@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { ProjectListItem } from "../ProjectListItem/projectListItem"
-import { thunkGetBackings, clearBackings } from "../../../redux/backer"
+import { thunkGetBackings, clearBackings } from "../../../redux/backings"
 
 const BackedProjects = () => {
   const dispatch = useDispatch()
   const projectsObj = useSelector(state => state.backings)
-
   
   useEffect(() => {
     dispatch(thunkGetBackings())
@@ -14,8 +13,14 @@ const BackedProjects = () => {
     return () => dispatch(clearBackings())
   }, [dispatch])
   
-  if (Object.values(projectsObj).length) return <h1>You have not backed any projects yet!</h1>
+
+  if (Object.values(projectsObj).length) {
+    return <h1>You have not backed any projects yet!</h1>
+  }
+  
+  console.log(projectsObj)
   const projects = Object.values(projectsObj)
+
   return (
     <div>
       <ul>

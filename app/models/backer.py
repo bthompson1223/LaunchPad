@@ -24,9 +24,9 @@ class Backer(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'project_id': self.project_id,
-            'project': self.project,
+            'project': self.project.to_dict(),
             'reward_id': self.reward_id,
-            'reward': self.reward,
+            'reward': self.reward.to_dict(),
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

@@ -48,7 +48,7 @@ export const thunkGetBackings = () => async (dispatch) => {
 
 const initialState = {}
 
-export const backingsReducer = (state = initialState, action) => {
+const backingsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BACKER: {
       // NOT YET IMPLEMENTED
@@ -68,3 +68,5 @@ export const backingsReducer = (state = initialState, action) => {
       return state
   }
 }
+
+export default backingsReducer;

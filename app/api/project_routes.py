@@ -40,7 +40,7 @@ def created_projects():
 @login_required
 @project_routes.route('/backed-projects')
 def backed_project_rewards():
-    backings = Backer.query.filter(current_user.id == Backer.user_id)
+    backings = Backer.query.filter(current_user.id == Backer.user_id).all()
     if backings:
         return [backing.to_dict() for backing in backings]
     else:
