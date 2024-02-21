@@ -12,8 +12,6 @@ export default function Layout() {
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
   
-  console.log("🚀 ~ Layout ~ isLoaded:", isLoaded)
-  
 
   return (
     <>

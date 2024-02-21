@@ -104,7 +104,8 @@ function sessionReducer(state = initialState, action) {
     }
     case CLEAR_USER_PROJECTS: {
       const newState = { ...state };
-      delete newState.user.projects;
+      delete newState.user.projects
+      console.log(newState.user)
       return newState;
     }
     default:
