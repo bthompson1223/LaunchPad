@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-import { thunkGetRewards, returnInitial} from '../../../redux/reward'
+import { useEffect, useState } from 'react'
+import { thunkGetRewards} from '../../../redux/reward'
 import { useParams } from 'react-router-dom';
 import RewardListItem from '../RewardListItem/rewardListItem';
 import { thunkGetOneProject } from '../../../redux/project';
@@ -11,10 +11,10 @@ const RewardList =  () => {
     const {projectId} = useParams(); 
     const rewardObj = useSelector(state => state.rewards);
     const project = useSelector(state => state.projects[projectId]);
+    const [activeRewardId, setActiveRewardId] = useState(null);
 
     useEffect(() => {
         dispatch(thunkGetRewards(projectId));
-        // return () => {dispatch(returnInitial())}
     }, [dispatch, projectId])
 
     useEffect(() => {
@@ -37,7 +37,13 @@ const RewardList =  () => {
             <div>
                 {
                     rewards.map(reward => (
-                        <RewardListItem key={reward.id} reward={reward} project={project}/>
+                        <RewardListItem 
+                        key={reward.id} 
+                        reward={reward} 
+                        project={project}
+                        isActive={activeRewardId === reward.id}
+                        onRewardClick={() => setActiveRewardId(reward.id)}
+                        />
                     ))
                 }
             </div>
