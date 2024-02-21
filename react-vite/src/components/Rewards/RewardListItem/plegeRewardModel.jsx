@@ -1,5 +1,6 @@
 import { useModal } from "../../../context/Modal"
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"
+import { thunkAddBacker} from '../../../redux/backer'
 
 const PledgeRewardModal = ({rewardId}) => {
     const { closeModal } = useModal()
