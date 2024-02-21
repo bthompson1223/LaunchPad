@@ -28,33 +28,47 @@ function LoginFormModal() {
     }
   };
 
+  const demoUser = () => {
+    setEmail("guest_services@launchpad.io");
+    setPassword("password");
+  };
+
   return (
-    <>
-      <h1>Log In</h1>
+    <div className="main">
+      <h1 className="login-signup">Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Email
+          Email:
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            placeholder="Enter your registered email"
+            className="credential-input"
           />
         </label>
         {errors.email && <p>{errors.email}</p>}
         <label>
-          Password
+          Password:
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder="Enter your password"
+            className="password-input"
           />
         </label>
         {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <button type="submit" className="login-button">
+          Log In
+        </button>
+        <button className="demo-button" onClick={demoUser}>
+          Demo User
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 
