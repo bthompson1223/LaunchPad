@@ -26,10 +26,13 @@ const removeBacking = (backingId) => ({
 
 // thunk - add backer to a reward
 export const thunkAddBacking = (rewardId) => async (dispatch) => {
-    const res = await fetch(`/api/rewards/${rewardId}`, {
-      method: "POST"
+    const res = await fetch(`/api/rewards/${rewardId}/backing`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: null
     })
 
+    console.log(res)
     if (res.ok) {
         const backing = await res.json();
         dispatch(addBacking(backing));

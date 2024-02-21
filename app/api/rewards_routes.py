@@ -1,10 +1,32 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from ...app.models import Reward,  Backer, db
+from app.models import Reward,  Backer, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from ..forms import RewardForm
 
 reward_routes = Blueprint('rewards', __name__)
+
+# add a backer (pledge a reward)
+@login_required
+@reward_routes.route('/<int:rewardId>/backing', methods=['POST'])
+def add_backer(rewardId):
+    print("INSIDE THE ADD BACKER FUNCTION")
+    reward = Reward.query.get(rewardId)
+    if not reward:
+        return {'errors': {'message': "Reward not found"}}, 404
+
+    if current_user.id is reward.owner_id:
+        return {'errors': {'message': "Owner of the project must not pledge reward"}}, 404
+
+    new_backer = Backer(
+        user_id = current_user.id,
+        project_id =  reward.project_id,
+        reward_id = rewardId
+    )
+
+    db.session.add(new_backer)
+    db.session.commit()
+    return new_backer.to_dict()  
 
 # update reward for a project
 @login_required
@@ -62,27 +84,7 @@ def delete_reward(rewardId):
     db.session.commit()
 
     return {"message": f"Successfully deleted reward {reward['name']}"}
-
-# add a backer (pledge a reward)
-@login_required
-@reward_routes.route('/<int:rewardId>/backing', methods=['POST'])
-def add_backer(rewardId):
-    reward = Reward.query.get(rewardId)
-    if not reward:
-        return {'errors': {'message': "Reward not found"}}, 404
-
-    if current_user.id is reward.owner_id:
-        return {'errors': {'message': "Owner of the project must not pledge reward"}}, 404
-
-    new_backer = Backer(
-        user_id = current_user.id,
-        project_id =  reward.project_id,
-        reward_id = rewardId
-    )
-
-    db.session.add(new_backer)
-    db.session.commit()
-    return new_backer.to_dict()   
+ 
 
 @login_required
 @reward_routes.route('/<int:rewardId>/backing', methods=["DELETE"])
