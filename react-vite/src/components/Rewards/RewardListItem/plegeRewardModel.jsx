@@ -1,6 +1,6 @@
 import { useModal } from "../../../context/Modal"
 import { useDispatch } from "react-redux"
-import { thunkAddBacker} from '../../../redux/backings'
+import { thunkAddBacking } from '../../../redux/backings'
 
 const PledgeRewardModal = ({rewardId}) => {
     const { closeModal } = useModal()
@@ -13,7 +13,7 @@ const PledgeRewardModal = ({rewardId}) => {
 
     const handlePledge = async (e) => {
         e.preventDefault()
-        dispatch(thunkAddBacker(rewardId))
+        dispatch(thunkAddBacking(rewardId))
         closeModal()
       }
 
