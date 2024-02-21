@@ -54,5 +54,14 @@ users = [
         "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/7_Issac+WM.png",
         "email":'issac.wm@aa.io', 
         "password":'password'
+      },
+      {
+        "username": 'AskJeeves',
+        "first_name": 'Mister',
+        "last_name": 'Anderson',
+        "profile_img": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/public/profile_img/7_Issac+WM.png",
+        "email": 'guest_services@launchpad.io',
+        "password": 'password'
+
       }
 ]
