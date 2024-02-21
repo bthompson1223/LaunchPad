@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
@@ -11,6 +12,8 @@ import EditProject from '../components/Projects/EditProject/EditProject';
 import OwnedProjects from '../components/Projects/OwnedProjects/OwnedProjects';
 import CreateReward from '../components/Rewards/CreateReward/CreateReward';
 =======
+=======
+>>>>>>> f7de57e8c4703a558382ef354adbd0f6c33c520d
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import LoginFormPage from "../components/LoginFormPage";
 import SignupFormPage from "../components/SignupFormPage";
@@ -22,7 +25,11 @@ import CreateProject from "../components/Projects/CreateProject/CreateProject";
 import EditProject from "../components/Projects/EditProject/EditProject";
 import OwnedProjects from "../components/Projects/OwnedProjects/OwnedProjects";
 import SplashPage from "../components/SplashPage/splashPage";
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+import CreateReward from '../components/Rewards/CreateReward/CreateReward';
+>>>>>>> f7de57e8c4703a558382ef354adbd0f6c33c520d
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +61,9 @@ export const router = createBrowserRouter([
         path: "projects",
         element: <Outlet />,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f7de57e8c4703a558382ef354adbd0f6c33c520d
         children:[
             {
                 path: ":projectId",
@@ -94,6 +104,7 @@ export const router = createBrowserRouter([
             }
         ]
       }
+<<<<<<< HEAD
 =======
         children: [
           {
@@ -125,6 +136,8 @@ export const router = createBrowserRouter([
         ],
       },
 >>>>>>> dev
+=======
+>>>>>>> f7de57e8c4703a558382ef354adbd0f6c33c520d
     ],
   },
 ]);
