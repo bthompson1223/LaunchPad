@@ -10,6 +10,7 @@ import EditProject from '../components/Projects/EditProject/EditProject';
 import OwnedProjects from '../components/Projects/OwnedProjects/OwnedProjects';
 import SplashPage from "../components/SplashPage/splashPage";
 import CreateReward from '../components/Rewards/CreateReward/CreateReward';
+import BackedProjects from "../components/Projects/BackedProjects/BackedProjects";
 
 export const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
             {
               path: "created-projects",
               element: <OwnedProjects />
+            },
+            {
+              path: "backed-projects",
+              element: <BackedProjects />
             }
         ]
       }

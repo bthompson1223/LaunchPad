@@ -9,12 +9,14 @@ import sessionReducer from "./session";
 import projectReducer from "./project";
 import rewardReducer from "./reward";
 import commentReducer from "./comments";
+import backingsReducer from "./backings";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   projects: projectReducer,
   rewards: rewardReducer,
-  comments: commentReducer
+  comments: commentReducer,
+  backings: backingsReducer
 });
 
 let enhancer;
