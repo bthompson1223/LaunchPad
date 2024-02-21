@@ -1,0 +1,69 @@
+.profile-dropdown.hidden {
+  display: none;
+}
+
+.profile-dropdown {
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 0px;
+  align-items: center;
+  padding: 5px 5px 5px 5px;
+  margin-right: 40px;
+}
+
+.menu {
+  border-radius: 30px;
+  padding: 10px 20px 10px 20px;
+  margin-right: 3.5rem;
+}
+
+.fa-user-circle {
+  padding-right: 5px;
+}
+
+.lo-button {
+  display: flex;
+  background-color: rgb(157, 229, 173);
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.text {
+  padding-left: 0px;
+}
+
+.text-email {
+  padding-left: 0px;
+  margin-bottom: 8px;
+}
+
+.manage-projects {
+  padding-left: 0px;
+}
+
+.logout-button {
+  padding-left: 0px;
+}
+
+.buttoncontainer {
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+}
+
+.manage-nav {
+  text-decoration: none;
+  color: black;
+  padding-top: 3px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.root {
+  max-width: fit-content;
+}

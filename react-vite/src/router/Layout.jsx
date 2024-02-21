@@ -11,6 +11,7 @@ export default function Layout() {
   useEffect(() => {
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
+  
 
   return (
     <>

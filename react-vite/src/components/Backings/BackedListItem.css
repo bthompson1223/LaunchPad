@@ -1,0 +1,10 @@
+#backed-list-item-project-thumbnail {
+  width: 5rem;
+  border-radius: 25%;
+}
+
+.backed-list-item-project-div {
+  display: flex;
+  align-items: center;
+  gap: 2rem
+}
