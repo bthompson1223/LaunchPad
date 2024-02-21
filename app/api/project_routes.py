@@ -27,6 +27,15 @@ def get_project(projectId):
         return project.to_dict()
     else:
         return {"errors": {"message": "Project not found"}}, 404
+    
+@login_required
+@project_routes.route('/created-projects')
+def created_projects():
+    projects = Project.query.filter(current_user.id == Project.owner_id).all()
+    if projects:
+        return [project.to_dict() for project in projects]
+    else:
+        return {"errors": {"message": "Projects not found"}}, 404
 
 @login_required    
 @project_routes.route('/', methods=["POST"])
