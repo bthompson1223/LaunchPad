@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetOneProject } from "../../../redux/project";
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { thunkCreateReward } from "../../../redux/reward";
 
 const CreateReward = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {projectId} = useParams();
     const user = useSelector((state) => state.session.user);
     const project = useSelector((state) => state.projects[projectId])
@@ -58,12 +60,16 @@ const CreateReward = () => {
         formData.append("amount", amount);
         formData.append("est_delivery_date", estDeliveryDate);
         formData.append("quantity", quantity);
-        formData.append("project_id", projectId);
-        formData.append("owner_id", user.id);
 
         setImageLoading(true);
 
-        await dispatch(thunn)
+        await dispatch(thunkCreateReward(formData, projectId))
+          .then(() => {
+              navigate(`/projects/${projectId}/rewards`)
+          })
+          .catch(async (res) => {
+            console.log("Inside errors catch =>", res);
+          });
       }
     }
 
