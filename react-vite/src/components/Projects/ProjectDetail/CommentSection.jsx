@@ -25,6 +25,8 @@ export const Comments = () => {
       const commentData = {
         comment
       }
+      setComment('')
+      setShowNewCommentField(false)
 
       dispatch(thunkCreateComment(projectId, commentData))
     }
