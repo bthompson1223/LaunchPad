@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ProjectListItem } from "../ProjectListItem/projectListItem";
 import { useEffect } from "react";
-import { thunkUserProjects } from "../../../redux/session";
+import { clearUserProjects, thunkUserProjects } from "../../../redux/session";
 
 const OwnedProjects = () => {
   const user = useSelector((state) => state.session.user);
@@ -9,6 +9,8 @@ const OwnedProjects = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(thunkUserProjects());
+
+    return () => dispatch(clearUserProjects());
   }, [dispatch]);
 
   if (!user) return <h2>You must be logged in to do that!</h2>;
