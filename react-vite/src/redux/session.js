@@ -1,6 +1,7 @@
 const SET_USER = "session/setUser";
 const REMOVE_USER = "session/removeUser";
 const USER_PROJECTS = "session/userProjects";
+const CLEAR_USER_PROJECTS = "session/clearUserProjects";
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -14,6 +15,10 @@ const removeUser = () => ({
 const userProjects = (projects) => ({
   type: USER_PROJECTS,
   projects,
+});
+
+export const clearUserProjects = () => ({
+  type: CLEAR_USER_PROJECTS,
 });
 
 export const thunkAuthenticate = () => async (dispatch) => {
@@ -95,6 +100,11 @@ function sessionReducer(state = initialState, action) {
       for (let project of action.projects) {
         newState.user.projects[project.id] = project;
       }
+      return newState;
+    }
+    case CLEAR_USER_PROJECTS: {
+      const newState = { ...state };
+      delete newState.user.projects;
       return newState;
     }
     default:
