@@ -44,6 +44,7 @@ def backed_project_rewards():
     if backings:
         return [backing.to_dict() for backing in backings]
     else:
+        return {"errors": {"message": "Backings not found"}}, 404
         
 
 @login_required    

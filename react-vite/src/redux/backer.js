@@ -1,6 +1,7 @@
 // action type
 const ADD_BACKER = "backers/ADD_BACKER"
 const GET_BACKINGS = "backers/GET_BACKINGS"
+const CLEAR_BACKINGS = 'backers/CLEAR_BACKINGS'
 
 // action creator
 const addBacker = (backer) => ({
@@ -12,6 +13,10 @@ const getBackings = (backings) => ({
   type: GET_BACKINGS,
   backings
 }) 
+
+export const clearBackings = () => ({
+  type: CLEAR_BACKINGS
+})
 
 // thunk - add backer to a reward
 export const thunkAddBacker = (rewardId) => async (dispatch) => {
@@ -29,9 +34,37 @@ export const thunkAddBacker = (rewardId) => async (dispatch) => {
 } 
 
 export const thunkGetBackings = () => async (dispatch) => {
-  const res = await fetch(`/api/rewards/`)
+  const res = await fetch(`/api/projects/backed-projects`)
+
+  if (res.ok) {
+    const backings = await res.json();
+    dispatch(getBackings(backings))
+    return backings
+  } else {
+    const errs = await res.json()
+    return errs
+  }
 }
 
 const initialState = {}
 
-export const 
+export const backingsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_BACKER: {
+      // NOT YET IMPLEMENTED
+      return state
+    }
+    case GET_BACKINGS: {
+      const newState = { ...state }
+      action.backings.forEach(backing => {
+        newState[backing.id] = backing
+      })
+      return newState
+    }
+    case CLEAR_BACKINGS: {
+      return initialState
+    }
+    default:
+      return state
+  }
+}
