@@ -60,6 +60,10 @@ const CreateReward = () => {
         formData.append("quantity", quantity);
         formData.append("project_id", projectId);
         formData.append("owner_id", user.id);
+
+        setImageLoading(true);
+
+        await dispatch(thunn)
       }
     }
 
