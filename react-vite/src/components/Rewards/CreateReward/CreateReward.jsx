@@ -10,7 +10,6 @@ const CreateReward = () => {
     const {projectId} = useParams();
     const user = useSelector((state) => state.session.user);
     const project = useSelector((state) => state.projects[projectId])
-    console.log("🚀 ~ CreateReward ~ project :", project )
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [amount, setAmount] = useState("")
@@ -52,7 +51,9 @@ const CreateReward = () => {
 
       if (Object.values(validationErrors).length) {
         setErrors(validationErrors)
+        console.log("set error==================")
       } else {
+        console.log("inside else to hit thunkfunction==================")
         const formData = new FormData();
         formData.append("name", name);
         formData.append("description", description);
