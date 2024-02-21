@@ -9,7 +9,8 @@ def seed_users():
         db.session.add(User(
             username=user['username'], 
             first_name=user["first_name"], 
-            last_name=user['last_name'], 
+            last_name=user['last_name'],
+            profile_img=user["profile_img"],
             email=user['email'], 
             password=user['password']
         ))

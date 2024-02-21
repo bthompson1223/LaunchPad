@@ -190,7 +190,21 @@ def get_comments(projectId):
   return [comment.to_dict() for comment in comments]
 
 
-# @login_required
-# @project_routes.route('/<int:projectId>/comments', methods=["POST"])
-# def create_comment(projectId):
+@login_required
+@project_routes.route('/<int:projectId>/comments', methods=["POST"])
+def create_comment(projectId):
+    print("inside the create_comment route")
+    print("THIS IS THE REQUEST", request.data)
+    if "parent" in request.data:
+        parent = request.data.parent
+    new_comment = Comment(
+        comment = request.data,
+        project_id = projectId,
+        user_id = current_user.id,
+        parent = parent if parent else None
+    )
+
+    db.session.add(new_comment)
+    db.session.commit()
+    return new_comment.to_dict()
   
