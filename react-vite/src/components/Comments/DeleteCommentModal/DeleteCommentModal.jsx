@@ -1,18 +1,17 @@
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import { thunkDeleteComment } from "../../../redux/comments";
 
 export const DeleteCommentModal = ({ comment }) => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const { closeModal } = useModal()
+  const { projectId } = useParams()
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    dispatch(thunkDeleteComment(comment.id))
+    dispatch(thunkDeleteComment(projectId, comment.id))
     closeModal()
-    navigate('/projects/created-projects')
   }
 
   const handleCancel = (e) => {

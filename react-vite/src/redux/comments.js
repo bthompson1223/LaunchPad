@@ -41,7 +41,9 @@ export const thunkCreateComment = (projectId, commentData) => async dispatch => 
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(commentData)
   })
+
   console.log(res)
+  
   if (res.ok) {
     const newComment = await res.json()
     dispatch(createComment(newComment))

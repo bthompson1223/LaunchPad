@@ -23,8 +23,7 @@ export const Comments = () => {
       setErrors(validationErrors)
     } else {
       const commentData = {
-        comment,
-        parent: null
+        comment
       }
 
       dispatch(thunkCreateComment(projectId, commentData))
