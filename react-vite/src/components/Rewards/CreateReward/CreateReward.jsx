@@ -28,7 +28,7 @@ const CreateReward = () => {
         return <h2>You must be logged in to create a new reward</h2>;
       }
 
-    if (user?.id != project?.id) {
+    if (user?.id != project?.owner.id) {
         return <h2>You must be the project owner to create a new reward</h2>
     }
 
