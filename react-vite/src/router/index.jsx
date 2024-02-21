@@ -9,6 +9,7 @@ import CreateProject from "../components/Projects/CreateProject/CreateProject";
 import EditProject from "../components/Projects/EditProject/EditProject";
 import OwnedProjects from "../components/Projects/OwnedProjects/OwnedProjects";
 import SplashPage from "../components/SplashPage/splashPage";
+import CreateReward from '../components/Rewards/CreateReward/CreateReward';
 
 export const router = createBrowserRouter([
   {
@@ -39,35 +40,46 @@ export const router = createBrowserRouter([
       {
         path: "projects",
         element: <Outlet />,
-        children: [
-          {
-            path: ":projectId",
-            element: <Outlet />,
-            children: [
-              {
-                index: true,
-                element: <ProjectDetail />,
-              },
-              {
-                path: "rewards",
-                element: <RewardList />,
-              },
-              {
-                path: "edit",
-                element: <EditProject />,
-              },
-            ],
-          },
-          {
-            path: "new",
-            element: <CreateProject />,
-          },
-          {
-            path: "created-projects",
-            element: <OwnedProjects />,
-          },
-        ],
-      },
+        children:[
+            {
+                path: ":projectId",
+                element: <Outlet />,
+                children: [
+                  {
+                    index: true,
+                    element: <ProjectDetail />,
+                  },
+                  {
+                    path: "rewards",
+                    element: <Outlet />,
+                    children: [
+                      {
+                        index: true,
+                        element: <RewardList />
+                      }, 
+                      {
+                        path: 'new',
+                        element: <CreateReward />
+                      }, 
+                    ]
+                    
+                  },
+                  {
+                    path: "edit",
+                    element: <EditProject />
+                  }
+                ]
+            },
+            {
+              path: "new",
+              element: <CreateProject />
+            },
+            {
+              path: "created-projects",
+              element: <OwnedProjects />
+            }
+        ]
+      }
     ],
   },
 ]);
