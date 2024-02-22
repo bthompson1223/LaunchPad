@@ -8,7 +8,12 @@ project_routes = Blueprint('projects', __name__)
 
 @project_routes.route('/')
 def all_projects():
-    projects = Project.query.all()
+    search = request.args.get('search')
+    if not search:
+      projects = Project.query.all()
+    else:
+      projects = Project.query.filter(Project.title.ilike(f"%{search}%"))
+      print("THIS IS PROJECTS", projects)
 
     return [project.to_dict() for project in projects]
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { returnInitial, thunkGetCategoryProjects } from "../../redux/project";
 import { NavLink } from "react-router-dom";
 import { ProjectListItem } from "../Projects/ProjectListItem/projectListItem";
+import Search from "../Search/Search";
 
 const SplashPage = () => {
   const projectsObj = useSelector((state) => state.projects);
@@ -51,7 +52,7 @@ const SplashPage = () => {
           <NavLink to="/categories/publishing">Publishing</NavLink>
         </nav>
       </div>
-      <h1>Bring a creative project to life.</h1>
+      <h1>Bring a creative project to life</h1>
       <div className="splash-stats">
         <div className="on-launchpad">
           <h3>Currently on LaunchPad:</h3>
@@ -74,6 +75,9 @@ const SplashPage = () => {
       <div className="random-project">
         <h3>Featured Project:</h3>
         <ProjectListItem project={randomProject} />
+      </div>
+      <div>
+        <Search />
       </div>
     </div>
   );
