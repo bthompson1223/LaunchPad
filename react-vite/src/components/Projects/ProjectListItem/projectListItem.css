@@ -21,3 +21,29 @@
   max-width: 300px;
   border-radius: 10px;
 }
+
+.card-text-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-titles > a {
+  color: #3b5249;
+}
+
+.card-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card-stats > a {
+  color: #3b5249;
+}
+
+.card-owner-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
