@@ -53,26 +53,31 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
 
-        profile_img = form.data["profile_img"]
+      profile_img = form.data["profile_img"]
+
+      if profile_img is not None:
         profile_img.filename = get_unique_filename(profile_img.filename)
         upload = upload_file_to_s3(profile_img)
         print(upload)
 
         if "url" not in upload:
-            return upload
+          return upload
+        
+      else:
+        upload = {"url": "https://launch-pad-group-project.s3.us-west-1.amazonaws.com/48-512.png"}
 
-        user = User(
-            username=form.data['username'],
-            first_name=form.data['first_name'],
-            last_name=form.data['last_name'],
-            profile_img=upload["url"],
-            email=form.data['email'],
-            password=form.data['password']
-        )
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return user.to_dict()
+      user = User(
+        username=form.data['username'],
+        first_name=form.data['first_name'],
+        last_name=form.data['last_name'],
+        profile_img=upload["url"],
+        email=form.data['email'],
+        password=form.data['password']
+      )
+      db.session.add(user)
+      db.session.commit()
+      login_user(user)
+      return user.to_dict()
     return form.errors, 401
 
 

@@ -20,8 +20,10 @@ function SignupFormModal() {
     e.preventDefault();
     setErrors({})
 
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const validationErrors = {}
     if (!email) validationErrors.email = "Email is required"
+    if (!email.match(validRegex)) validationErrors.email = "Must be valid email"
     if (!username) validationErrors.username = "Username is required"
     if (!firstName) validationErrors.firstName = "First name is required"
     if (!lastName) validationErrors.lastName = "Last name is required"
