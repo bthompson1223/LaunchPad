@@ -1,13 +1,20 @@
 // action type
 const RETURN_INITIAL = "projects/RETURN_INITIAL";
 const GET_REWARDS = "rewards/GET_REWARDS"
+const GET_ONE_REWARD = "rewards/GET_ONE_REWARDS"
 const CREATE_REWARD = "rewards/CREATE_REWARD"
 const DELETE_REWARD = "rewards/DELETE_REWARD"
+const UPDATE_REWARD = "rewards/UPDATE_REWARD"
 
 // action creator
 const getRewards = (rewards) => ({
     type: GET_REWARDS,
     rewards
+})
+
+const getOneReward = (reward) => ({
+    type: GET_ONE_REWARD,
+    reward
 })
 
 const createReward = (reward) => ({
@@ -18,6 +25,11 @@ const createReward = (reward) => ({
 const deleteReward = (rewardId) => ({
     type: DELETE_REWARD,
     rewardId
+})
+
+const updateReward = (reward) => ({
+    type: UPDATE_REWARD,
+    reward
 })
 
 export const returnInitial = () => {
@@ -39,6 +51,19 @@ export const thunkGetRewards = (projectId) => async (dispatch) => {
       }
 }
 
+// thunk - get one reward
+export const thunkGetOneReward = (rewardId) => async (dispatch) => {
+    const res = await fetch(`/api/rewards/${rewardId}`)
+
+    if (res.ok) {
+        const reward = await res.json();
+        dispatch(getOneReward(reward));
+      } else {
+        const errs = await res.json();
+        return errs;
+      }
+}
+
 // thunk - create a reward for a project
 export const thunkCreateReward = (formData, projectId) => async (dispatch) => {
     const res = await fetch(`/api/projects/${projectId}/rewards`, {
@@ -49,7 +74,6 @@ export const thunkCreateReward = (formData, projectId) => async (dispatch) => {
     if (res.ok) {
         const reward = await res.json();
         dispatch(createReward(reward))
-        console.log("🚀 ~ thunkCreateReward ~ reward:", reward)
         return reward
     } else {
         const errs = await res.json();
@@ -63,8 +87,6 @@ export const thunkCreateReward = (formData, projectId) => async (dispatch) => {
         method: "DELETE"
     })
 
-    console.log("🚀 ~ thunkDeleteReward ~ reward:", `inside thunk delete reward with id of  ${rewardId}`)
-
     if (res.ok) {
         dispatch(deleteReward(rewardId))
         return rewardId
@@ -72,7 +94,25 @@ export const thunkCreateReward = (formData, projectId) => async (dispatch) => {
         const errs = await res.json();
         return errs;
     }
- } 
+ }
+
+  // thunk - update a reward
+  export const thunkUpdateReward = (formData, rewardId) => async (dispatch) => {
+    const res = await fetch(`/api/rewards/${rewardId}`, {
+        method: "PUT",
+        body: formData
+    })
+
+    if (res.ok) {
+        const reward = await res.json()
+        dispatch(updateReward(reward))
+        return reward;
+    } else {
+        const errs = await res.json();
+        return errs;
+    }
+  }
+
 
 const initialState = {}
 
@@ -85,6 +125,9 @@ function rewardReducer(state = initialState, action) {
             })
             return newState;
         }
+        case GET_ONE_REWARD: {
+            return { ...state, [action.reward.id]: action.reward};
+        }
         case CREATE_REWARD: {
             const newState = { ...state }
             newState[action.reward.id] = action.reward
@@ -94,7 +137,12 @@ function rewardReducer(state = initialState, action) {
             const newState = { ...state };
             delete newState[action.rewardId];
             return newState;
-          }
+        }
+        case UPDATE_REWARD: {
+            const newState = { ...state };
+            newState[action.reward.id] = action.reward;
+            return newState;
+        }
         case RETURN_INITIAL: {
             return initialState;
         }
