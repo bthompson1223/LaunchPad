@@ -35,7 +35,8 @@ def created_projects():
     if projects:
         return [project.to_dict() for project in projects]
     else:
-        return {"errors": {"message": "Projects not found"}}, 404
+        return []
+        # return {"errors": {"message": "Projects not found"}}, 404
     
 @login_required
 @project_routes.route('/backed-projects')
