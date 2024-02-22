@@ -8,9 +8,11 @@ project_routes = Blueprint('projects', __name__)
 
 @project_routes.route('/')
 def all_projects():
-    projects = Project.query.all()
+    # projects = Project.query.all()
+    # print(request.args)
+    page = db.paginate(db.select(Project))
 
-    return [project.to_dict() for project in projects]
+    return [project.to_dict() for project in page]
 
 @project_routes.route('/<category>')
 def find_category_projects(category):

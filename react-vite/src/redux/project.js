@@ -38,10 +38,10 @@ const updateProject = (project) => ({
   project,
 });
 
-export const thunkGetCategoryProjects = (category) => async (dispatch) => {
+export const thunkGetCategoryProjects = (category, page, perPage) => async (dispatch) => {
   let res;
   if (category == "all") {
-    res = await fetch("/api/projects");
+    res = await fetch(`/api/projects?page=${page}&per_page=${perPage}`);
   } else {
     res = await fetch(`/api/projects/${category}`);
   }
