@@ -6,11 +6,9 @@ import { DeleteCommentModal } from "../DeleteCommentModal/DeleteCommentModal";
 import './commentListItem.css'
 import { useDispatch } from "react-redux";
 import { thunkCreateComment } from "../../../redux/comments";
-import { Comments } from "../../Projects/ProjectDetail/CommentSection";
 import { thunkGetComments} from "../../../redux/comments";
 
 const CommentListItem = ({ comment }) => {
-  // console.log("🚀 ~ CommentListItem ~ comment:", comment.replies.length)
   const user = useSelector(state => state.session.user)
   const parentId = comment.id
   const projectId = comment.project_id
@@ -23,8 +21,6 @@ const CommentListItem = ({ comment }) => {
   const [ errors, setErrors ] = useState({})
   const [newReply, setNewReply] = useState(false)
   const hasReplies = comment?.replies?.length > 0
-  console.log("🚀 ~ CommentListItem ~ hasReplies:", hasReplies)
-
 
   let postedDaysAgo = Math.floor(daysAfterPosting)
  
