@@ -13,6 +13,7 @@ function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
+  const hasProfileImg = user?.profile_img
   const ulRef = useRef();
 
   const toggleMenu = (e) => {
@@ -47,9 +48,12 @@ function ProfileButton() {
 
   return (
     <>
-      <button onClick={toggleMenu} className="menu">
-        <FaUserCircle />
-      </button>
+        {
+          hasProfileImg?
+            (<img className="profile-image" src={user?.profile_img} alt="Profile Image" onClick={toggleMenu} />):
+            (<button onClick={toggleMenu} className="menu"><FaUserCircle /></button>) 
+        }
+ 
       {showMenu && (
         <ul className={ulClassName} ref={ulRef}>
           {user ? (

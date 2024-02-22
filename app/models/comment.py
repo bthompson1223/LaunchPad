@@ -29,7 +29,7 @@ class Comment(db.Model):
             'project_id': self.project_id,
             'parent': self.parent,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
         }
 
 
