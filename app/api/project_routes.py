@@ -225,7 +225,7 @@ def get_comments(projectId):
     comments_dict = {comment.id: comment.to_dict() for comment in comments}
 
     nested_comments = build_nested_comments(comments_dict)
-    print (nested_comments)
+    print("nested commements========================", nested_comments)
 
     return nested_comments
    

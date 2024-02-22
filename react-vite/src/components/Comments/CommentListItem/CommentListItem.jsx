@@ -7,7 +7,7 @@ import './commentListItem.css'
 import { useDispatch } from "react-redux";
 import { thunkCreateComment } from "../../../redux/comments";
 import { Comments } from "../../Projects/ProjectDetail/CommentSection";
-import { thunkGetComments, clearComments } from "../../../redux/comments";
+import { thunkGetComments} from "../../../redux/comments";
 
 const CommentListItem = ({ comment }) => {
   // console.log("🚀 ~ CommentListItem ~ comment:", comment.replies.length)
