@@ -2,3 +2,13 @@
   width: 5rem;
   border-radius: 50%;
 }
+
+.comment-replies {
+  margin-left: 20px; 
+  border-left: 2px solid #eee; 
+  padding-left: 10px;
+}
+
+.replies-container {
+  margin-top: 10px;
+}
