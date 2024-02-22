@@ -73,7 +73,9 @@ const ProjectDetail = () => {
                         {daysLeft > 0 && <><h3>{daysLeft}</h3> <p>days left</p></>}
                     </div>
                     {isOwner == false && <button onClick = {() => navigate(`/projects/${project.id}/rewards`)}>Back this project</button>}
-                    {isOwner && <button onClick = {() => navigate(`/projects/${project.id}/edit`)}>Edit this project</button>}
+                    {isOwner && <button onClick = {() => navigate(`/projects/${project.id}/edit`)}>Edit project</button>}
+                    {isOwner && <button onClick = {() => navigate(`/projects/${project.id}/rewards`)}>View Rewards</button>}
+                    {isOwner && <button onClick = {() => navigate(`/projects/${project.id}/rewards/new`)}>Add a Reward</button>}
                     {isOwner && 
                       <OpenModalButton
                         buttonText="Delete"
