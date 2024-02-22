@@ -52,7 +52,7 @@ const CommentListItem = ({ comment }) => {
       setShowReplyField(false)
 
       dispatch(thunkCreateComment(projectId, commentData))
-      setNewReply = !newReply
+      setNewReply(!newReply)
     }
   }
 

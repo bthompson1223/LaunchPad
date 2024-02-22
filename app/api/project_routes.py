@@ -212,11 +212,11 @@ def new_reward(projectId):
 
 def build_nested_comments(comments_dict, parent_id=None):
     nested_comments = []
-    for comment_id, comment_data in comments_dict.items():
-        if comment_data['parent'] == parent_id:
+    for comment_id, comment in comments_dict.items():
+        if comment['parent'] == parent_id:
             # Recursive call to find replies to this comment
-            comment_data['replies'] = build_nested_comments(comments_dict, comment_id)
-            nested_comments.append(comment_data)
+            comment['replies'] = build_nested_comments(comments_dict, comment_id)
+            nested_comments.append(comment)
     return nested_comments
 
 @project_routes.route('/<int:projectId>/comments')
@@ -225,7 +225,7 @@ def get_comments(projectId):
     comments_dict = {comment.id: comment.to_dict() for comment in comments}
 
     nested_comments = build_nested_comments(comments_dict)
-    print("nested commements========================", nested_comments)
+    print("nested commements========================",nested_comments)
 
     return nested_comments
    
