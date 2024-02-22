@@ -6,6 +6,7 @@ import RewardListItem from '../RewardListItem/rewardListItem';
 import { thunkGetOneProject } from '../../../redux/project';
 
 
+
 const RewardList =  () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
