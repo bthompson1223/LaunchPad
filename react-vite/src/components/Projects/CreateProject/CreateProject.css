@@ -1,0 +1,64 @@
+.create-project-form {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.input-create {
+  display: flex;
+  width: 350px;
+  border: 2px solid black;
+  border-radius: 2px;
+  padding: 3px;
+  background-color: #c4dace;
+}
+
+.fund-input {
+  display: inline-flex;
+  width: 340px !important;
+  margin-left: 4px;
+}
+
+.price-div {
+  display: inline-flex;
+  align-items: center;
+}
+
+.desc {
+  height: 180px;
+}
+
+.errors {
+  color: red;
+  font-family: sans-serif;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.title-errors {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.create-a-project-button {
+  display: flex;
+  width: 350px;
+  margin-top: 20px;
+  justify-content: center;
+  margin-left: 5px;
+  padding: 12px 0px 12px 0px;
+  color: white;
+  background-color: #068859;
+  box-shadow: 2px 2px black;
+  border: 3px solid black;
+}
+
+.cas:hover {
+  cursor: pointer;
+}
