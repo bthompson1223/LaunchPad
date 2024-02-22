@@ -4,6 +4,7 @@ import { returnInitial, thunkGetRewards } from "../../../redux/reward";
 import { useParams, useNavigate } from "react-router-dom";
 import RewardListItem from "../RewardListItem/rewardListItem";
 import { thunkGetOneProject } from "../../../redux/project";
+import './rewardList.css'
 
 const RewardList = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ const RewardList = () => {
 
   return (
     <div>
+      <div >
+        <h1 className="reward-list-title">{project.title}</h1>
+      </div>
       <div className="rewards-titles">
         {isOwner ? (
           <>
