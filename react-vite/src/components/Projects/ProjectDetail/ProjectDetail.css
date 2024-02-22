@@ -1,0 +1,130 @@
+.project-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f2eb;
+  border-bottom: 1px solid lightgray;
+}
+
+.project-detail-section {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.project-detail {
+  display: flex;
+  flex-direction: row;
+}
+
+.project-detail-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-detail-titles h1 {
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  font-size: xx-large;
+}
+
+.project-detail-titles p {
+  margin-top: 0;
+}
+
+
+.project-detail-image {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail-image img {
+  width: 700px;
+  height: 375px;
+  object-fit: cover;
+}
+
+.project-detail-stats {
+  color: rgb(118, 118, 118);
+  padding-left: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-detail-stats h2 {
+  margin-bottom: 0;
+  font-size: xx-large;
+}
+
+#back-project-button {
+  color: white;
+  background-color: #068859;
+  border: none;
+  width: 100%;
+  padding: 1rem;
+}
+
+#project-total-funded {
+  color: #068859;
+}
+
+.project-detail-in-depth {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.project-detail-category-location {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.project-detail-category-location a {
+  text-decoration: none;
+  color: black;
+}
+
+.icon-span {
+  padding-right: 5px;
+}
+
+.project-detail-nav {
+  height: 3rem;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-sub-nav-links {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-nav span {
+  padding: 1rem 5rem 1rem 0rem;
+  font-size: x-large;
+}
+
+.project-detail-nav span:hover {
+  color: #068859;
+  cursor: pointer;
+}
+
+.project-detail-nav .active {
+  color: #068859;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+}
+
+.project-detail-topic {
+  margin: 3rem auto;
+  width: 75%;
+  font-size: large;
+}

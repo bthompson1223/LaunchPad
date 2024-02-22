@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { FaMapMarkerAlt, FaRegCompass } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { thunkGetOneProject } from "../../../redux/project";
 import { Story } from "./StorySection";
 import { Risks } from "./RiskSection";
 import { Comments } from "./CommentSection";
 import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
 import OpenModalButton from "../../OpenModalButton/OpenModalButton";
+import "./ProjectDetail.css";
 
 const ProjectDetail = () => {
   const navigate = useNavigate();
@@ -41,94 +42,99 @@ const ProjectDetail = () => {
   return (
     <div>
       <section className="project-detail-container">
-        <div className="project-detail-titles">
-          <h1>{project.title}</h1>
-          <p>{project.subtitle}</p>
-        </div>
-
-        <div className="project-detail">
-          <div className="project-detail-image">
-            <img src={project.coverImage} alt="Cover image for the project" />
-            <div>
-              <span>
-                <span>
-                  <FaRegCompass />
-                </span>
-                {project.category}
-              </span>
-              <span>
-                <span>
-                  <FaMapMarkerAlt />
-                </span>
-                {project.location}
-              </span>
-            </div>
+        <div className="project-detail-section">
+          <div className="project-detail-titles">
+            <h1>{project.title}</h1>
+            <p>{project.subtitle}</p>
           </div>
 
-          <div className="project-detail-stats">
-            <div>
-              <h3>${project.totalFunded}</h3>
-              <p>pledged of ${project.fundingGoal} goal</p>
+          <div className="project-detail">
+            <div className="project-detail-image">
+              <img src={project.coverImage} alt="Cover image for the project" />
             </div>
 
-            <div>
-              <h3>{project.numOfBackers}</h3>
-              <p>backers</p>
-            </div>
+            <div className="project-detail-stats">
+              <div>
+                <h2 id="project-total-funded">${project.totalFunded}</h2>
+                <span>pledged of ${project.fundingGoal} goal</span>
+              </div>
 
-            <div>
-              {daysLeft == 0 && (
-                <>
-                  <h3>{hoursLeft}</h3> <p>hours left!</p>
-                </>
+              <div>
+                <h2>{project.numOfBackers}</h2>
+                <span>backers</span>
+              </div>
+
+              <div>
+                {daysLeft == 0 && (
+                  <>
+                    <h2>{hoursLeft}</h2> <span>hours left!</span>
+                  </>
+                )}
+                {daysLeft > 0 && (
+                  <>
+                    <h2>{daysLeft}</h2> <span>days to go</span>
+                  </>
+                )}
+              </div>
+              {isOwner == false && (
+                <button
+                  id="back-project-button"
+                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                >
+                  Back this project
+                </button>
               )}
-              {daysLeft > 0 && (
-                <>
-                  <h3>{daysLeft}</h3> <p>days left</p>
-                </>
+              {isOwner && (
+                <button onClick={() => navigate(`/projects/${project.id}/edit`)}>
+                  Edit project
+                </button>
+              )}
+              {isOwner && (
+                <button
+                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                >
+                  View Rewards
+                </button>
+              )}
+              {isOwner && (
+                <button
+                  onClick={() => navigate(`/projects/${project.id}/rewards/new`)}
+                >
+                  Add a Reward
+                </button>
+              )}
+              {isOwner && (
+                <OpenModalButton
+                  buttonText="Delete"
+                  modalComponent={<DeleteProjectModal project={project} />}
+                />
               )}
             </div>
-            {isOwner == false && (
-              <button
-                onClick={() => navigate(`/projects/${project.id}/rewards`)}
-              >
-                Back this project
-              </button>
-            )}
-            {isOwner && (
-              <button onClick={() => navigate(`/projects/${project.id}/edit`)}>
-                Edit project
-              </button>
-            )}
-            {isOwner && (
-              <button
-                onClick={() => navigate(`/projects/${project.id}/rewards`)}
-              >
-                View Rewards
-              </button>
-            )}
-            {isOwner && (
-              <button
-                onClick={() => navigate(`/projects/${project.id}/rewards/new`)}
-              >
-                Add a Reward
-              </button>
-            )}
-            {isOwner && (
-              <OpenModalButton
-                buttonText="Delete"
-                modalComponent={<DeleteProjectModal project={project} />}
-              />
-            )}
           </div>
+          <div className="project-detail-category-location">
+                <span>
+                  <span className="icon-span">
+                    <FaRegCompass />
+                  </span>
+                  <Link to={`/categories/${project.category}`}>{project.category}</Link>
+                </span>
+                <span>
+                  <span className="icon-span">
+                    <FaMapMarkerAlt />
+                  </span>
+                  {project.location}
+                </span>
+              </div>
         </div>
       </section>
+      <nav className="project-detail-nav">
+        <div className="project-detail-sub-nav-links">
+          <span className={topic == "story" ? "active" : null} onClick={() => setTopic("story")}>Story</span >
+          <span className={topic == "risks" ? "active" : null} onClick={() => setTopic("risks")}>Risks</span >
+          <span className={topic == "comments" ? "active" : null} onClick={() => setTopic("comments")}>Comments</span >
+        </div>
+      </nav>
       <section className="project-detail-in-depth">
-        <nav className="project-detail-nav">
-          <NavLink onClick={() => setTopic("story")}>Story</NavLink>
-          <NavLink onClick={() => setTopic("risks")}>Risks</NavLink>
-          <NavLink onClick={() => setTopic("comments")}>Comments</NavLink>
-        </nav>
         <div className="project-detail-topic">
           {topic == "story" && <Story project={project} />}
           {topic == "risks" && <Risks project={project} />}
