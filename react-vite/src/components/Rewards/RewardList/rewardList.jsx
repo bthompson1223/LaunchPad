@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { thunkGetRewards } from "../../../redux/reward";
+import { returnInitial, thunkGetRewards } from "../../../redux/reward";
 import { useParams, useNavigate } from "react-router-dom";
 import RewardListItem from "../RewardListItem/rewardListItem";
 import { thunkGetOneProject } from "../../../redux/project";
@@ -17,6 +17,8 @@ const RewardList = () => {
 
   useEffect(() => {
     dispatch(thunkGetRewards(projectId));
+
+    return () => dispatch(returnInitial());
   }, [dispatch, projectId]);
 
   useEffect(() => {
