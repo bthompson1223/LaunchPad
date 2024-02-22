@@ -23,18 +23,23 @@ const ProjectDetail = () => {
         
     }, [dispatch, projectId])
     
-    const msDay = 60*60*24*1000;
-
-    // if (Object.values(project).length == 0) return null;
     if (!project) return null
+
+    const msDay = 60*60*24*1000;
+    const daysToGo = ((new Date(project.end_date) - new Date()) / msDay);
+  
+    let daysLeft = Math.floor(daysToGo)
+   
+    let hoursLeft;
+    if (daysLeft < 1) {
+      hoursLeft = Math.round(daysToGo*24)
+    }
 
     let isOwner = false;
     if (user?.id == project.owner.id) {
       isOwner = true;
     }
 
-    const daysToGo = Math.floor(((new Date(project.end_date) - new Date()) / msDay));
-    
     return (
         <div>
         <section className="project-detail-container">
@@ -64,8 +69,8 @@ const ProjectDetail = () => {
                     </div>
 
                     <div>
-                        <h3>{daysToGo}</h3>
-                        <p>days to go</p>
+                        {daysLeft == 0 && <><h3>{hoursLeft}</h3> <p>hours left!</p></>}
+                        {daysLeft > 0 && <><h3>{daysLeft}</h3> <p>days left</p></>}
                     </div>
                     {isOwner == false && <button onClick = {() => navigate(`/projects/${project.id}/rewards`)}>Back this project</button>}
                     {isOwner && <button onClick = {() => navigate(`/projects/${project.id}/edit`)}>Edit this project</button>}

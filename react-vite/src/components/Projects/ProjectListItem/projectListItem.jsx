@@ -4,7 +4,14 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 // backed projects, liked projects, categories page, created projects
 export const ProjectListItem = ({ project }) => {
     const msDay = 60*60*24*1000;
-    const daysToGo = Math.floor(((new Date(project.end_date) - new Date()) / msDay));
+    const daysToGo = ((new Date(project.end_date) - new Date()) / msDay);
+
+    let daysLeft = Math.floor(daysToGo)
+  
+    let hoursLeft;
+    if (daysLeft < 1) {
+      hoursLeft = Math.round(daysToGo*24)
+    }
     const fundingPercentage = project.totalFunded / project.fundingGoal
     const categoryName = project.category.replace("-", " & ")
 
@@ -28,7 +35,8 @@ export const ProjectListItem = ({ project }) => {
             <div className="card-stats">
                 <p>${project.totalFunded} pledged</p>
                 <p>{fundingPercentage}% funded</p>
-                <p>{daysToGo} days to go</p>
+                {daysLeft == 0 && <p>{hoursLeft} hours left!</p>}
+                {daysLeft > 0 && <p>{daysLeft} days left</p>}
             </div>
             
             <div>
