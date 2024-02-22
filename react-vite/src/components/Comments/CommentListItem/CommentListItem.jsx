@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import OpenModalButton from "../../OpenModalButton/OpenModalButton";
 import { DeleteCommentModal } from "../DeleteCommentModal/DeleteCommentModal";
@@ -7,6 +7,7 @@ import './commentListItem.css'
 import { useDispatch } from "react-redux";
 import { thunkCreateComment } from "../../../redux/comments";
 import { Comments } from "../../Projects/ProjectDetail/CommentSection";
+import { thunkGetComments, clearComments } from "../../../redux/comments";
 
 const CommentListItem = ({ comment }) => {
   // console.log("🚀 ~ CommentListItem ~ comment:", comment.replies.length)
@@ -20,6 +21,7 @@ const CommentListItem = ({ comment }) => {
   const [ showReplyField, setShowReplyField ] = useState(false)
   const [ reply, setReply ] = useState("")
   const [ errors, setErrors ] = useState({})
+  const [newReply, setNewReply] = useState(false)
   const hasReplies = comment?.replies?.length > 0
   console.log("🚀 ~ CommentListItem ~ hasReplies:", hasReplies)
 
@@ -50,8 +52,13 @@ const CommentListItem = ({ comment }) => {
       setShowReplyField(false)
 
       dispatch(thunkCreateComment(projectId, commentData))
+      setNewReply = !newReply
     }
   }
+
+  useEffect(() => {
+    dispatch(thunkGetComments(projectId))
+  }, [dispatch, projectId, newReply])
 
   return (
     <div className="comment-container">
