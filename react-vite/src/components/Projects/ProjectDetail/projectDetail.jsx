@@ -8,6 +8,7 @@ import { Risks } from "./RiskSection";
 import { Comments } from "./CommentSection";
 import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
 import OpenModalButton from "../../OpenModalButton/OpenModalButton";
+import './ProjectDetail.css'
 
 const ProjectDetail = () => {
   const navigate = useNavigate();

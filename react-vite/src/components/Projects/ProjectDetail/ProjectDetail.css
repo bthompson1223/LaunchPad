@@ -1,0 +1,19 @@
+.project-detail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-detail-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-detail-image {
+  width: 50%;
+  display: flex;
+}
+
+.project-detail-image img {
+  object-fit: contain;
+}
