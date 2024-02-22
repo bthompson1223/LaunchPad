@@ -155,11 +155,16 @@ def delete_project(projectId):
 # Get all rewards for a project
 @project_routes.route('/<int:projectId>/rewards')
 def get_rewards(projectId):
+    project = Project.query.get(projectId)
+    
+    if not project: 
+         return {'errors': {'message': "Project not found"}}, 404
+    
     rewards = Reward.query.filter(Reward.project_id == projectId).all()
     if rewards:
         return [reward.to_dict() for reward in rewards]
     else: 
-        return {"errors": {"message": "Incorrect projectId or this project has no rewards"}}, 404
+        return []
     
 # create reward for a project
 @login_required

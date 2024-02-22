@@ -11,6 +11,7 @@ import OwnedProjects from '../components/Projects/OwnedProjects/OwnedProjects';
 import SplashPage from "../components/SplashPage/splashPage";
 import CreateReward from '../components/Rewards/CreateReward/CreateReward';
 import BackedProjects from "../components/Backings/BackedProjects";
+import EditReward from '../components/Rewards/EditReward/EditReward';
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
                         path: 'new',
                         element: <CreateReward />
                       }, 
+                      {
+                        path: ':rewardId/edit',
+                        element: <EditReward />
+                      }
                     ]
                     
                   },
