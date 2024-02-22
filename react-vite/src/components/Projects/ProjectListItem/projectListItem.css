@@ -1,0 +1,23 @@
+.project-container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 5rem;
+}
+
+.card-project-image {
+  width: 200px;
+  max-height: 200px;
+  margin-right: 10rem;
+}
+
+.project-image {
+  object-fit: contain;
+  max-width: 300px;
+  border-radius: 10px;
+}

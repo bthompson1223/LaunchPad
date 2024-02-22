@@ -3,6 +3,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import OpenModalButton from "../../OpenModalButton";
 import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
+import "./projectListItem.css";
 
 // backed projects, liked projects, categories page, created projects
 export const ProjectListItem = ({ project }) => {
@@ -23,10 +24,14 @@ export const ProjectListItem = ({ project }) => {
   let isOwner = project.owner.id == user?.id;
 
   return (
-    <li>
+    <li className="project-container">
       <Link to={`/projects/${project.id}`}>
         <div className="card-project-image">
-          <img src={`${project.coverImage}`} alt="cover image of project" />
+          <img
+            src={`${project.coverImage}`}
+            alt="cover image of project"
+            className="project-image"
+          />
         </div>
       </Link>
       <div className="card-text-div">
