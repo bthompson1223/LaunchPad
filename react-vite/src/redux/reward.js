@@ -120,9 +120,11 @@ function rewardReducer(state = initialState, action) {
     switch (action.type) {
         case GET_REWARDS: {
             const newState = { ...state }
-            action.rewards.forEach(reward => {
-                newState[reward.id] = reward
-            })
+            if (action.rewards) {
+                action.rewards.forEach(reward => {
+                    newState[reward.id] = reward
+                })
+            }
             return newState;
         }
         case GET_ONE_REWARD: {

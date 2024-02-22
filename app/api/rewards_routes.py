@@ -54,11 +54,11 @@ def update_reward(rewardId):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        # User did not upate image (image is an url)
+        # if User did not upate image (image is an url)
         img_url = form.data["img_url"]
         upload = None
         
-        # User updated image (image is a file)
+        # if User updated image (image is a file)
         if not isinstance(img_url, str) and img_url is not None: 
             imageFile = form.data["img_url"]
             imageFile.filename = get_unique_filename(imageFile.filename)
