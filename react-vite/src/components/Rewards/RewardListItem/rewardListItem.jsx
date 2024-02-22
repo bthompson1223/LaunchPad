@@ -2,6 +2,7 @@
 import { useState } from "react";
 import OpenModalButton from '../../OpenModalButton';
 import PledgeRewardModal from "./plegeRewardModel";
+import DeleteRewardModal from "../DeleteReward/DeleteRewardModal";
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
     const [isClicked, setIsClicked] = useState(false) 
@@ -38,15 +39,18 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
                     {
                         isActive && !isOwner && (
                             <div className="plege-detail">
-                                <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId } />} />
+                                <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId} />} />
                             </div>
                         )
                     }
                     {
-                        // isOwner && (
-                        //     <button>Update</button>
-                        //     <OpenModalButton  buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId } />}/>
-                        // )
+                        isOwner && (
+                            <div>
+                                <button>Update</button>
+                                <OpenModalButton  buttonText="Delete" modalComponent={<DeleteRewardModal rewardId = {rewardId} />}/>
+                            </div>
+                            
+                        )
                     }
                 </div>
         </div>

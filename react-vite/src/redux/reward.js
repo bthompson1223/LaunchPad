@@ -2,6 +2,7 @@
 const RETURN_INITIAL = "projects/RETURN_INITIAL";
 const GET_REWARDS = "rewards/GET_REWARDS"
 const CREATE_REWARD = "rewards/CREATE_REWARD"
+const DELETE_REWARD = "rewards/DELETE_REWARD"
 
 // action creator
 const getRewards = (rewards) => ({
@@ -12,6 +13,11 @@ const getRewards = (rewards) => ({
 const createReward = (reward) => ({
     type: CREATE_REWARD,
     reward
+})
+
+const deleteReward = (rewardId) => ({
+    type: DELETE_REWARD,
+    rewardId
 })
 
 export const returnInitial = () => {
@@ -51,6 +57,23 @@ export const thunkCreateReward = (formData, projectId) => async (dispatch) => {
     }
  }
 
+ // thunk - Delete a reward
+ export const thunkDeleteReward = (rewardId) => async (dispatch) => {
+    const res = await fetch(`/api/rewards/${rewardId}`, {
+        method: "DELETE"
+    })
+
+    console.log("🚀 ~ thunkDeleteReward ~ reward:", `inside thunk delete reward with id of  ${rewardId}`)
+
+    if (res.ok) {
+        dispatch(deleteReward(rewardId))
+        return rewardId
+    } else {
+        const errs = await res.json();
+        return errs;
+    }
+ } 
+
 const initialState = {}
 
 function rewardReducer(state = initialState, action) {
@@ -67,6 +90,11 @@ function rewardReducer(state = initialState, action) {
             newState[action.reward.id] = action.reward
             return newState;
         }
+        case DELETE_REWARD: {
+            const newState = { ...state };
+            delete newState[action.rewardId];
+            return newState;
+          }
         case RETURN_INITIAL: {
             return initialState;
         }

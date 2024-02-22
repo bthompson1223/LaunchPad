@@ -80,10 +80,19 @@ def delete_reward(rewardId):
     if current_user.id is not reward.owner_id:
         return {'errors': {'message': "Unauthorized"}}, 401
     
+    print("🚀 ~ reward_routes~ reward:", "inside reward delete route")
+
+
+    if not reward:
+        return {'errors': {'message': "Reward not found"}}, 404
+    
+    if current_user.id is not reward.owner_id:
+        return {'errors': {'message': "Unauthorized"}}, 401
+    
     db.session.delete(reward)
     db.session.commit()
 
-    return {"message": f"Successfully deleted reward {reward['name']}"}
+    return {"message": f"Successfully deleted reward"}
  
 
 @login_required
