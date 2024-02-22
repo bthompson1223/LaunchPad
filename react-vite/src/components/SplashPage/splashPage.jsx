@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { returnInitial, thunkGetCategoryProjects } from "../../redux/project";
 import { NavLink } from "react-router-dom";
 import { ProjectListItem } from "../Projects/ProjectListItem/projectListItem";
+import "./splashPage.css";
 
 const SplashPage = () => {
   const projectsObj = useSelector((state) => state.projects);
@@ -35,9 +36,9 @@ const SplashPage = () => {
   const randomProject = randomChoice(projectsArr);
 
   return (
-    <div>
-      <div>
-        <nav>
+    <div className="splash-container">
+      <div className="splash-categories-container">
+        <nav className="splash-categories-nav">
           <NavLink to="/categories/all">All</NavLink>
           <NavLink to="/categories/arts">Arts</NavLink>
           <NavLink to="/categories/comics-illustration">
@@ -51,7 +52,7 @@ const SplashPage = () => {
           <NavLink to="/categories/publishing">Publishing</NavLink>
         </nav>
       </div>
-      <h1>Bring a creative project to life.</h1>
+      <h1 className="splash-title">Bring a creative project to life.</h1>
       <div className="splash-stats">
         <div className="on-launchpad">
           <h3>Currently on LaunchPad:</h3>
@@ -61,10 +62,12 @@ const SplashPage = () => {
             <div className="projects">{projectsArr.length}</div>
             <div className="stats-text">projects getting funding</div>
           </div>
+          <div className="bar"> </div>
           <div className="total-funded">
             <div className="funding">${sum}</div>
             <div className="stats-text">Total Funding</div>
           </div>
+          <div className="bar"></div>
           <div className="pledges-made">
             <div className="backers">{backers}</div>
             <div className="stats-text">Total pledges</div>
