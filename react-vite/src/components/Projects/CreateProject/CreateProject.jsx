@@ -31,7 +31,8 @@ const CreateProject = () => {
 
     if (!title) validationErrors.title = "Title is required";
     if (!subTitle) validationErrors.subTitle = "Subtitle is required";
-    if (!category) validationErrors.category = "Category is required";
+    if (category === "placeholder")
+      validationErrors.category = "Category is required";
     if (!location) validationErrors.location = "Location is required";
     if (!story) validationErrors.story = "Story is required";
     if (!risks) validationErrors.risks = "Risks is required";
@@ -75,8 +76,8 @@ const CreateProject = () => {
   };
 
   return (
-    <div>
-      <h1>Create a New Project!</h1>
+    <div className="create-project-form-container">
+      <h1 className="create-project-header">Create a New Project!</h1>
       <form
         className="create-project-form"
         onSubmit={handleSubmit}
