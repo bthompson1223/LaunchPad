@@ -210,26 +210,63 @@ def new_reward(projectId):
         return new_reward.to_dict()
     return form.errors, 401
 
+def build_nested_comments(comments_dict, parent_id=None):
+    nested_comments = []
+    for comment_id, comment_data in comments_dict.items():
+        if comment_data['parent'] == parent_id:
+            # Recursively find replies to this comment
+            comment_data['replies'] = build_nested_comments(comments_dict, comment_id)
+            nested_comments.append(comment_data)
+    return nested_comments
 
 @project_routes.route('/<int:projectId>/comments')
 def get_comments(projectId):
-  comments = Comment.query.filter(Comment.project_id == projectId)
+    comments = Comment.query.filter(Comment.project_id == projectId).all()
+    comments_dict = {comment.id: comment.to_dict() for comment in comments}
 
-  return [comment.to_dict() for comment in comments]
+    # Build nested comments starting with top-level comments (parent is None)
+    nested_comments = build_nested_comments(comments_dict)
+    print (nested_comments)
 
+    return nested_comments
+    # comments = Comment.query.filter(Comment.project_id == projectId)
+    # comments_dict = {}
+    # parent_comments = []
+    # for comment in comments:
+    #     if comment.parent is None:
+    #         parent_comments.append(comment)
+    #     comments_dict[comment.id] = comment.to_dict()
+    #     comments_dict[comment.id]["replies"] = []
+    
+    # for comment in comments:
+    #     if comment.parent:
+    #         comments_dict[comment.parent]["replies"].append(comment.to_dict())
+
+    # return [comments_dict[comment.id] for comment in parent_comments]
+    # parent_comments = [comment.to_dict() for comment in comments if comment.parent is None]
+    # return [comment.to_dict() for comment in comments]
 
 @login_required
 @project_routes.route('/<int:projectId>/comments', methods=["POST"])
 def create_comment(projectId):
 
-
     data = request.json
 
+    if 'comment' in data: 
+        comment = data['comment'] 
+    else: 
+        comment =  data['reply']
+
+    if 'parentId' in data:
+        parent = data['parentId']
+    else:
+        parent = None
+
     new_comment = Comment(
-        comment = data['comment'],
+        comment = comment,
         project_id = projectId,
         user_id = current_user.id,
-        # parent = parent if parent else None
+        parent = parent
     )
     try:
         db.session.add(new_comment)
