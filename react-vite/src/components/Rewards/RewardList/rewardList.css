@@ -28,5 +28,15 @@
     margin-top: 5px
 }
 
+#create-reward {
+    background-image: linear-gradient(to bottom, #e0e8fd, #fcf1ec);
+    color: black; 
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
 
 

@@ -45,7 +45,7 @@ const RewardList = () => {
         {isOwner ? (
           <>
             <h1>Manage Your Rewards</h1>
-            <button
+            <button id = "create-reward"
               onClick={() => navigate(`/projects/${projectId}/rewards/new`)}
             >
               Create a New Reward
