@@ -67,3 +67,10 @@ ul {
 .root {
   max-width: fit-content;
 }
+
+.profile-image {
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+}

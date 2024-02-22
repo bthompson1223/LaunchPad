@@ -1,13 +1,13 @@
-import { useState } from "react";
 import OpenModalButton from '../../OpenModalButton';
-import PledgeRewardModal from "./plegeRewardModel";
+import PledgeRewardModal from "./pledgeRewardModel";
 import DeleteRewardModal from "../DeleteReward/DeleteRewardModal";
 import { useNavigate} from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
-    const [isClicked, setIsClicked] = useState(false) 
     const rewardId = reward.id   
     const navigate = useNavigate();
+    const user = useSelector(state => state.session.user)
     
     return (
         <div className="reward-card" onClick={onRewardClick}>
@@ -38,11 +38,18 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
             </div >
                 <div className="details-actions">
                     {
-                        isActive && !isOwner && (
-                            <div className="plege-detail">
-                                <OpenModalButton buttonText={`Pledge ${reward.amount}`} modalComponent={<PledgeRewardModal rewardId = {rewardId} />} />
+                        isActive && !isOwner && user && (
+                            <div className="pledge-detail">
+                                <OpenModalButton buttonText={`Pledge $${reward.amount}`} modalComponent={<PledgeRewardModal reward = {reward} />} />
                             </div>
                         )
+                    }
+                    {
+                      isActive && !user && (
+                        <div className='pledge-detail'>
+                          <p>You must be logged in to pledge!</p>
+                        </div>
+                      )
                     }
                     {
                         isOwner && (

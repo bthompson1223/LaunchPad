@@ -3,6 +3,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { thunkUpdateProject, thunkGetOneProject } from "../../../redux/project";
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
 const UpdateProject = () => {
   const { projectId } = useParams();
   const dispatch = useDispatch();
@@ -35,7 +43,7 @@ const UpdateProject = () => {
       setRisks(project.risks)
       setCoverImage(project.coverImage)
       setFundingGoal(project.fundingGoal)
-      setEndDate(project.end_date)
+      setEndDate(formatDate(project.end_date))
     }
   }, [project])
   
@@ -74,10 +82,7 @@ const UpdateProject = () => {
     if (Object.values(validationErrors).length) {
       setErrors(validationErrors);
     } else {
-      // console.log(typeof category)
-      // console.log(typeof parseInt(category))
       const categoryNum = parseInt(category);
-      console.log(coverImage);
 
       const formData = new FormData();
       formData.append("title", title);
@@ -257,7 +262,7 @@ const UpdateProject = () => {
           </div>
         </div>
 
-        <button type="submit">Create a Project</button>
+        <button type="submit">Edit Project</button>
 
         {imageLoading && <p>Loading...</p>}
       </form>
