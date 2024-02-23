@@ -83,7 +83,7 @@ const SplashPage = () => {
       </div>
       <div className="random-project">
         <h3>Featured Project:</h3>
-        <ProjectListItem project={randomProject} />
+        <ProjectListItem className='featured-project' project={randomProject} />
       </div>
     </div>
   );
