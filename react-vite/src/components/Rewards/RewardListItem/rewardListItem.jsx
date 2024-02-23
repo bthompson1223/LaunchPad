@@ -17,13 +17,15 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
     let ifBacked = false
 
     useEffect(() => {
-        dispatch(thunkGetBackings())
-
+        if (user) {
+            dispatch(thunkGetBackings())
+        }
+        
         return () => dispatch(clearBackings())
       }, [dispatch]);
 
     
-    if (backings?.length > 0) {
+    if (backings?.length > 0 && user) {
         for (let backing of backings) {
             if (backing?.reward_id === reward.id) {
                 ifBacked = true;
