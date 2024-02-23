@@ -29,7 +29,7 @@ const CommentListItem = ({ comment }) => {
     hoursAfterPosting = Math.round(daysAfterPosting*24)
   }
   
-  const isCommenter = user.id == comment.user_id
+  const isCommenter = user?.id == comment.user_id
 
   const handleSubmit = (e) => {
     e.preventDefault()

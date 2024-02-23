@@ -1,7 +1,9 @@
 export const Story = ({project}) => {
     return (
         <div>
-            {project.story}
+            <p>
+              {project.story}
+            </p>
         </div>
     )
 }

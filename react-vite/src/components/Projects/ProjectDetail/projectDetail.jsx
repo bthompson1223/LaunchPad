@@ -76,8 +76,9 @@ const ProjectDetail = () => {
                   </>
                 )}
               </div>
-              {isOwner == false && (
+              {!isOwner && (
                 <button
+                  className="project-detail-buttons"
                   id="back-project-button"
                   onClick={() => navigate(`/projects/${project.id}/rewards`)}
                 >
@@ -85,29 +86,28 @@ const ProjectDetail = () => {
                 </button>
               )}
               {isOwner && (
-                <button onClick={() => navigate(`/projects/${project.id}/edit`)}>
-                  Edit project
-                </button>
-              )}
-              {isOwner && (
-                <button
-                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
-                >
-                  View Rewards
-                </button>
-              )}
-              {isOwner && (
-                <button
-                  onClick={() => navigate(`/projects/${project.id}/rewards/new`)}
-                >
-                  Add a Reward
-                </button>
-              )}
-              {isOwner && (
-                <OpenModalButton
-                  buttonText="Delete"
-                  modalComponent={<DeleteProjectModal project={project} />}
-                />
+                <div>
+                  <button 
+                  className="project-detail-buttons"
+                  onClick={() => navigate(`/projects/${project.id}/edit`)}>
+                    Edit project
+                  </button>
+                  <button 
+                  className="project-detail-buttons"
+                  onClick={() => navigate(`/projects/${project.id}/rewards`)}>
+                    View Rewards
+                  </button>
+                  <button 
+                  className="project-detail-buttons"
+                  onClick={() => navigate(`/projects/${project.id}/rewards/new`)}>
+                    Add a Reward
+                  </button>
+                  <OpenModalButton
+                  className="project-detail-buttons"
+                    buttonText="Delete"
+                    modalComponent={<DeleteProjectModal project={project} />}
+                    />
+                </div>
               )}
             </div>
           </div>
