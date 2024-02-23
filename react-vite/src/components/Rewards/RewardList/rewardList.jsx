@@ -36,7 +36,7 @@ const RewardList = () => {
   }
 
   return (
-    <div>
+    <div className="reward-list">
       <div onClick={() => navigate(`/projects/${projectId}`)} className="reward-project-title">
         <h1 >{project.title}</h1>
         <p>by {project.owner.first_name} {project.owner.last_name}</p>
