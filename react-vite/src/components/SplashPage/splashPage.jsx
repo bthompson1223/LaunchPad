@@ -74,15 +74,13 @@ const SplashPage = () => {
       <div className="random-project">
         <h3>Featured Projects</h3>
         <ul className="featured">
-          <li>
+
             <FeaturedProject className='featured-project' project={randomProject1} />
-          </li>
-          <li>
+
             <FeaturedProject className='featured-project' project={randomProject2} />
-          </li>
-          <li>
+
             <FeaturedProject className='featured-project' project={randomProject3} />
-          </li>
+
         </ul>
       </div>
     </div>
