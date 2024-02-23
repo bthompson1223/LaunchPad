@@ -3,7 +3,7 @@ import PledgeRewardModal from "./pledgeRewardModel";
 import DeleteRewardModal from "../DeleteReward/DeleteRewardModal";
 import { useNavigate} from "react-router-dom";
 import { useSelector } from 'react-redux';
-import './rewardListItem.css'
+import '../RewardCSS/rewardListItem.css'
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
     const rewardId = reward.id   

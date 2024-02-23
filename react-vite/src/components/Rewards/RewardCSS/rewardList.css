@@ -8,14 +8,16 @@
     background-color: #fbfbfa;
     margin-top: 30px;
     margin-bottom: 100px;
+    cursor: pointer
 }
+
 
 .reward-project-title h1 {
     font-weight: 500;
 }
 
 .rewards-list-titles {
-    margin-left: 120px
+    margin-left: 120px;
 }
 
 .rewards-list-titles h1 {
@@ -38,5 +40,8 @@
     margin-top: 10px;
 }
 
+#create-reward:hover {
+    background-image: linear-gradient(to bottom, #ccd7f5, #f8e2da);
+}
 
 
