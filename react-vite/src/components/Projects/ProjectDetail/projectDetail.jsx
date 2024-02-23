@@ -54,6 +54,9 @@ const ProjectDetail = () => {
             </div>
 
             <div className="project-detail-stats">
+            {/* <div className="meter">
+              <span style={`width: ${pro}%`}></span>
+            </div> */}
               <div>
                 <h2 id="project-total-funded">${project.totalFunded}</h2>
                 <span>pledged of ${project.fundingGoal} goal</span>
