@@ -1,7 +1,8 @@
 .reward-add-edit {
     max-width: 500px;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 30px;
+    padding-top: 10px;
     background-color: #f9f9f9;
 }
 
@@ -13,9 +14,9 @@
     margin-bottom: 30px;
 }
 
-/* h2 */
-.reward-add-edit h2 {
-    font-size: 18px;
+/* h3 */
+.reward-add-edit h3 {
+    font-size: 15px;
     font-weight: 500;
     margin-bottom: 10px;
 }
@@ -34,22 +35,19 @@
 .reward-add-edit input[type="text"],
 .reward-add-edit input[type="number"],
 .reward-add-edit input[type="date"],
-.reward-add-edit textarea,
-.reward-add-edit input[type="file"] {
+.reward-add-edit textarea {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box; 
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
-
 
 .reward-add-edit textarea {
     height: 120px;
     resize: vertical;
 }
-
 
 .reward-errors p {
     color: #d9534f;
@@ -58,29 +56,30 @@
     margin-bottom: 15px;
 }
 
-/* Submit Button */
-button[type="submit"] {
+
+.reward-add-edit button[type="submit"] {
     padding: 10px 15px;
     border: none;
     background-color: #068859;
     color: white;
     cursor: pointer;
     width: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
-button[type="submit"]:hover {
+.reward-add-edit button[type="submit"]:hover {
     background-color: #005738;
 }
 
-/* Image Preview Styling */
+
 .reward-input-div img {
     max-width: 100%;
     margin-top: 10px;
-    border-radius: 5px;
 }
 
-/* Adjust the input file button */
-input[type='file'] {
+.reward-input-div input[type='file'] {
     padding: 10px;
 }
 

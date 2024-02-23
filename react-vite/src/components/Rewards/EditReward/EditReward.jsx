@@ -88,8 +88,8 @@ const EditReward = () => {
         <div className="reward-add-edit">
             <h1>Update Your Reward</h1>
             <form className="reward-add-edit-form" onSubmit={handleSubmit} encType="multipart/form-data">
-              <div className="reward-reward-input-div">
-                  <h2>Name of your Reward</h2>
+              <div className="reward-input-div">
+                  <h3>Name of your Reward</h3>
                   <label htmlFor="name">
                     <input 
                       type="text"
@@ -99,13 +99,13 @@ const EditReward = () => {
                       placeholder = "Reward Name"
                     />
                   </label>
-                  <div className="reward-errors">
+                  <div className="errors">
                       {"name" in errors && <p>{errors.name}</p> }
                   </div>
               </div>
 
-              <div className="reward-reward-input-div">
-                  <h2>Description</h2>
+              <div className="reward-input-div">
+                  <h3>Description</h3>
                   <label htmlFor="description">
                     <textarea 
                       name = "description"
@@ -120,7 +120,7 @@ const EditReward = () => {
               </div>
 
               <div className="reward-input-div">
-                  <h2>$Pledge Amount</h2>
+                  <h3>$Pledge Amount</h3>
                   <label htmlFor="amount">
                     <input 
                       type = "number"
@@ -136,7 +136,7 @@ const EditReward = () => {
               </div>
 
               <div className="reward-input-div">
-                  <h2>Reward Quantity</h2>
+                  <h3>Reward Quantity</h3>
                   <label htmlFor="quantity">
                     <input 
                       type = "number"
@@ -152,7 +152,7 @@ const EditReward = () => {
               </div>
 
               <div className="reward-input-div">
-                  <h2>Estimated Delivery Date</h2>
+                  <h3>Estimated Delivery Date</h3>
                   <label htmlFor="estDeliveryDate">
                     <input 
                       type = "date"
@@ -168,7 +168,7 @@ const EditReward = () => {
               </div>
 
               <div className="reward-input-div">
-                  <h2>Upload a Reward Image</h2>
+                  <h3>Upload a Reward Image</h3>
                   <div>
                     <img src={image} alt="" />
                   </div>
