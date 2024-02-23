@@ -1,12 +1,16 @@
+.reward-list {
+    margin-bottom: 70px
+}
+
 .reward-project-title {
     text-align: center;
     border-top: 1px solid #ddd; 
     border-bottom: 1px solid #ddd; 
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     width: 100%;
     background-color: #fbfbfa;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 100px;
     cursor: pointer
 }

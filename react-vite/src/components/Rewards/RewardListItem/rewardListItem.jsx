@@ -4,7 +4,7 @@ import DeleteRewardModal from "../DeleteReward/DeleteRewardModal";
 import { useNavigate} from "react-router-dom";
 import '../RewardCSS/rewardListItem.css'
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import { thunkGetBackings, clearBackings } from "../../../redux/backings"
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
@@ -38,7 +38,7 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
         <div className="reward-card" onClick={onRewardClick}>
             <div className='reward-card-details'>
                 <div className="card-reward-text-div">
-                    <h2>Pledge ${reward.amount}</h2>
+                    <h3>Pledge ${reward.amount}</h3>
                     <div className="reward-name-description">
                         <h2>{reward.name}</h2>
                         <p>{reward.description}</p>
@@ -95,5 +95,7 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
         </div>
     )
 }
+
+
 
 export default RewardListItem;
