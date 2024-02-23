@@ -3,6 +3,7 @@ import { thunkGetOneProject } from "../../../redux/project";
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { thunkCreateReward } from "../../../redux/reward";
+import '../RewardCSS/rewardEditCreate.css'
 
 const CreateReward = () => {
     const dispatch = useDispatch();
@@ -75,11 +76,11 @@ const CreateReward = () => {
     }
 
     return (
-        <div>
+        <div className="reward-add-edit">
             <h1>Create a New Reward!</h1>
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
-              <div className="input-div">
-                  <h2>Name of your Reward</h2>
+            <form className="reward-add-edit-form" onSubmit={handleSubmit} encType="multipart/form-data">
+              <div className="reward-input-div">
+                  <h3>Name of your Reward</h3>
                   <label htmlFor="name">
                     <input 
                       type="text"
@@ -89,13 +90,13 @@ const CreateReward = () => {
                       placeholder = "Reward Name"
                     />
                   </label>
-                  <div className="errors">
+                  <div className="reward-errors">
                       {"name" in errors && <p>{errors.name}</p> }
                   </div>
               </div>
 
-              <div className="input-div">
-                  <h2>Description</h2>
+              <div className="reward-input-div">
+                  <h3>Description</h3>
                   <label htmlFor="description">
                     <textarea 
                       name = "description"
@@ -104,13 +105,13 @@ const CreateReward = () => {
                       placeholder = "Description"
                     />
                   </label>
-                  <div className="errors">
+                  <div className="reward-errors">
                       {"description" in errors && <p>{errors.description}</p> }
                   </div>
               </div>
 
-              <div className="input-div">
-                  <h2>$Pledge Amount</h2>
+              <div className="reward-input-div">
+                  <h3>$Pledge Amount</h3>
                   <label htmlFor="amount">
                     <input 
                       type = "number"
@@ -120,13 +121,13 @@ const CreateReward = () => {
                       placeholder = "$Pledge Amount"
                     />
                   </label>
-                  <div className="errors">
+                  <div className="reward-errors">
                       {"amount" in errors && <p>{errors.amount}</p> }
                   </div>
               </div>
 
-              <div className="input-div">
-                  <h2>Reward Quantity</h2>
+              <div className="reward-input-div">
+                  <h3>Reward Quantity</h3>
                   <label htmlFor="quantity">
                     <input 
                       type = "number"
@@ -136,13 +137,13 @@ const CreateReward = () => {
                       placeholder = "Reward quantity"
                     />
                   </label>
-                  <div className="errors">
+                  <div className="reward-errors">
                       {"quantity" in errors && <p>{errors.quantity}</p> }
                   </div>
               </div>
 
-              <div className="input-div">
-                  <h2>Estimated Delivery Date</h2>
+              <div className="reward-input-div">
+                  <h3>Estimated Delivery Date</h3>
                   <label htmlFor="estDeliveryDate">
                     <input 
                       type = "date"
@@ -152,13 +153,13 @@ const CreateReward = () => {
                       placeholder = "Estimated Delivery Date"
                     />
                   </label>
-                  <div className="errors">
+                  <div className="reward-errors">
                       {"estDeliveryDate" in errors && <p>{errors.estDeliveryDate}</p> }
                   </div>
               </div>
 
-              <div className="input-div">
-                  <h2>Upload a Reward Image</h2>
+              <div className="reward-input-div">
+                  <h3>Upload a Reward Image</h3>
                   <label htmlFor="image">
                     <input 
                       type = "file"
@@ -166,7 +167,7 @@ const CreateReward = () => {
                       onChange={(e) => setImage(e.target.files[0])}
                     />
                   </label>
-                  <div className="errors">
+                  <div className="reward-errors">
                       {"image" in errors && <p>{errors.image}</p> }
                   </div>
                   {imageLoading && <p>Loading...</p>}

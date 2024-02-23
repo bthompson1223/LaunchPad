@@ -28,6 +28,13 @@ const SplashPage = () => {
     backers += parseInt(project.numOfBackers);
   }
 
+  const formattedSum = sum.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+
   const randomChoice = (choiceArr) => {
     const index = Math.floor(Math.random() * choiceArr.length);
     return choiceArr[index];
@@ -55,7 +62,7 @@ const SplashPage = () => {
       <h1 className="splash-title">Bring a creative project to life.</h1>
       <div className="splash-stats">
         <div className="on-launchpad">
-          <h3>Currently on LaunchPad:</h3>
+          <p>Currently on LaunchPad:</p>
         </div>
         <div className="stats-bar">
           <div className="projects-funded">
@@ -64,7 +71,7 @@ const SplashPage = () => {
           </div>
           <div className="bar"> </div>
           <div className="total-funded">
-            <div className="funding">${sum}</div>
+            <div className="funding">{formattedSum}</div>
             <div className="stats-text">Total Funding</div>
           </div>
           <div className="bar"></div>
