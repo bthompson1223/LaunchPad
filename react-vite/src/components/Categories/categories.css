@@ -3,12 +3,34 @@
   flex-direction: column;
 }
 
+.category-nav-container {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  margin-bottom: 12px;
+}
+
 .category-nav {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 25px;
 }
 
 .category-nav > a {
   color: #3b5249;
   text-decoration: none;
+  padding: 19px 0;
+  font-size: 15px;
+  margin-bottom: 2rem;
+}
+
+.category-nav a:hover {
+  background-color: #f7f2eb;
+}
+
+.category-nav a:hover {
+  background-color:  #F7F2EB
 }

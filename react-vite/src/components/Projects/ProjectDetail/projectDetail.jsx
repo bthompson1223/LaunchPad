@@ -8,6 +8,7 @@ import { Risks } from "./RiskSection";
 import { Comments } from "./CommentSection";
 import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
 import OpenModalButton from "../../OpenModalButton/OpenModalButton";
+import ProgressBar from "../../ProgressBar/ProgressBar";
 import "./ProjectDetail.css";
 
 const ProjectDetail = () => {
@@ -39,11 +40,6 @@ const ProjectDetail = () => {
     isOwner = true;
   }
 
-  const spanStyle = {
-    width: `${project.totalFunded / project.fundingGoal}%`
-    // width: "80%"
-  }
-
   return (
     <div>
       <section className="project-detail-container">
@@ -59,9 +55,7 @@ const ProjectDetail = () => {
             </div>
 
             <div className="project-detail-stats">
-            <div className="progress-bar">
-              <span style={spanStyle}></span>
-            </div>
+            <ProgressBar project={project} />
               <div>
                 <h2 id="project-total-funded">${project.totalFunded}</h2>
                 <span>pledged of ${project.fundingGoal} goal</span>

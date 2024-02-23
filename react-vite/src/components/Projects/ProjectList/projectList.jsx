@@ -6,6 +6,7 @@ import {
   thunkGetCategoryProjects,
   returnInitial,
 } from "../../../redux/project";
+import './ProjectList.css'
 
 const ProjectList = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const ProjectList = () => {
 
   return (
     <div>
-      <ul>
+      <ul className="project-list">
         {projects.map((project) => (
           <ProjectListItem project={project} key={project.id} />
         ))}
