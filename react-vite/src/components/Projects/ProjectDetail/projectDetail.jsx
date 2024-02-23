@@ -76,62 +76,81 @@ const ProjectDetail = () => {
                   </>
                 )}
               </div>
-              {isOwner == false && (
+              {!isOwner && (
+                <div className="project-detail-buttons">
                 <button
                   id="back-project-button"
                   onClick={() => navigate(`/projects/${project.id}/rewards`)}
                 >
                   Back this project
                 </button>
+                </div>
               )}
               {isOwner && (
-                <button onClick={() => navigate(`/projects/${project.id}/edit`)}>
-                  Edit project
-                </button>
-              )}
-              {isOwner && (
-                <button
-                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
-                >
-                  View Rewards
-                </button>
-              )}
-              {isOwner && (
-                <button
-                  onClick={() => navigate(`/projects/${project.id}/rewards/new`)}
-                >
-                  Add a Reward
-                </button>
-              )}
-              {isOwner && (
-                <OpenModalButton
-                  buttonText="Delete"
-                  modalComponent={<DeleteProjectModal project={project} />}
-                />
+                <div className="project-detail-buttons">
+                  <button
+                    onClick={() => navigate(`/projects/${project.id}/edit`)}
+                  >
+                    Edit project
+                  </button>
+                  <button
+                    onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                  >
+                    View Rewards
+                  </button>
+                  <button
+                    onClick={() =>
+                      navigate(`/projects/${project.id}/rewards/new`)
+                    }
+                  >
+                    Add a Reward
+                  </button>
+                  <OpenModalButton
+                    buttonText="Delete"
+                    modalComponent={<DeleteProjectModal project={project} />}
+                  />
+                </div>
               )}
             </div>
           </div>
           <div className="project-detail-category-location">
-                <span>
-                  <span className="icon-span">
-                    <FaRegCompass />
-                  </span>
-                  <Link to={`/categories/${project.category}`}>{project.category}</Link>
-                </span>
-                <span>
-                  <span className="icon-span">
-                    <FaMapMarkerAlt />
-                  </span>
-                  {project.location}
-                </span>
-              </div>
+            <span>
+              <span className="icon-span">
+                <FaRegCompass />
+              </span>
+              <Link to={`/categories/${project.category}`}>
+                {project.category}
+              </Link>
+            </span>
+            <span>
+              <span className="icon-span">
+                <FaMapMarkerAlt />
+              </span>
+              {project.location}
+            </span>
+          </div>
         </div>
       </section>
       <nav className="project-detail-nav">
         <div className="project-detail-sub-nav-links">
-          <span className={topic == "story" ? "active" : null} onClick={() => setTopic("story")}>Story</span >
-          <span className={topic == "risks" ? "active" : null} onClick={() => setTopic("risks")}>Risks</span >
-          <span className={topic == "comments" ? "active" : null} onClick={() => setTopic("comments")}>Comments</span >
+          <span
+            className={topic == "story" ? "active" : null}
+            onClick={() => setTopic("story")}
+          >
+            Story
+          </span>
+          <span
+            className={topic == "risks" ? "active" : null}
+            onClick={() => setTopic("risks")}
+          >
+            Risks
+          </span>
+          <span
+            className={topic == "comments" ? "active" : null}
+            onClick={() => setTopic("comments")}
+          >
+            Comments
+          </span>
         </div>
       </nav>
       <section className="project-detail-in-depth">

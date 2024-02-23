@@ -1,0 +1,10 @@
+#new-comment-button {
+  color: white;
+  background-color: #068859;
+  border: none;
+  width: 100%;
+  max-width: 170px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}

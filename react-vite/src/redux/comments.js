@@ -42,14 +42,12 @@ export const thunkCreateComment = (projectId, commentData) => async dispatch => 
     body: JSON.stringify(commentData)
   })
 
-  console.log(res)
 
   if (res.ok) {
     const newComment = await res.json()
     dispatch(createComment(newComment))
     return newComment
   } else {
-    console.log("INSIDE CREATE COMMENT THUNK ERROR")
     const errs = await res.json()
     return errs;
   }

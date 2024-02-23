@@ -54,7 +54,7 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
                 }
                 {
                     isOwner && (
-                        <div>
+                        <div className='owner-action'>
                             <button onClick={() => navigate(`/projects/${project.id}/rewards/${rewardId }/edit`)} >Update</button>
                             <OpenModalButton  buttonText="Delete" modalComponent={<DeleteRewardModal rewardId = {rewardId} />}/>
                         </div>

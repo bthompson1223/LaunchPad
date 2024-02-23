@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux"
 import { thunkAddBacking } from '../../../redux/backings'
 import { useNavigate } from "react-router-dom"
 
+
 const PledgeRewardModal = ({reward}) => {
     const { closeModal } = useModal()
     const dispatch = useDispatch()
