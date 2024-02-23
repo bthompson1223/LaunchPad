@@ -10,16 +10,19 @@ const BackedListItem = ({ backing }) => {
 
   return (
     <div className="backing-container">
-      <Link to={`/projects/${backing.project.id}`}>
-        <div className="backed-list-item-project-div">
-          <img
-            id="backed-list-item-project-thumbnail"
-            src={backing.project.coverImage}
-            alt=""
-          />
-          <h2>{backing.project.title}</h2>
-        </div>
-      </Link>
+      <div className="pledge-info">
+        <Link to={`/projects/${backing.project.id}`}>
+          <div className="backed-list-item-project-div">
+            <img
+              id="backed-list-item-project-thumbnail"
+              src={backing.project.coverImage}
+              alt=""
+            />
+            <h2>{backing.project.title}</h2>
+          </div>
+        </Link>
+      </div>
+      
       <div className="backed-list-item-reward-info">
         <div className="backed-image-container">
           <img src={backing.reward.img_url} alt="" className="backing-image" />
