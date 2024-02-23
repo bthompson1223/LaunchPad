@@ -3,6 +3,14 @@
   flex-direction: column;
 }
 
+.category-nav-container {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  margin-bottom: 12px;
+}
+
 .category-nav {
   display: flex;
   align-items: center;
@@ -17,6 +25,10 @@
   padding: 19px 0;
   font-size: 15px;
   margin-bottom: 2rem;
+}
+
+.category-nav a:hover {
+  background-color: #f7f2eb;
 }
 
 .category-nav a:hover {

@@ -13,17 +13,24 @@
   align-items: center;
   padding: 5px 5px 5px 5px;
   margin-right: 40px;
+  gap: 5px;
+}
+
+.login-logout {
+  min-width: 60px;
 }
 
 .menu {
-  border-radius: 30px;
   padding: 10px 20px 10px 20px;
   margin-right: 3.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-.fa-user-circle {
+/* .fa-user-circle {
   padding-right: 5px;
-}
+} */
 
 .lo-button {
   display: flex;
@@ -78,4 +85,5 @@ ul {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  padding: 10px 20px 10px 20px;
 }
