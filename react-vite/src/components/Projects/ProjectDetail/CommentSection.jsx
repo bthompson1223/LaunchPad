@@ -1,9 +1,10 @@
 import { useState } from "react";
 import CommentList from "../../Comments/CommentList/CommentList"
 import { FaPlus } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateComment } from "../../../redux/comments";
 import { useParams } from "react-router-dom";
+import './CommentSection.css'
 
 export const Comments = () => {
   const dispatch = useDispatch()
@@ -11,6 +12,7 @@ export const Comments = () => {
   const [ showNewCommentField, setShowNewCommentField ] = useState(false)
   const [ comment, setComment ] = useState("")
   const [ errors, setErrors ] = useState({})
+  const user = useSelector(state => state.session.user)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -35,8 +37,8 @@ export const Comments = () => {
     return (
         <div>
             <div>
-              {!showNewCommentField &&
-                <button onClick={() => setShowNewCommentField(true)}><span><FaPlus /></span> New comment</button>}
+              {!showNewCommentField && user &&
+                <button id="new-comment-button" onClick={() => setShowNewCommentField(true)}><span><FaPlus /></span> New comment</button>}
               {showNewCommentField &&
                 <div>
                   <textarea
@@ -50,6 +52,7 @@ export const Comments = () => {
                   </div>}
                 </div>
               }
+              {!user && <h4>You must be logged in to leave a comment</h4>}
             </div>
             <CommentList />
         </div>
