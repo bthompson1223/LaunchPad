@@ -18,6 +18,7 @@
   justify-content: space-between;
   margin: 0 auto;
   width: 100%;
+  max-width: 1130px;
 }
 
 .project-detail-titles {
@@ -51,8 +52,9 @@
 .project-detail-stats {
   color: rgb(118, 118, 118);
   padding-left: 2rem;
-  width: 100%;
-  min-width: 150px;
+  /* width: 100%; */
+  width: 300px;
+  /* min-width: 150px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -76,7 +78,8 @@
   border: none;
   width: 100%;
   max-width: 300px;
-  padding: 1rem;
+  padding: .75rem;
+  cursor: pointer;
 }
 
 #project-total-funded {
@@ -140,4 +143,18 @@
   margin: 3rem auto;
   width: 75%;
   font-size: large;
+}
+
+.progress-bar { 
+  height: 1rem;
+  /* position: relative; */
+  background: #555;
+}
+
+.progress-bar > span {
+  display: block;
+  height: 100%;
+  background-color: #068859;
+  /* position: relative; */
+  overflow: hidden;
 }

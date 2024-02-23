@@ -35,7 +35,7 @@ export const Comments = () => {
   }
 
     return (
-        <div>
+        <div className="comment-section">
             <div className="new-comment-div">
               {!showNewCommentField && user &&
                 <button id="new-comment-button" onClick={() => setShowNewCommentField(true)}><span><FaPlus /></span> New comment</button>}

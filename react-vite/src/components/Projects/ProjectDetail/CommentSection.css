@@ -1,3 +1,8 @@
+.comment-section {
+  width: 75%;
+  margin: 0 auto;
+}
+
 #new-comment-button {
   color: white;
   background-color: #068859;
