@@ -37,6 +37,7 @@
     justify-content: flex-end;
   }
   
+  .owner-action button,
   .pledge-detail button {
     padding: 10px 15px;
     border: none;
@@ -46,8 +47,9 @@
     width: 220px;
   }
   
+  .owner-action button:hover,
   .pledge-detail button:hover {
-    background-color: #3B5249;
+    background-color: #005738;
   }
   
 .card-reward-text-div > h2 {
@@ -68,4 +70,15 @@
 .reward-details-not-title {
     margin-top: 5px;
     margin-bottom: 20px
+}
+
+.owner-action {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+   
+}
+
+.owner-action button {
+    width: 130px;
 }

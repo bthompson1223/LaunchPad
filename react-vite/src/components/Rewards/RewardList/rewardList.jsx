@@ -37,14 +37,15 @@ const RewardList = () => {
 
   return (
     <div>
-      <div >
-        <h1 className="reward-list-title">{project.title}</h1>
+      <div className="reward-project-title">
+        <h1 >{project.title}</h1>
+        <p>by {project.owner.first_name} {project.owner.last_name}</p>
       </div>
-      <div className="rewards-titles">
+      <div className="rewards-list-titles">
         {isOwner ? (
           <>
             <h1>Manage Your Rewards</h1>
-            <button
+            <button id = "create-reward"
               onClick={() => navigate(`/projects/${projectId}/rewards/new`)}
             >
               Create a New Reward
