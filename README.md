@@ -24,18 +24,20 @@ TODO
 
 1. Clone this repository with your preferred method (only the main branch for full functionality).
 
-2. Install dependencies.
+2. To install dependencies for backend.
+
+   At the root of the repository run:
 
    ```bash
    pipenv install -r requirements.txt
    ```
 
 3. Create a **.env** file based on the example with proper settings for your
-   development environment.
+   development/production environment.
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file.
+4. Make sure the database (Your choice in database serrvice, we used SQLite3 for development and PostgreSQL for production) connection URL is in the **.env** file.
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
+5. This `.env.example` organizes all tables inside the `flask_schema` schema defined
    by the `SCHEMA` environment variable. Replace the value for
    `SCHEMA` with a unique name, **making sure you use the snake_case
    convention.**
