@@ -144,17 +144,3 @@
   width: 75%;
   font-size: large;
 }
-
-.progress-bar { 
-  height: 1rem;
-  /* position: relative; */
-  background: #555;
-}
-
-.progress-bar > span {
-  display: block;
-  height: 100%;
-  background-color: #068859;
-  /* position: relative; */
-  overflow: hidden;
-}
