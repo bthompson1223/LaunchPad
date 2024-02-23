@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { thunkDeleteReward } from "../../../redux/reward";
+import '../RewardCSS/RewardModal.css'
 
 const DeleteRewardModal = ({rewardId}) => {
     const dispatch = useDispatch()
@@ -18,9 +19,9 @@ const DeleteRewardModal = ({rewardId}) => {
       }
 
     return (
-        <div className='delete-reward-modal'>
-            <h1>Confirm Delete</h1>
-            <h4>Are you sure you want to delete this reward?</h4>
+        <div className='delete-reward-modal reward-modal'>
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete this reward?</p>
             <button id='reward-delete-yes-btn' onClick={handleDelete}>Yes (Delete Reward)</button>
             <button id='reward-delete-no-btn' onClick={handleCancel}>No (Keep Reward)</button>
       </div>

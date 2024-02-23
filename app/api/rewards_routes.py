@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user, login_required
 from app.models import Reward,  Backer, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
-from ..forms import RewardForm
+from ..forms import EditRewardForm
 
 reward_routes = Blueprint('rewards', __name__)
 
@@ -50,10 +50,12 @@ def update_reward(rewardId):
     if current_user.id is not reward.owner_id:
         return {'errors': {'message': "Unauthorized"}}, 401
     
-    form = RewardForm()
+    form = EditRewardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+        print("🚀 ~ img_url:", "inside update reward router")
+        
         # if User did not upate image (image is an url)
         img_url = form.data["img_url"]
         upload = None
