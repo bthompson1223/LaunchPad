@@ -2,14 +2,36 @@ import OpenModalButton from '../../OpenModalButton';
 import PledgeRewardModal from "./pledgeRewardModel";
 import DeleteRewardModal from "../DeleteReward/DeleteRewardModal";
 import { useNavigate} from "react-router-dom";
-import { useSelector } from 'react-redux';
 import '../RewardCSS/rewardListItem.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from "react"
+import { thunkGetBackings, clearBackings } from "../../../redux/backings"
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
     const rewardId = reward.id   
     const navigate = useNavigate();
     const user = useSelector(state => state.session.user)
+    const dispatch = useDispatch()
+    const backingsObj = useSelector(state => state.backings)
+    const backings = Object.values(backingsObj)
+    let ifBacked = false
+
+    useEffect(() => {
+        dispatch(thunkGetBackings())
+
+        return () => dispatch(clearBackings())
+      }, [dispatch]);
+
     
+    if (backings?.length > 0) {
+        for (let backing of backings) {
+            if (backing?.reward_id === reward.id) {
+                ifBacked = true;
+                break;
+            }
+        }
+    }
+
     return (
         <div className="reward-card" onClick={onRewardClick}>
             <div className='reward-card-details'>
@@ -39,9 +61,16 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
 
             <div className="reward-button">
                 {
-                    isActive && !isOwner && user && (
+                    isActive && !isOwner && user && !ifBacked && (
                         <div className="pledge-detail">
                             <OpenModalButton buttonText={`Pledge $${reward.amount}`} modalComponent={<PledgeRewardModal reward = {reward} />} />
+                        </div>
+                    )
+                }
+                {
+                    isActive && !isOwner && user && ifBacked && (
+                        <div className="pledge-detail">
+                            <p>You have already pledge this reward!</p>
                         </div>
                     )
                 }

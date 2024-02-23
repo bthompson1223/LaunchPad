@@ -1,0 +1,45 @@
+.delete-project-modal {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 320px;
+  align-content: center;
+  align-items: center;
+  border-radius: 25px;
+  font-family: sans-serif;
+}
+
+.delete-confirmation-text {
+  width: 290px;
+}
+
+.confirm-delete {
+  margin-bottom: 1px;
+}
+
+#project-delete-yes-btn {
+  color: white;
+  background-color: #ff5a5a;
+  box-shadow: 2px 2px black;
+  border: 3px solid black;
+  width: 290px;
+  padding: 8px 12px 8px 12px;
+}
+
+#project-delete-no-btn {
+  color: white;
+  background-color: #414143;
+  box-shadow: 2px 2px black;
+  border: 3px solid black;
+  width: 290px;
+  margin-top: 10px;
+  padding: 8px 12px 8px 12px;
+}
+
+#project-delete-yes-btn {
+  cursor: pointer;
+}
+
+#project-delete-no-btn {
+  cursor: pointer;
+}
