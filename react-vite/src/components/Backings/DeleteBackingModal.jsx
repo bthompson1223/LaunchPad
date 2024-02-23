@@ -20,10 +20,10 @@ export const DeleteBackingModal = ({ backing }) => {
 
   return (
     <div className="delete-project-modal">
-      <h1 className="confirm-delete">Confirm Delete</h1>
-      <h4 className="delete-confirmation-text">
+      <h2 className="confirm-delete">Confirm Delete</h2>
+      <p className="delete-confirmation-text">
         Are you sure you want to remove this comment?
-      </h4>
+      </p>
       <button id="project-delete-yes-btn" onClick={handleDelete}>
         Yes (Delete Backing)
       </button>
