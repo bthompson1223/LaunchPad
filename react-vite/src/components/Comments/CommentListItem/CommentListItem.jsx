@@ -76,21 +76,28 @@ const CommentListItem = ({ comment }) => {
         <div className="comment">
           <p>{comment.comment}</p>
         </div>
-        {!showReplyField && <button id="reply-button" onClick={() => setShowReplyField(true)}>Reply</button>}
+        <div className="new-reply-div">
+        {!showReplyField && user && <button id="reply-button" onClick={() => setShowReplyField(true)}>Reply</button>}
         {showReplyField &&
-          <div>
+          <div className="comment-replies">
             <textarea
+              placeholder="Reply here"
               value={reply}
               onChange={(e) => setReply(e.target.value)}
             />
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={() => setShowReplyField(false)}>Cancel</button>
+            <div className="comments-errors-buttons">
             {"reply" in errors && <div className="errors">
-              <p>{errors.reply}</p>
-            </div>}
+              <span>{errors.reply}</span></div>
+            }
+            <div className="comments-submit-cancel">
+              <button onClick={() => setShowReplyField(false)}>Cancel</button>
+              <button onClick={handleSubmit}>Submit</button>
+            </div>
+          </div>
+            
           </div>
         }
-
+        </div>
         <div className="comment-replies">
             {hasReplies && (
               <div className="replies-container">
