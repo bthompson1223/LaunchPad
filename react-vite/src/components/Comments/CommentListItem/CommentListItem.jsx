@@ -29,7 +29,7 @@ const CommentListItem = ({ comment }) => {
     hoursAfterPosting = Math.round(daysAfterPosting*24)
   }
   
-  const isCommenter = user.id == comment.user_id
+  const isCommenter = user?.id == comment.user_id
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -58,14 +58,14 @@ const CommentListItem = ({ comment }) => {
 
   return (
     <div className="comment-container">
-        <div>
+        <div className="commenter-div">
           <div>
             <img id='commenter-profile-image' src={comment.user_image} alt="" />
           </div>
-          <div>
-            <h3>{comment.username}</h3>
-            {postedDaysAgo == 0 && <span>posted {hoursAfterPosting} hours ago</span>}
-            {postedDaysAgo > 0 && <span>{postedDaysAgo} {postedDaysAgo > 1 ? "days" : "day"} ago</span>}
+          <div className="commenter-data">
+            <h4>{comment.username}</h4>
+            {postedDaysAgo == 0 && <p>posted {hoursAfterPosting} hours ago</p>}
+            {postedDaysAgo > 0 && <p>{postedDaysAgo} {postedDaysAgo > 1 ? "days" : "day"} ago</p>}
           </div>
           {isCommenter && <div className="comment-delete-container">
             <OpenModalButton
@@ -76,7 +76,7 @@ const CommentListItem = ({ comment }) => {
         <div className="comment">
           <p>{comment.comment}</p>
         </div>
-        {!showReplyField && <button onClick={() => setShowReplyField(true)}>Reply</button>}
+        {!showReplyField && <button id="reply-button" onClick={() => setShowReplyField(true)}>Reply</button>}
         {showReplyField &&
           <div>
             <textarea
