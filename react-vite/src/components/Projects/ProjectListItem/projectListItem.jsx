@@ -19,28 +19,30 @@ export const ProjectListItem = ({ project }) => {
   if (daysLeft < 1) {
     hoursLeft = Math.round(daysToGo * 24);
   }
-  const fundingPercentage = Math.round(project.totalFunded / project.fundingGoal);
+  const fundingPercentage = Math.round(
+    project.totalFunded / project.fundingGoal
+  );
   const categoryName = project.category.replace("-", " & ");
 
   let isOwner = project.owner.id == user?.id;
 
   return (
     <li className="project-container">
-      <Link to={`/projects/${project.id}`}>
-        <div className="card-project-image">
+      <div className="card-project-image">
+        <Link to={`/projects/${project.id}`}>
           <img
             src={`${project.coverImage}`}
             alt="cover image of project"
             className="project-image"
           />
-        </div>
-      </Link>
+        </Link>
+      </div>
       <div className="card-text-div">
         <div className="card-titles">
           <Link to={`/projects/${project.id}`}>
             <h2>{project.title}</h2>
-            <p>{project.subtitle}</p>
           </Link>
+          <p>{project.subtitle}</p>
           <p>
             by{" "}
             <span>
@@ -50,37 +52,44 @@ export const ProjectListItem = ({ project }) => {
         </div>
         {/* <div className="card-funding-progress">{project.fundingGoal} {project.totalFunded}</div> */}
         <ProgressBar project={project} />
+        <div className="below-progress-bar"> 
+        
+
         <div className="card-stats">
-          <p>${project.totalFunded} pledged</p>
+          <p className="green">${project.totalFunded} pledged</p>
           <p>{fundingPercentage}% funded</p>
           {daysLeft == 0 && <p>{hoursLeft} hours left!</p>}
           {daysLeft > 0 && <p>{daysLeft} days left</p>}
-          <Link to={`/category/${project.category}`}>{categoryName}</Link>
-          <span>
-            <span>
-              <FaMapMarkerAlt />
-            </span>
-            {project.location}
-          </span>
         </div>
-
-        {isOwner && (
-          <div className="card-owner-buttons">
-            <button onClick={() => navigate(`/projects/${project.id}/edit`)}>
-              Edit project
-            </button>
-            <button
-              onClick={() => navigate(`/projects/${project.id}/rewards/new`)}
-            >
-              Add a Reward
-            </button>
-            <OpenModalButton
-              buttonText="Delete"
-              modalComponent={<DeleteProjectModal project={project} />}
-            />
           </div>
-        )}
       </div>
+      <div className="project-list-item-cat-loc">
+        <span>
+          <Link to={`/category/${project.category}`}>{categoryName}</Link>
+        </span>
+        <span>
+          <span>
+            <FaMapMarkerAlt />
+          </span>
+          <span>{project.location}</span>
+        </span>
+      </div>
+      {isOwner && (
+        <div className="card-owner-buttons">
+          <button onClick={() => navigate(`/projects/${project.id}/edit`)}>
+            Edit project
+          </button>
+          <button
+            onClick={() => navigate(`/projects/${project.id}/rewards/new`)}
+          >
+            Add Reward
+          </button>
+          <OpenModalButton
+            buttonText="Delete"
+            modalComponent={<DeleteProjectModal project={project} />}
+          />
+        </div>
+      )}
     </li>
   );
 };

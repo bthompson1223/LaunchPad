@@ -1,72 +1,102 @@
 .project-container {
-  /* width: 850px; */
-  /* height: 350px; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem .5rem 1rem;
+  /* justify-content: space-between; */
+  margin: 1rem 0rem 0rem;
   border: 1px solid lightgray;
-  border-radius: 10px;
-  padding: 1rem;
-  width: 25%
+  width: 32%
+}
+
+.project-container .progress-bar {
+  height: 5px;
 }
 
 .project-container a {
   text-decoration: none;
+  color: #3b5249;
 }
 
 .project-container p {
   font-size: small;
 }
 
+
 .project-container a:hover {
-  text-decoration: none;
   color: #068859;
   text-decoration: underline;
 }
 
 .card-project-image {
-  width: 200px;
+  width: 100%;
+  max-height: 200px;
 }
 
 .project-image {
-  object-fit: contain;
+  object-fit: cover;
+  height: 100%;
   width: 100%;
-  border-radius: 10px;
 }
 
 .card-text-div {
   display: flex;
   flex-direction: column;
+  width: 90%;
 }
 
-.card-titles > a {
-  color: #3b5249;
+.card-titles h2 {
+  font-size: medium;
+}
+
+.card-titles {
+  height: 150px;
+}
+
+.below-progress-bar {
+  flex-direction: column;
+  display: flex;
+  /* height: 100px; */
+  margin-bottom: .25rem;
 }
 
 .card-stats {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  flex-direction: column;
+  margin-top: .5rem;
+  height: 80px;
 }
 
-.card-stats > a {
-  color: #3b5249;
+.card-stats p {
+  margin: .25rem;
+}
+
+.project-list-item-cat-loc {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  width: 90%;
+}
+
+.project-list-item-cat-loc span{
+  font-size: small;
+  margin: .25rem;
 }
 
 .card-owner-buttons {
+  margin-top: .5rem;
+  margin-bottom: .2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  width: 100%;
 }
 
 .card-owner-buttons > button {
   color: white;
   background-color: #068859;
   border: none;
-  /* width: 100%; */
-  width: 120px;
-  padding: .75rem;
+  width: 92px;
+  padding: .5rem;
   cursor: pointer;
+  font-size: small;
 }
