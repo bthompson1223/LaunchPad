@@ -264,6 +264,14 @@ def create_comment(projectId):
     return new_comment.to_dict()
   
 
+def delete_nested_comments(comment):
+    replies = Comment.query.filter_by(parent=comment.id).all()
+    for reply in replies:
+        delete_nested_comments(reply)
+    
+    db.session.delete(comment)
+    db.session.commit()
+
 @login_required
 @project_routes.route('/<int:projectId>/comments/<int:commentId>/delete', methods=["DELETE"])
 def delete_comment(projectId, commentId):
@@ -275,7 +283,6 @@ def delete_comment(projectId, commentId):
     if current_user.id is not comment.user_id:
         return {'errors': {'message': "Unauthorized"}}, 401
     
-    db.session.delete(comment)
-    db.session.commit()
+    delete_nested_comments(comment)
 
     return {"message": f"Successfully deleted comment"}
