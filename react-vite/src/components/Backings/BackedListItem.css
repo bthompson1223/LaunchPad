@@ -6,5 +6,64 @@
 .backed-list-item-project-div {
   display: flex;
   align-items: center;
-  gap: 2rem
+  gap: 5rem;
+}
+
+.backing-container {
+  max-width: 75%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 5rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 5rem;
+  padding-left: 3rem;
+  padding-top: 5rem;
+  gap: 10px;
+  /* margin-right: 3rem; */
+}
+
+.backing-container a {
+  color: #3b5249;
+  text-decoration: none;
+}
+
+.backed-list-item-reward-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.backing-stats-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.backing-stats-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.backed-image-container {
+  width: 200px;
+  /* max-height: 200px; */
+  margin-right: 10rem;
+}
+
+.backing-image {
+  object-fit: contain;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.delete-pledge-button > button {
+  background-color: #068859;
+  color: white;
+  border-radius: 10px;
 }
