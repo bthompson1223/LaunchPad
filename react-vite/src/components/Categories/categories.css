@@ -1,0 +1,14 @@
+.categories-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-nav > a {
+  color: #3b5249;
+  text-decoration: none;
+}

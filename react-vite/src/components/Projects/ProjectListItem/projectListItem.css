@@ -1,0 +1,57 @@
+.project-container {
+  max-width: 75%;
+  height: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5rem;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 5rem;
+  padding-left: 3rem;
+  /* margin-right: 3rem; */
+}
+
+.card-project-image {
+  width: 200px;
+  max-height: 200px;
+  margin-right: 10rem;
+}
+
+.project-image {
+  object-fit: contain;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.card-text-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-titles > a {
+  color: #3b5249;
+}
+
+.card-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card-stats > a {
+  color: #3b5249;
+}
+
+.card-owner-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-owner-buttons > button {
+  background-color: #3b5249;
+  color: white;
+  border-radius: 10px;
+}
