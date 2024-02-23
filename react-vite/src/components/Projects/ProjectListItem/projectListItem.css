@@ -1,26 +1,34 @@
 .project-container {
-  max-width: 75%;
-  height: 400px;
+  width: 850px;
+  height: 350px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 5rem;
+  margin: 1rem auto 0rem;
   border: 1px solid lightgray;
   border-radius: 10px;
-  padding-bottom: 5rem;
-  padding-left: 3rem;
-  /* margin-right: 3rem; */
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.project-container a {
+  text-decoration: none;
+}
+
+.project-container a:hover {
+  text-decoration: none;
+  color: #068859;
+  text-decoration: underline;
 }
 
 .card-project-image {
-  width: 200px;
-  max-height: 200px;
-  margin-right: 10rem;
+  margin-right: 5rem;
 }
 
 .project-image {
   object-fit: contain;
-  max-width: 300px;
+  width: 300px;
+  height: 300px;
   border-radius: 10px;
 }
 
@@ -51,6 +59,11 @@
 }
 
 .card-owner-buttons > button {
-  background-color: #068859;
   color: white;
+  background-color: #068859;
+  border: none;
+  /* width: 100%; */
+  width: 120px;
+  padding: .75rem;
+  cursor: pointer;
 }

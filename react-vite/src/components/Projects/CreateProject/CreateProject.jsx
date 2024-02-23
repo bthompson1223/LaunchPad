@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { thunkCreateProject } from "../../../redux/project";
-import "./CreateProject.css";
+import "./CreateEditProject.css";
 
 const CreateProject = () => {
   const dispatch = useDispatch();
@@ -76,15 +76,15 @@ const CreateProject = () => {
   };
 
   return (
-    <div className="create-project-form-container">
-      <h1 className="create-project-header">Create a New Project!</h1>
+    <div className="project-add-edit">
+      <h1>Create a New Project!</h1>
       <form
         className="create-project-form"
         onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
-        <div className="input-div">
-          <h2>What&apos;s the name of your project?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s the name of your project?</h3>
           <label htmlFor="title">
             <input
               type="text"
@@ -95,13 +95,13 @@ const CreateProject = () => {
               className="input-create"
             />
           </label>
-          <div className="title-errors">
-            {"title" in errors && <p className="errors">{errors.title}</p>}
+          <div className="project-errors">
+            {"title" in errors && <p >{errors.title}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Subtitle</h2>
+        <div className="project-input-div">
+          <h3>Subtitle</h3>
           <label htmlFor="subtitle">
             <input
               type="text"
@@ -112,15 +112,15 @@ const CreateProject = () => {
               className="input-create"
             />
           </label>
-          <div className="subtitle-errors">
+          <div className="project-errors">
             {"subTitle" in errors && (
-              <p className="errors">{errors.subTitle}</p>
+              <p >{errors.subTitle}</p>
             )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Category</h2>
+        <div className="project-input-div">
+          <h3>Category</h3>
           <label htmlFor="category">
             <select
               name="category"
@@ -141,15 +141,15 @@ const CreateProject = () => {
               <option value="8">Publishing</option>
             </select>
           </label>
-          <div className="category-errors">
+          <div className="project-errors">
             {"category" in errors && (
-              <p className="errors">{errors.category}</p>
+              <p >{errors.category}</p>
             )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Location</h2>
+        <div className="project-input-div">
+          <h3>Location</h3>
           <label htmlFor="location">
             <input
               type="text"
@@ -160,15 +160,15 @@ const CreateProject = () => {
               className="input-create"
             />
           </label>
-          <div className="location-errors">
+          <div className="project-errors">
             {"location" in errors && (
-              <p className="errors">{errors.location}</p>
+              <p >{errors.location}</p>
             )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Story</h2>
+        <div className="project-input-div">
+          <h3>Story</h3>
           <label htmlFor="story">
             <textarea
               name="story"
@@ -178,13 +178,13 @@ const CreateProject = () => {
               className="input-create desc"
             />
           </label>
-          <div className="story-errors">
-            {"story" in errors && <p className="errors">{errors.story}</p>}
+          <div className="project-errors">
+            {"story" in errors && <p >{errors.story}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Risks</h2>
+        <div className="project-input-div">
+          <h3>Risks</h3>
           <label htmlFor="risks">
             <textarea
               name="risks"
@@ -194,30 +194,15 @@ const CreateProject = () => {
               className="input-create desc"
             />
           </label>
-          <div className="risks-errors">
-            {"risks" in errors && <p className="errors">{errors.risks}</p>}
+          <div className="project-errors">
+            {"risks" in errors && <p >{errors.risks}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Select a Project Image</h2>
-          <label htmlFor="coverImage">
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setCoverImage(e.target.files[0])}
-              className="input-create"
-            />
-          </label>
-          <div className="image-errors">
-            {"coverImage" in errors && (
-              <p className="errors">{errors.coverImage}</p>
-            )}
-          </div>
-        </div>
+     
 
-        <div className="input-div">
-          <h2>What&apos;s Your Funding Goal?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s Your Funding Goal?</h3>
           <label htmlFor="fundingGoal">
             <input
               type="number"
@@ -228,15 +213,15 @@ const CreateProject = () => {
               className="input-create fund-input"
             />
           </label>
-          <div className="funding-errors">
+          <div className="project-errors">
             {"fundingGoal" in errors && (
-              <p className="errors">{errors.fundingGoal}</p>
+              <p >{errors.fundingGoal}</p>
             )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>What&apos;s the Last Day of Funding?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s the Last Day of Funding?</h3>
           <label htmlFor="endDate">
             <input
               type="date"
@@ -245,8 +230,25 @@ const CreateProject = () => {
               className="input-create"
             />
           </label>
-          <div className="date-errors">
-            {"endDate" in errors && <p className="errors">{errors.endDate}</p>}
+          <div className="project-errors">
+            {"endDate" in errors && <p >{errors.endDate}</p>}
+          </div>
+        </div>
+
+        <div className="project-input-div">
+          <h3>Select a Project Image</h3>
+          <label htmlFor="coverImage">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setCoverImage(e.target.files[0])}
+              className="input-create"
+            />
+          </label>
+          <div className="project-errors">
+            {"coverImage" in errors && (
+              <p>{errors.coverImage}</p>
+            )}
           </div>
         </div>
 

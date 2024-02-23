@@ -1,51 +1,76 @@
-.input {
-  display: flex;
-  width: 350px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  margin-right: 20px;
-  border: 2px solid black;
-  border-radius: 2px;
-  padding: 3px;
-  background-color: #d6e8ec;
-}
-
-.signup {
+.login-signup-container {
+  margin: 0 auto; 
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  width: 400px;
-  min-height: 375px;
-  border-radius: 15px;
-  height: fit-content;
   justify-content: center;
+  align-items: center;
+  outline: 1px solid lightgray;
+  max-width: 360px; 
 }
 
-.signup-button {
-  display: flex;
-  width: 350px;
-  margin-left: 25px;
-  margin-top: 20px;
-  justify-content: center;
-  box-shadow: 2px 2px darkgray;
-  border: 3px solid darkgray;
-  padding: 12px 0px 12px 0px;
+/* h1 */
+.login-signup-container h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
   margin-bottom: 30px;
 }
 
-.signup-button:enabled:hover {
-  cursor: pointer;
+.login-signup-form {
+  display: grid;
+  grid-gap: 10px;
+  width:90%; 
 }
 
-.signup-button:enabled {
+.login-signup-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-signup-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; 
+  margin-bottom: 2px;
+}
+
+.login-signup-form input[type="file"] {
+  padding: 10px; 
+  border: none; 
+}
+
+.profile-img {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.login-signup-form .input-errors {
+  color: #d9534f;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+.login-signup-form button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #068859;
   color: white;
-  background-color: #1a5824;
-  box-shadow: 2px 2px black;
-  border: 3px solid black;
+  cursor: pointer;
+  width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-.input-error {
-  display: flex;
-  justify-content: center;
-  color: red;
-  font-size: 10px;
+.login-signup-form button:hover {
+  background-color: #005738;
 }
+
+
+
+
+

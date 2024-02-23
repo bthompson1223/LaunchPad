@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkDeleteBacking } from "../../redux/backings";
-import "./DeleteBackingModal.css";
 
 export const DeleteBackingModal = ({ backing }) => {
   const dispatch = useDispatch();
@@ -20,10 +19,10 @@ export const DeleteBackingModal = ({ backing }) => {
 
   return (
     <div className="delete-project-modal">
-      <h1 className="confirm-delete">Confirm Delete</h1>
-      <h4 className="delete-confirmation-text">
+      <h2 className="confirm-delete">Confirm Delete</h2>
+      <p className="delete-confirmation-text">
         Are you sure you want to remove this comment?
-      </h4>
+      </p>
       <button id="project-delete-yes-btn" onClick={handleDelete}>
         Yes (Delete Backing)
       </button>
