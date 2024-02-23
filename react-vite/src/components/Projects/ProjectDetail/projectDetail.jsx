@@ -39,6 +39,11 @@ const ProjectDetail = () => {
     isOwner = true;
   }
 
+  const spanStyle = {
+    width: `${project.totalFunded / project.fundingGoal}%`
+    // width: "80%"
+  }
+
   return (
     <div>
       <section className="project-detail-container">
@@ -54,9 +59,9 @@ const ProjectDetail = () => {
             </div>
 
             <div className="project-detail-stats">
-            {/* <div className="meter">
-              <span style={`width: ${pro}%`}></span>
-            </div> */}
+            <div className="progress-bar">
+              <span style={spanStyle}></span>
+            </div>
               <div>
                 <h2 id="project-total-funded">${project.totalFunded}</h2>
                 <span>pledged of ${project.fundingGoal} goal</span>
