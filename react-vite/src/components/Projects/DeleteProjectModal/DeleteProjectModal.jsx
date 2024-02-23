@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import { thunkDeleteProject } from "../../../redux/project";
 import { clearUserProjects } from "../../../redux/session";
+import './DeleteProjectModal.css'
 
 export const DeleteProjectModal = ({ project }) => {
   const dispatch = useDispatch()
@@ -24,10 +25,10 @@ export const DeleteProjectModal = ({ project }) => {
 
   return (
     <div className='delete-project-modal'>
-      <h1>Confirm Delete</h1>
-      <h4>Are you sure you want to remove this project?</h4>
-      <button id='project-delete-yes-btn' onClick={handleDelete}>Yes (Delete Project)</button>
-      <button id='project-delete-no-btn' onClick={handleCancel}>No (Keep Project)</button>
+      <h2>Confirm Delete</h2>
+      <p>Are you sure you want to remove this project?</p>
+      <button  onClick={handleDelete}>Yes (Delete Project)</button>
+      <button onClick={handleCancel}>No (Keep Project)</button>
     </div>
   );
 }
