@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkDeleteBacking } from "../../redux/backings";
-import "./DeleteBackingModal.css";
 
 export const DeleteBackingModal = ({ backing }) => {
   const dispatch = useDispatch();
