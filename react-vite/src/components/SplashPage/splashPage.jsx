@@ -59,7 +59,7 @@ const SplashPage = () => {
           <NavLink to="/categories/publishing">Publishing</NavLink>
         </nav>
       </div>
-      <h1 className="splash-title">Bring a creative project to life.</h1>
+      <h1 className="splash-title">Bring a creative project to life</h1>
       <div className="splash-stats">
         <div className="on-launchpad">
           <p>Currently on LaunchPad:</p>

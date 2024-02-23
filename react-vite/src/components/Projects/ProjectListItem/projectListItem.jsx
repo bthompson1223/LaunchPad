@@ -18,7 +18,7 @@ export const ProjectListItem = ({ project }) => {
   if (daysLeft < 1) {
     hoursLeft = Math.round(daysToGo * 24);
   }
-  const fundingPercentage = project.totalFunded / project.fundingGoal;
+  const fundingPercentage = Math.round(project.totalFunded / project.fundingGoal);
   const categoryName = project.category.replace("-", " & ");
 
   let isOwner = project.owner.id == user?.id;
