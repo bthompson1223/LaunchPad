@@ -13,6 +13,7 @@ const BackedProjects = () => {
     return () => dispatch(clearBackings())
   }, [dispatch])
   
+  console.log("backingsObj", backingsObj)
   if (!backingsObj) return null;
   if (!Object.values(backingsObj).length) {
     return <h1>You have not backed any projects yet!</h1>
