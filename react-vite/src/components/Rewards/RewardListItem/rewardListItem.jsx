@@ -2,10 +2,10 @@ import OpenModalButton from '../../OpenModalButton';
 import PledgeRewardModal from "./pledgeRewardModel";
 import DeleteRewardModal from "../DeleteReward/DeleteRewardModal";
 import { useNavigate} from "react-router-dom";
+import '../RewardCSS/rewardListItem.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from "react"
 import { thunkGetBackings, clearBackings } from "../../../redux/backings"
-import './rewardListItem.css'
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
     const rewardId = reward.id   
