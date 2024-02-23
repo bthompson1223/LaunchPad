@@ -5,10 +5,10 @@
     padding: 25px;
     margin-bottom: 20px;
     cursor: pointer;
-    width: 850px;
+    width: 780px;
     height: 480px;
     box-sizing: border-box;
-    margin-left: 120px
+    margin-left: 120px;
   }
   
   .reward-card:hover {
@@ -35,9 +35,10 @@
   .reward-button {
     display: flex;
     justify-content: flex-end;
+    
   }
   
-  .owner-action button,
+
   .pledge-detail button {
     padding: 10px 15px;
     border: none;
@@ -45,8 +46,19 @@
     color: white;
     cursor: pointer;
     width: 220px;
+    position: relative;
   }
+
+  .owner-action button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #068859;
+    color: white;
+    cursor: pointer;
+    width: 220px;
   
+  }
+
   .owner-action button:hover,
   .pledge-detail button:hover {
     background-color: #005738;
@@ -81,4 +93,9 @@
 
 .owner-action button {
     width: 130px;
+}
+
+.card-reward-text-div h3{
+  font-weight: 500;
+  margin-bottom: 0;
 }

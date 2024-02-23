@@ -2,19 +2,43 @@ import OpenModalButton from '../../OpenModalButton';
 import PledgeRewardModal from "./pledgeRewardModel";
 import DeleteRewardModal from "../DeleteReward/DeleteRewardModal";
 import { useNavigate} from "react-router-dom";
-import { useSelector } from 'react-redux';
-import './rewardListItem.css'
+import '../RewardCSS/rewardListItem.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect} from "react"
+import { thunkGetBackings, clearBackings } from "../../../redux/backings"
 
 const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) => {
     const rewardId = reward.id   
     const navigate = useNavigate();
     const user = useSelector(state => state.session.user)
+    const dispatch = useDispatch()
+    const backingsObj = useSelector(state => state.backings)
+    const backings = Object.values(backingsObj)
+    let ifBacked = false
+
+    useEffect(() => {
+        if (user) {
+            dispatch(thunkGetBackings())
+        }
+        
+        return () => dispatch(clearBackings())
+      }, [dispatch]);
+
     
+    if (backings?.length > 0 && user) {
+        for (let backing of backings) {
+            if (backing?.reward_id === reward.id) {
+                ifBacked = true;
+                break;
+            }
+        }
+    }
+
     return (
         <div className="reward-card" onClick={onRewardClick}>
             <div className='reward-card-details'>
                 <div className="card-reward-text-div">
-                    <h2>Pledge ${reward.amount}</h2>
+                    <h3>Pledge ${reward.amount}</h3>
                     <div className="reward-name-description">
                         <h2>{reward.name}</h2>
                         <p>{reward.description}</p>
@@ -39,9 +63,16 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
 
             <div className="reward-button">
                 {
-                    isActive && !isOwner && user && (
+                    isActive && !isOwner && user && !ifBacked && (
                         <div className="pledge-detail">
                             <OpenModalButton buttonText={`Pledge $${reward.amount}`} modalComponent={<PledgeRewardModal reward = {reward} />} />
+                        </div>
+                    )
+                }
+                {
+                    isActive && !isOwner && user && ifBacked && (
+                        <div className="pledge-detail">
+                            <p>You have already pledge this reward!</p>
                         </div>
                     )
                 }
@@ -64,5 +95,7 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
         </div>
     )
 }
+
+
 
 export default RewardListItem;

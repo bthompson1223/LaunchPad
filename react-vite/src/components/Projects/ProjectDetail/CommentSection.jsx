@@ -35,18 +35,21 @@ export const Comments = () => {
   }
 
     return (
-        <div>
-            <div>
+        <div className="comment-section">
+            <div className="new-comment-div">
               {!showNewCommentField && user &&
                 <button id="new-comment-button" onClick={() => setShowNewCommentField(true)}><span><FaPlus /></span> New comment</button>}
               {showNewCommentField &&
                 <div>
                   <textarea
+                    placeholder="Comment here"
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                   />
-                  <button onClick={handleSubmit}>Submit</button>
-                  <button onClick={() => setShowNewCommentField(false)}>Cancel</button>
+                  <div className="comments-submit-cancel">
+                    <button onClick={() => setShowNewCommentField(false)}>Cancel</button>
+                    <button onClick={handleSubmit}>Submit</button>
+                  </div>
                   {"comment" in errors && <div className="errors">
                     <p>{errors.comment}</p>
                   </div>}

@@ -1,3 +1,8 @@
+.comment-section {
+  width: 75%;
+  margin: 0 auto;
+}
+
 #new-comment-button {
   color: white;
   background-color: #068859;
@@ -7,4 +12,32 @@
   padding: 1rem;
   margin-bottom: 1rem;
   cursor: pointer;
+}
+
+.new-comment-div {
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.new-comment-div textarea {
+  height: 4rem;
+  width: 100%;
+}
+
+.new-comment-div button {
+  color: white;
+  background-color: #068859;
+  border: none;
+  cursor: pointer;
+  max-width: 100px;
+  padding: .5rem;
+}
+
+.comments-submit-cancel {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  /* margin-bottom: 1rem; */
 }
