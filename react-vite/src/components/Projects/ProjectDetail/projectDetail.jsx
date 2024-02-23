@@ -64,7 +64,7 @@ const ProjectDetail = () => {
 
               <div>
                 <h2>{project.numOfBackers}</h2>
-                <span>backers</span>
+                <span>pledges</span>
               </div>
 
               <div>

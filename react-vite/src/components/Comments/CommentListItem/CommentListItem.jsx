@@ -86,9 +86,11 @@ const CommentListItem = ({ comment }) => {
               onChange={(e) => setReply(e.target.value)}
             />
             <div className="comments-errors-buttons">
-            {"reply" in errors && <div className="errors">
-              <span>{errors.reply}</span></div>
+            <div className="errors">
+            {"reply" in errors && 
+              <span>{errors.reply}</span>
             }
+            </div>
             <div className="comments-submit-cancel">
               <button onClick={() => setShowReplyField(false)}>Cancel</button>
               <button onClick={handleSubmit}>Submit</button>
