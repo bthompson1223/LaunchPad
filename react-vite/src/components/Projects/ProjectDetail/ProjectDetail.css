@@ -78,7 +78,7 @@
   border: none;
   width: 100%;
   max-width: 300px;
-  padding: 1rem;
+  padding: .75rem;
   cursor: pointer;
 }
 
@@ -147,7 +147,7 @@
 
 .progress-bar { 
   height: 1rem;
-  position: relative;
+  /* position: relative; */
   background: #555;
 }
 
@@ -155,6 +155,6 @@
   display: block;
   height: 100%;
   background-color: #068859;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
