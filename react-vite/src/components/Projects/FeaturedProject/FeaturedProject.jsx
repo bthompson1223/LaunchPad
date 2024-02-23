@@ -7,7 +7,7 @@ import './FeaturedProject.css'
 
 
 // backed projects, liked projects, categories page, created projects
-export const ProjectListItem = ({ project }) => {
+export const FeaturedProject = ({ project }) => {
   const user = useSelector((state) => state.session.user);
   const navigate = useNavigate();
   const msDay = 60 * 60 * 24 * 1000;

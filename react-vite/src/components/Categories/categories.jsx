@@ -4,8 +4,8 @@ import "./categories.css";
 
 const Categories = () => {
   return (
-    <div className="categories-container">
-      <div>
+    <div>
+      <div className="categories-container">
         <CategoriesNav />
       </div>
       <div>
