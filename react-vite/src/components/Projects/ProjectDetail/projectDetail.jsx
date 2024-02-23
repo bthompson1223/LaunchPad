@@ -77,61 +77,80 @@ const ProjectDetail = () => {
                 )}
               </div>
               {!isOwner && (
+                <div className="project-detail-buttons">
                 <button
-                  className="project-detail-buttons"
                   id="back-project-button"
                   onClick={() => navigate(`/projects/${project.id}/rewards`)}
                 >
                   Back this project
                 </button>
+                </div>
               )}
               {isOwner && (
-                <div>
-                  <button 
-                  className="project-detail-buttons"
-                  onClick={() => navigate(`/projects/${project.id}/edit`)}>
+                <div className="project-detail-buttons">
+                  <button
+                    onClick={() => navigate(`/projects/${project.id}/edit`)}
+                  >
                     Edit project
                   </button>
-                  <button 
-                  className="project-detail-buttons"
-                  onClick={() => navigate(`/projects/${project.id}/rewards`)}>
+                  <button
+                    onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                  >
                     View Rewards
                   </button>
-                  <button 
-                  className="project-detail-buttons"
-                  onClick={() => navigate(`/projects/${project.id}/rewards/new`)}>
+                  <button
+                    onClick={() =>
+                      navigate(`/projects/${project.id}/rewards/new`)
+                    }
+                  >
                     Add a Reward
                   </button>
                   <OpenModalButton
-                  className="project-detail-buttons"
                     buttonText="Delete"
                     modalComponent={<DeleteProjectModal project={project} />}
-                    />
+                  />
                 </div>
               )}
             </div>
           </div>
           <div className="project-detail-category-location">
-                <span>
-                  <span className="icon-span">
-                    <FaRegCompass />
-                  </span>
-                  <Link to={`/categories/${project.category}`}>{project.category}</Link>
-                </span>
-                <span>
-                  <span className="icon-span">
-                    <FaMapMarkerAlt />
-                  </span>
-                  {project.location}
-                </span>
-              </div>
+            <span>
+              <span className="icon-span">
+                <FaRegCompass />
+              </span>
+              <Link to={`/categories/${project.category}`}>
+                {project.category}
+              </Link>
+            </span>
+            <span>
+              <span className="icon-span">
+                <FaMapMarkerAlt />
+              </span>
+              {project.location}
+            </span>
+          </div>
         </div>
       </section>
       <nav className="project-detail-nav">
         <div className="project-detail-sub-nav-links">
-          <span className={topic == "story" ? "active" : null} onClick={() => setTopic("story")}>Story</span >
-          <span className={topic == "risks" ? "active" : null} onClick={() => setTopic("risks")}>Risks</span >
-          <span className={topic == "comments" ? "active" : null} onClick={() => setTopic("comments")}>Comments</span >
+          <span
+            className={topic == "story" ? "active" : null}
+            onClick={() => setTopic("story")}
+          >
+            Story
+          </span>
+          <span
+            className={topic == "risks" ? "active" : null}
+            onClick={() => setTopic("risks")}
+          >
+            Risks
+          </span>
+          <span
+            className={topic == "comments" ? "active" : null}
+            onClick={() => setTopic("comments")}
+          >
+            Comments
+          </span>
         </div>
       </nav>
       <section className="project-detail-in-depth">
