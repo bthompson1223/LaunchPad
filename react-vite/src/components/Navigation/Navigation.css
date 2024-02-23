@@ -26,25 +26,25 @@
   font-weight: bold;
   color: #068859;
   padding-top: 8px;
+  justify-self: center;
 }
 
 .new-project {
-  display: inline-flex;
-  text-decoration: none;
-  align-items: center;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  border: 2px solid black;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
   background-color: #068859;
-  border-radius: 20px;
-  padding: 5px 10px 5px 10px;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
-    1px 1px 0 black;
+  color: white;
+  text-decoration: none;
 }
 
-.new-project-menu {
+.new-project:hover {
+  background-color: #005738;
+}
+
+.new-project-menu .empty {
   display: flex;
   gap: 5px;
+  min-width: 182px;
 }
