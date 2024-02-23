@@ -98,8 +98,10 @@ export const thunkDeleteReward = (rewardId) => async (dispatch) => {
 
 // thunk - update a reward
 export const thunkUpdateReward = (formData, rewardId) => async (dispatch) => {
+  console.log("🚀 ~ thunkUpdateReward ~ :", "inside reward thunk function" )
   const res = await fetch(`/api/rewards/${rewardId}`, {
     method: "PUT",
+    
     body: formData,
   });
 
