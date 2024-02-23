@@ -11,26 +11,6 @@
   margin-bottom: 12px;
 }
 
-.splash-categories-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: 25px;
-
-}
-
-.splash-categories-nav > a {
-  color: #3b5249;
-  text-decoration: none;
-  padding: 19px 0;
-  font-size: 15px;
-}
-
-.splash-categories-nav a:hover {
-  background-color:  #F7F2EB
-}
-
 .splash-title {
   font-weight: 500;
   margin-bottom: 5px;

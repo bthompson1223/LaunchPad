@@ -23,7 +23,7 @@ const OwnedProjects = () => {
     <div>
       <h1>{user.first_name}&apos;s Projects</h1>
       {!projects?.length && <h2>No projects created</h2>}
-      <ul>
+      <ul className="project-list">
         {projects.map((project) => (
           <ProjectListItem project={project} key={project.id} />
         ))}
