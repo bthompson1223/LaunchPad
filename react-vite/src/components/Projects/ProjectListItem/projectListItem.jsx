@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import OpenModalButton from "../../OpenModalButton";
 import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
 import "./projectListItem.css";
+import ProgressBar from "../../ProgressBar/ProgressBar";
 
 // backed projects, liked projects, categories page, created projects
 export const ProjectListItem = ({ project }) => {
@@ -48,7 +49,7 @@ export const ProjectListItem = ({ project }) => {
           </p>
         </div>
         {/* <div className="card-funding-progress">{project.fundingGoal} {project.totalFunded}</div> */}
-
+        <ProgressBar project={project} />
         <div className="card-stats">
           <p>${project.totalFunded} pledged</p>
           <p>{fundingPercentage}% funded</p>
