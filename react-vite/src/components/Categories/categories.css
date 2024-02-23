@@ -24,8 +24,13 @@
   text-decoration: none;
   padding: 19px 0;
   font-size: 15px;
+  margin-bottom: 2rem;
 }
 
 .category-nav a:hover {
   background-color: #f7f2eb;
+}
+
+.category-nav a:hover {
+  background-color:  #F7F2EB
 }
