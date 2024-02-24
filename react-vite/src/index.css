@@ -15,3 +15,7 @@
 .green {
   color: #068859;;
 }
+
+html {
+  overflow-y: scroll;
+}

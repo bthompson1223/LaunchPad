@@ -29,7 +29,7 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  width: 1140px; 
+  width: 85%; 
   margin: 0 auto;
   padding: 1rem;
 }
@@ -78,8 +78,8 @@
 
 .random-project {
   align-self: center;
-  /* width: 80%; */
-  /* padding-left: 20rem; */
+  width:85%;
+
 }
 
 .stats-text {

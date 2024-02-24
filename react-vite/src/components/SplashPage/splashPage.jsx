@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { returnInitial, thunkGetCategoryProjects } from "../../redux/project";
-import { ProjectListItem } from "../Projects/ProjectListItem/projectListItem";
 import "./splashPage.css";
 import CategoriesNav from "../Categories/CategoriesNav";
+import { FeaturedProject } from "../Projects/FeaturedProject/FeaturedProject";
+import { ProjectListItem } from "../Projects/ProjectListItem/projectListItem";
 
 const SplashPage = () => {
   const projectsObj = useSelector((state) => state.projects);
@@ -72,17 +73,15 @@ const SplashPage = () => {
         </div>
       </div>
       <div className="random-project">
-        <h3>Featured Project:</h3>
+        <h3>Featured Projects</h3>
         <ul className="featured">
-          <li>
-            <ProjectListItem className='featured-project' project={randomProject1} />
-          </li>
-          <li>
-            <ProjectListItem className='featured-project' project={randomProject2} />
-          </li>
-          <li>
-            <ProjectListItem className='featured-project' project={randomProject3} />
-          </li>
+
+            <FeaturedProject className='featured-project' project={randomProject1} />
+
+            <FeaturedProject className='featured-project' project={randomProject2} />
+
+            <FeaturedProject className='featured-project' project={randomProject3} />
+
         </ul>
       </div>
     </div>
