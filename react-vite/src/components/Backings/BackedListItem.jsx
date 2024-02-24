@@ -5,7 +5,7 @@ import { DeleteBackingModal } from "./DeleteBackingModal";
 
 const BackedListItem = ({ backing }) => {
   const deliveryDate = new Date(
-    backing.reward.est_delivery_date
+    backing.reward?.est_delivery_date
   ).toLocaleString("default", { month: "long", year: "numeric" });
 
   return (

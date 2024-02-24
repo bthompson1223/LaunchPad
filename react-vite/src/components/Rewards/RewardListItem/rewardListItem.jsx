@@ -34,6 +34,8 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
         }
     }
 
+    const quantityLeft = reward.quantity - reward.backers
+
     return (
         <div className="reward-card" onClick={onRewardClick}>
             <div className='reward-card-details'>
@@ -45,14 +47,16 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
                     </div>
                     <div className="reward-details">
                         <p className='reward-card-grey-title'>QUANTITY</p>
-                        <p className='reward-details-not-title'>{reward.quantity}</p>
+                        {quantityLeft > 0 ? <p className='reward-details-not-title'>{quantityLeft}</p> :
+                          <p className='reward-details-not-title'>Sold out!</p>
+                        }
                     </div>
                     <div className="reward-details">
                         <p className='reward-card-grey-title'>ESTIMATED DELIVERY</p>
                         <p className='reward-details-not-title'>{new Date(reward.est_delivery_date).toLocaleString('default', { month: 'long', year: 'numeric' })}</p>
                     </div>
                     <div className='reward-details-backer'>
-                        {project.numOfBackers} backers
+                        {reward.backers} backers
                     </div>
                 </div>
 
@@ -63,11 +67,17 @@ const RewardListItem = ({ reward, project, isActive, onRewardClick, isOwner}) =>
 
             <div className="reward-button">
                 {
-                    isActive && !isOwner && user && !ifBacked && (
+                    isActive && !isOwner && user && !ifBacked && quantityLeft > 0 && (
                         <div className="pledge-detail">
                             <OpenModalButton buttonText={`Pledge $${reward.amount}`} modalComponent={<PledgeRewardModal reward = {reward} />} />
                         </div>
                     )
+                } 
+                {
+                  isActive && !isOwner && user && !ifBacked && !quantityLeft &&
+                  <div className="pledge-detail">
+                      <p>This reward is sold out!</p>
+                  </div>
                 }
                 {
                     isActive && !isOwner && user && ifBacked && (
