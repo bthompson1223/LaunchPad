@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   outline: 1px solid lightgray;
-  max-width: 360px; 
+  width: 320px
 }
 
 /* h1 */
@@ -68,8 +68,21 @@
 
 .login-signup-form button:hover {
   background-color: #005738;
+} 
+
+.login-button {
+  margin-top: 20px
 }
 
+.demo-user {
+  cursor: pointer;
+  margin: auto;
+  text-decoration: underline;
+}
+
+.demo-user:hover {
+  color: #005738
+}
 
 
 

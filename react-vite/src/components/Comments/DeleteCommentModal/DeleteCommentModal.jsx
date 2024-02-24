@@ -22,8 +22,8 @@ export const DeleteCommentModal = ({ comment }) => {
 
   return (
     <div className='delete-project-modal'>
-      <h1>Confirm Delete</h1>
-      <h4>Are you sure you want to remove this comment?</h4>
+      <h2>Confirm Delete</h2>
+      <p>Are you sure you want to remove this comment?</p>
       <button id='project-delete-yes-btn' onClick={handleDelete}>Yes (Delete Comment)</button>
       <button id='project-delete-no-btn' onClick={handleCancel}>No (Keep Comment)</button>
     </div>
