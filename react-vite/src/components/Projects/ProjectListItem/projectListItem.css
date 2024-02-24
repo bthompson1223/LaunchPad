@@ -8,6 +8,11 @@
   width: 32%
 }
 
+.project-container:hover {
+  border-color: #08CD78; 
+  box-shadow: 0 0 6px #08CD78; 
+}
+
 .project-container .progress-bar {
   height: 5px;
 }
