@@ -11,26 +11,6 @@
   margin-bottom: 12px;
 }
 
-.splash-categories-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: 25px;
-
-}
-
-.splash-categories-nav > a {
-  color: #3b5249;
-  text-decoration: none;
-  padding: 19px 0;
-  font-size: 15px;
-}
-
-.splash-categories-nav a:hover {
-  background-color:  #F7F2EB
-}
-
 .splash-title {
   font-weight: 500;
   margin-bottom: 5px;
@@ -49,7 +29,7 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  width: 1140px; 
+  width: 85%; 
   margin: 0 auto;
   padding: 1rem;
 }
@@ -98,8 +78,8 @@
 
 .random-project {
   align-self: center;
-  /* width: 80%; */
-  /* padding-left: 20rem; */
+  width:85%;
+
 }
 
 .stats-text {

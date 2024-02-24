@@ -44,17 +44,15 @@
 }
 
 .project-detail-image img {
-  width: 800px;
-  height: 450px;
+  width: 750px;
+  height: 425px;
   object-fit: cover;
 }
 
 .project-detail-stats {
   color: rgb(118, 118, 118);
   padding-left: 2rem;
-  /* width: 100%; */
   width: 300px;
-  /* min-width: 150px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -143,18 +141,4 @@
   margin: 3rem auto;
   width: 75%;
   font-size: large;
-}
-
-.progress-bar { 
-  height: 1rem;
-  /* position: relative; */
-  background: #555;
-}
-
-.progress-bar > span {
-  display: block;
-  height: 100%;
-  background-color: #068859;
-  /* position: relative; */
-  overflow: hidden;
 }
