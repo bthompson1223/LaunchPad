@@ -52,16 +52,14 @@ export const ProjectListItem = ({ project }) => {
         </div>
         {/* <div className="card-funding-progress">{project.fundingGoal} {project.totalFunded}</div> */}
         <ProgressBar project={project} />
-        <div className="below-progress-bar"> 
-        
-
-        <div className="card-stats">
-          <p className="green">${project.totalFunded} pledged</p>
-          <p>{fundingPercentage}% funded</p>
-          {daysLeft == 0 && <p>{hoursLeft} hours left!</p>}
-          {daysLeft > 0 && <p>{daysLeft} days left</p>}
-        </div>
+        <div className="below-progress-bar">
+          <div className="card-stats">
+            <p className="green">${project.totalFunded} pledged</p>
+            <p>{fundingPercentage}% funded</p>
+            {daysLeft == 0 && <p>{hoursLeft} hours left!</p>}
+            {daysLeft > 0 && <p>{daysLeft} days left</p>}
           </div>
+        </div>
       </div>
       <div className="project-list-item-cat-loc">
         <span>

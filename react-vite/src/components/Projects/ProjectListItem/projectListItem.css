@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
   margin: 1rem 0rem 0rem;
   border: 1px solid lightgray;
   width: 32%
@@ -60,7 +59,6 @@
 .below-progress-bar {
   flex-direction: column;
   display: flex;
-  /* height: 100px; */
   margin-bottom: .25rem;
 }
 
@@ -100,8 +98,8 @@
   color: white;
   background-color: #068859;
   border: none;
-  width: 92px;
+  /* min-width: 92px; */
   padding: .5rem;
   cursor: pointer;
-  font-size: small;
+  font-size: x-small;
 }
