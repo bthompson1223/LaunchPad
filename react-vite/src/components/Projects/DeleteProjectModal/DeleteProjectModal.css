@@ -1,0 +1,50 @@
+.delete-project-modal {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px; 
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: 5; 
+    text-align: center;
+  }
+  
+  .delete-project-modal h2 {
+    font-weight: 500;
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .delete-project-modal p {
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .delete-project-modal button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Yes button */
+  .delete-project-modal button:first-of-type {
+    background-color: #068859; 
+    color: white;
+  }
+  
+  .delete-project-modal button:first-of-type:hover {
+    background-color: #005738;
+  }
+
+  /* No button */
+  .delete-project-modal button:last-of-type {
+    background-color:#ed7a07;
+    color: white;
+  }
+
+  .delete-project-modal button:last-of-type:hover {
+    background-color: #af3816;
+  }

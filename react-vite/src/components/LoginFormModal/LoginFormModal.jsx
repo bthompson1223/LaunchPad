@@ -2,7 +2,7 @@ import { useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import "./LoginForm.css";
+import "../SignupFormModal/SignupForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -34,39 +34,35 @@ function LoginFormModal() {
   };
 
   return (
-    <div className="main">
+    <div className="login-signup-container">
       <h1 className="login-signup">Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="login-signup-form" onSubmit={handleSubmit}>
         <label>
-          Email:
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             placeholder="Enter your registered email"
-            className="credential-input"
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p className="input-errors">{errors.email}</p>}
         <label>
-          Password:
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             placeholder="Enter your password"
-            className="password-input"
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit" className="login-button">
+        {errors.password && <p className="input-errors">{errors.password}</p>}
+        <button className="login-button" type="submit">
           Log In
         </button>
-        <button className="demo-button" onClick={demoUser}>
+        <div className="demo-user" onClick={demoUser}>
           Demo User
-        </button>
+        </div>
       </form>
     </div>
   );

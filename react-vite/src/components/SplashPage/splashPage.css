@@ -1,0 +1,96 @@
+.splash-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.splash-categories-container {
+  width: 100%;
+  border-top: 1px solid #ddd; 
+  border-bottom: 1px solid #ddd; 
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.splash-title {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.on-launchpad p {
+  color: #333;
+  margin-bottom: 15px
+}
+
+.splash-title {
+  align-self: center;
+}
+
+.splash-stats {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 85%; 
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.on-launchpad {
+  align-self: center;
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #ddd; 
+  padding: 10px;
+  box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+}
+
+.projects-funded {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 3rem;
+  min-height: 100%;
+}
+
+.total-funded {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 3rem;
+  min-height: 100%;
+}
+
+.pledges-made {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 3rem;
+  min-height: 100%;
+}
+
+.bar {
+  height: 100px;
+  border: 2px solid lightgray;
+}
+
+.random-project {
+  align-self: center;
+  width:85%;
+
+}
+
+.stats-text {
+  font-size: 13px;
+  color: #333
+}
+
+.projects,
+.funding,
+.backers {
+  font-size: 34px;
+  color: #005738;
+  margin-bottom: 8px;
+}

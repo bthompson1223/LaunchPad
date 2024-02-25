@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { thunkCreateProject } from "../../../redux/project";
+import "./CreateEditProject.css";
 
 const CreateProject = () => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const CreateProject = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
-  const [category, setCategory] = useState("placeholder")
+  const [category, setCategory] = useState("placeholder");
   const [location, setLocation] = useState("");
   const [story, setStory] = useState("");
   const [risks, setRisks] = useState("");
@@ -30,7 +31,8 @@ const CreateProject = () => {
 
     if (!title) validationErrors.title = "Title is required";
     if (!subTitle) validationErrors.subTitle = "Subtitle is required";
-    if (!category) validationErrors.category = "Category is required";
+    if (category === "placeholder")
+      validationErrors.category = "Category is required";
     if (!location) validationErrors.location = "Location is required";
     if (!story) validationErrors.story = "Story is required";
     if (!risks) validationErrors.risks = "Risks is required";
@@ -48,7 +50,7 @@ const CreateProject = () => {
     } else {
       // console.log(typeof category)
       // console.log(typeof parseInt(category))
-      const categoryNum = parseInt(category)
+      const categoryNum = parseInt(category);
 
       const formData = new FormData();
       formData.append("title", title);
@@ -74,11 +76,15 @@ const CreateProject = () => {
   };
 
   return (
-    <div>
+    <div className="project-add-edit">
       <h1>Create a New Project!</h1>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div className="input-div">
-          <h2>What&apos;s the name of your project?</h2>
+      <form
+        className="create-project-form"
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+      >
+        <div className="project-input-div">
+          <h3>What&apos;s the name of your project?</h3>
           <label htmlFor="title">
             <input
               type="text"
@@ -86,15 +92,16 @@ const CreateProject = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Project Name"
+              className="input-create"
             />
           </label>
-          <div className="errors">
-            {"title" in errors && <p>{errors.title}</p>}
+          <div className="project-errors">
+            {"title" in errors && <p >{errors.title}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Subtitle</h2>
+        <div className="project-input-div">
+          <h3>Subtitle</h3>
           <label htmlFor="subtitle">
             <input
               type="text"
@@ -102,22 +109,28 @@ const CreateProject = () => {
               value={subTitle}
               onChange={(e) => setSubTitle(e.target.value)}
               placeholder="Enter a cool subtitle"
+              className="input-create"
             />
           </label>
-          <div className="errors">
-            {"subtitle" in errors && <p>{errors.subtitle}</p>}
+          <div className="project-errors">
+            {"subTitle" in errors && (
+              <p >{errors.subTitle}</p>
+            )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Category</h2>
+        <div className="project-input-div">
+          <h3>Category</h3>
           <label htmlFor="category">
             <select
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
+              className="input-create"
             >
-              <option disabled value={"placeholder"}>Select a Category</option>
+              <option disabled value={"placeholder"}>
+                Select a Category
+              </option>
               <option value="1">Arts</option>
               <option value="2">Comics & Illustrations</option>
               <option value="3">Design & Tech</option>
@@ -128,13 +141,15 @@ const CreateProject = () => {
               <option value="8">Publishing</option>
             </select>
           </label>
-          <div className="errors">
-            {"category" in errors && <p>{errors.category}</p>}
+          <div className="project-errors">
+            {"category" in errors && (
+              <p >{errors.category}</p>
+            )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Location</h2>
+        <div className="project-input-div">
+          <h3>Location</h3>
           <label htmlFor="location">
             <input
               type="text"
@@ -142,59 +157,52 @@ const CreateProject = () => {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="Where's your project located?"
+              className="input-create"
             />
           </label>
-          <div className="errors">
-            {"location" in errors && <p>{errors.location}</p>}
+          <div className="project-errors">
+            {"location" in errors && (
+              <p >{errors.location}</p>
+            )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Story</h2>
+        <div className="project-input-div">
+          <h3>Story</h3>
           <label htmlFor="story">
             <textarea
               name="story"
               value={story}
               onChange={(e) => setStory(e.target.value)}
               placeholder="Tell us a story about your project"
+              className="input-create desc"
             />
           </label>
-          <div className="errors">
-            {"story" in errors && <p>{errors.story}</p>}
+          <div className="project-errors">
+            {"story" in errors && <p >{errors.story}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Risks</h2>
+        <div className="project-input-div">
+          <h3>Risks</h3>
           <label htmlFor="risks">
             <textarea
               name="risks"
               value={risks}
               onChange={(e) => setRisks(e.target.value)}
               placeholder="What is this project risking for you?"
+              className="input-create desc"
             />
           </label>
-          <div className="errors">
-            {"risks" in errors && <p>{errors.risks}</p>}
+          <div className="project-errors">
+            {"risks" in errors && <p >{errors.risks}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Select a Project Image</h2>
-          <label htmlFor="coverImage">
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setCoverImage(e.target.files[0])}
-            />
-          </label>
-          <div className="errors">
-            {"coverImage" in errors && <p>{errors.coverImage}</p>}
-          </div>
-        </div>
+     
 
-        <div className="input-div">
-          <h2>What&apos;s Your Funding Goal?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s Your Funding Goal?</h3>
           <label htmlFor="fundingGoal">
             <input
               type="number"
@@ -202,28 +210,51 @@ const CreateProject = () => {
               value={fundingGoal}
               onChange={(e) => setFundingGoal(e.target.value)}
               placeholder="How much funding do you need?"
+              className="input-create fund-input"
             />
           </label>
-          <div className="errors">
-            {"fundingGoal" in errors && <p>{errors.fundingGoal}</p>}
+          <div className="project-errors">
+            {"fundingGoal" in errors && (
+              <p >{errors.fundingGoal}</p>
+            )}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>What&apos;s the Last Day of Funding?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s the Last Day of Funding?</h3>
           <label htmlFor="endDate">
             <input
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
+              className="input-create"
             />
           </label>
-          <div className="errors">
-            {"endDate" in errors && <p>{errors.endDate}</p>}
+          <div className="project-errors">
+            {"endDate" in errors && <p >{errors.endDate}</p>}
           </div>
         </div>
 
-        <button type="submit">Create a Project</button>
+        <div className="project-input-div">
+          <h3>Select a Project Image</h3>
+          <label htmlFor="coverImage">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setCoverImage(e.target.files[0])}
+              className="input-create"
+            />
+          </label>
+          <div className="project-errors">
+            {"coverImage" in errors && (
+              <p>{errors.coverImage}</p>
+            )}
+          </div>
+        </div>
+
+        <button type="submit" className="create-a-project-button">
+          Create a Project
+        </button>
 
         {imageLoading && <p>Loading...</p>}
       </form>

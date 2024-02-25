@@ -2,6 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { thunkUpdateProject, thunkGetOneProject } from "../../../redux/project";
+import "../CreateProject/CreateEditProject.css"
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 const UpdateProject = () => {
   const { projectId } = useParams();
@@ -35,7 +44,7 @@ const UpdateProject = () => {
       setRisks(project.risks)
       setCoverImage(project.coverImage)
       setFundingGoal(project.fundingGoal)
-      setEndDate(project.end_date)
+      setEndDate(formatDate(project.end_date))
     }
   }, [project])
   
@@ -74,10 +83,7 @@ const UpdateProject = () => {
     if (Object.values(validationErrors).length) {
       setErrors(validationErrors);
     } else {
-      // console.log(typeof category)
-      // console.log(typeof parseInt(category))
       const categoryNum = parseInt(category);
-      console.log(coverImage);
 
       const formData = new FormData();
       formData.append("title", title);
@@ -103,11 +109,11 @@ const UpdateProject = () => {
   };
 
   return (
-    <div>
+    <div className="project-add-edit">
       <h1>Update Your Project!</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div className="input-div">
-          <h2>What&apos;s the name of your project?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s the name of your project?</h3>
           <label htmlFor="title">
             <input
               type="text"
@@ -117,13 +123,13 @@ const UpdateProject = () => {
               placeholder="Project Name"
             />
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"title" in errors && <p>{errors.title}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Subtitle</h2>
+        <div className="project-input-div">
+          <h3>Subtitle</h3>
           <label htmlFor="subtitle">
             <input
               type="text"
@@ -133,13 +139,13 @@ const UpdateProject = () => {
               placeholder="Enter a cool subtitle"
             />
           </label>
-          <div className="errors">
-            {"subtitle" in errors && <p>{errors.subtitle}</p>}
+          <div className="project-errors">
+            {"subTitle" in errors && <p>{errors.subTitle}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Category</h2>
+        <div className="project-input-div">
+          <h3>Category</h3>
           <label htmlFor="category">
             <select
               name="category"
@@ -159,13 +165,13 @@ const UpdateProject = () => {
               <option value="8">Publishing</option>
             </select>
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"category" in errors && <p>{errors.category}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Location</h2>
+        <div className="project-input-div">
+          <h3>Location</h3>
           <label htmlFor="location">
             <input
               type="text"
@@ -175,13 +181,13 @@ const UpdateProject = () => {
               placeholder="Where's your project located?"
             />
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"location" in errors && <p>{errors.location}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Story</h2>
+        <div className="project-input-div">
+          <h3>Story</h3>
           <label htmlFor="story">
             <textarea             
               name="story"
@@ -190,13 +196,13 @@ const UpdateProject = () => {
               placeholder="Tell us a story about your project"
             />
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"story" in errors && <p>{errors.story}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Risks</h2>
+        <div className="project-input-div">
+          <h3>Risks</h3>
           <label htmlFor="risks">
             <textarea
               name="risks"
@@ -205,13 +211,13 @@ const UpdateProject = () => {
               placeholder="What is this project risking for you?"
             />
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"risks" in errors && <p>{errors.risks}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>Select a Project Image</h2>
+        <div className="project-input-div">
+          <h3>Select a Project Image</h3>
           <div>
             <img src={coverImage} alt="" />
           </div>
@@ -222,13 +228,13 @@ const UpdateProject = () => {
               onChange={(e) => setCoverImage(e.target.files[0])}
             />
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"coverImage" in errors && <p>{errors.coverImage}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>What&apos;s Your Funding Goal?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s Your Funding Goal?</h3>
           <label htmlFor="fundingGoal">
             <input
               type="number"
@@ -238,13 +244,13 @@ const UpdateProject = () => {
               placeholder="How much funding do you need?"
             />
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"fundingGoal" in errors && <p>{errors.fundingGoal}</p>}
           </div>
         </div>
 
-        <div className="input-div">
-          <h2>What&apos;s the Last Day of Funding?</h2>
+        <div className="project-input-div">
+          <h3>What&apos;s the Last Day of Funding?</h3>
           <label htmlFor="endDate">
             <input
               type="date"
@@ -252,12 +258,12 @@ const UpdateProject = () => {
               onChange={(e) => setEndDate(e.target.value)}
             />
           </label>
-          <div className="errors">
+          <div className="project-errors">
             {"endDate" in errors && <p>{errors.endDate}</p>}
           </div>
         </div>
 
-        <button type="submit">Create a Project</button>
+        <button type="submit">Edit Project</button>
 
         {imageLoading && <p>Loading...</p>}
       </form>

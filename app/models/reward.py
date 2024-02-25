@@ -25,6 +25,7 @@ class Reward(db.Model):
     owner = db.relationship('User', back_populates = 'rewards')
 
     def to_dict(self):
+
         return {
             "id": self.id,
             "name": self.name,
@@ -34,6 +35,7 @@ class Reward(db.Model):
             "est_delivery_date": self.est_delivery_date,
             "quantity": self.quantity,
             "project_id": self.project_id,
+            "backers": len(self.backers),
             "owner_id": self.owner_id,
             'created_at': self.created_at,
             'updated_at': self.updated_at
