@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { returnInitial, thunkGetCategoryProjects } from "../../redux/project";
-import { NavLink } from "react-router-dom";
+import "./splashPage.css";
+import CategoriesNav from "../Categories/CategoriesNav";
+import { FeaturedProject } from "../Projects/FeaturedProject/FeaturedProject";
 import { ProjectListItem } from "../Projects/ProjectListItem/projectListItem";
 
 const SplashPage = () => {
@@ -27,44 +29,43 @@ const SplashPage = () => {
     backers += parseInt(project.numOfBackers);
   }
 
+  const formattedSum = sum.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  });
+
   const randomChoice = (choiceArr) => {
     const index = Math.floor(Math.random() * choiceArr.length);
     return choiceArr[index];
   };
 
-  const randomProject = randomChoice(projectsArr);
+  const randomProject1 = randomChoice(projectsArr);
+  const randomProject2 = randomChoice(projectsArr);
+  const randomProject3 = randomChoice(projectsArr);
 
   return (
-    <div>
-      <div>
-        <nav>
-          <NavLink to="/categories/all">All</NavLink>
-          <NavLink to="/categories/arts">Arts</NavLink>
-          <NavLink to="/categories/comics-illustration">
-            Comics & Illustration
-          </NavLink>
-          <NavLink to="/categories/design-tech">Design & Tech</NavLink>
-          <NavLink to="/categories/film">Film</NavLink>
-          <NavLink to="/categories/food-craft">Food & Craft</NavLink>
-          <NavLink to="/categories/games">Games</NavLink>
-          <NavLink to="/categories/music">Music</NavLink>
-          <NavLink to="/categories/publishing">Publishing</NavLink>
-        </nav>
+    <div className="splash-container">
+      <div className="categories-container">
+        <CategoriesNav />
       </div>
-      <h1>Bring a creative project to life.</h1>
+      <h1 className="splash-title">Bring a creative project to life</h1>
       <div className="splash-stats">
         <div className="on-launchpad">
-          <h3>Currently on LaunchPad:</h3>
+          <p>Currently on LaunchPad:</p>
         </div>
         <div className="stats-bar">
           <div className="projects-funded">
             <div className="projects">{projectsArr.length}</div>
             <div className="stats-text">projects getting funding</div>
           </div>
+          <div className="bar"> </div>
           <div className="total-funded">
-            <div className="funding">${sum}</div>
+            <div className="funding">{formattedSum}</div>
             <div className="stats-text">Total Funding</div>
           </div>
+          <div className="bar"></div>
           <div className="pledges-made">
             <div className="backers">{backers}</div>
             <div className="stats-text">Total pledges</div>
@@ -72,8 +73,16 @@ const SplashPage = () => {
         </div>
       </div>
       <div className="random-project">
-        <h3>Featured Project:</h3>
-        <ProjectListItem project={randomProject} />
+        <h3>Featured Projects</h3>
+        <ul className="featured">
+
+            <FeaturedProject className='featured-project' project={randomProject1} />
+
+            <FeaturedProject className='featured-project' project={randomProject2} />
+
+            <FeaturedProject className='featured-project' project={randomProject3} />
+
+        </ul>
       </div>
     </div>
   );

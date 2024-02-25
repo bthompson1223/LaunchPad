@@ -9,10 +9,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./ProfileButton.css";
 
 function ProfileButton() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
+  const hasProfileImg = user?.profile_img;
   const ulRef = useRef();
 
   const toggleMenu = (e) => {
@@ -40,16 +41,29 @@ function ProfileButton() {
     e.preventDefault();
     dispatch(thunkLogout());
     closeMenu();
-    navigate('/')
+    navigate("/");
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
   return (
     <>
-      <button onClick={toggleMenu} className="menu">
-        <FaUserCircle />
-      </button>
+      {hasProfileImg ? (
+        <img
+          className="profile-image"
+          src={user?.profile_img}
+          alt="Profile Image"
+          onClick={toggleMenu}
+        />
+      ) : (
+        <img
+          className="profile-image"
+          src="https://launch-pad-group-project.s3.us-west-1.amazonaws.com/48-512.png"
+          alt="Profile Image"
+          onClick={toggleMenu}
+        />
+      )}
+
       {showMenu && (
         <ul className={ulClassName} ref={ulRef}>
           {user ? (
@@ -83,7 +97,7 @@ function ProfileButton() {
               </li>
             </>
           ) : (
-            <>
+            <div className="login-logout">
               <OpenModalMenuItem
                 itemText="Log In"
                 onItemClick={closeMenu}
@@ -94,7 +108,7 @@ function ProfileButton() {
                 onItemClick={closeMenu}
                 modalComponent={<SignupFormModal />}
               />
-            </>
+            </div>
           )}
         </ul>
       )}

@@ -7,6 +7,7 @@ const OwnedProjects = () => {
   const user = useSelector((state) => state.session.user);
   const projectsObj = useSelector((state) => state.session.user.projects);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(thunkUserProjects());
 
@@ -14,15 +15,15 @@ const OwnedProjects = () => {
   }, [dispatch]);
 
   if (!user) return <h2>You must be logged in to do that!</h2>;
-  if (!projectsObj) return null;
-  if (!Object.values(projectsObj).length) return null;
 
+  if (!projectsObj) return <h2>No projects created</h2>;
   const projects = Object.values(projectsObj);
 
   return (
     <div>
       <h1>{user.first_name}&apos;s Projects</h1>
-      <ul>
+      {!projects?.length && <h2>No projects created</h2>}
+      <ul className="project-list">
         {projects.map((project) => (
           <ProjectListItem project={project} key={project.id} />
         ))}

@@ -1,10 +1,13 @@
 import { useModal } from "../../../context/Modal"
 import { useDispatch } from "react-redux"
 import { thunkAddBacking } from '../../../redux/backings'
+import { useNavigate } from "react-router-dom"
+import '../RewardCSS/RewardModal.css'
 
-const PledgeRewardModal = ({rewardId}) => {
+const PledgeRewardModal = ({reward}) => {
     const { closeModal } = useModal()
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleCancel = (e) => {
         e.preventDefault()
@@ -13,16 +16,17 @@ const PledgeRewardModal = ({rewardId}) => {
 
     const handlePledge = async (e) => {
         e.preventDefault()
-        dispatch(thunkAddBacking(rewardId))
+        dispatch(thunkAddBacking(reward.id))
         closeModal()
+        navigate(`/projects/${reward.project_id}`)
       }
 
     return (
-        <div className='delete-modal-container'>
-            <h1>Confirm Pledge</h1>
-            <p>Are you sure you want to pledge this Reward</p>
+        <div className='pledge-modal-container reward-modal'>
+            <h2>Confirm Pledge</h2>
+            <p>Are you sure you want to pledge this Reward?</p>
             <button onClick={handlePledge}>Yes (Pledge)</button>
-            <button onClick={handleCancel}>No (Cancel Pledge)</button>
+            <button onClick={handleCancel}>No (Cancel)</button>
         </div>
         
     )

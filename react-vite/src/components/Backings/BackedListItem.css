@@ -1,10 +1,116 @@
+.backing-container {
+  border-bottom: 1px solid #ddd;
+  max-width: 800px;
+  height: fit-content;
+  display: flex;
+  margin-bottom: 3rem;
+  gap: 35px;
+  box-sizing: border-box;
+}
+
+.backed-list-item-reward-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 315px;
+  border: 1px solid  #068859;
+  margin-bottom: 30px;
+  margin: 0 15px 30px;
+}
+
+.backed-list-item-reward-info:hover {
+  border-color: #08CD78; 
+  box-shadow: 0 0 6px #08CD78; 
+}
+
+.backed-image-container {
+  width: 315px;
+}
+
+.backing-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.backing-container a {
+  text-decoration: none;
+  color: #333
+}
+
+.reward-link-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+
+.reward-link-container h3 {
+  font-weight: 600;
+  color: black;
+  font-size: 15px;
+}
+
+.reward-link-container p {
+  color: black;
+  font-size: 15px;
+}
+
+.backed-card-small-title {
+  font-size: 11px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.backed-details-not-title {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 14px
+}
+
+.delete-pledge-button{
+  width: 100%;
+}
+
+.delete-pledge-button button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #068859;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
 #backed-list-item-project-thumbnail {
-  width: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 25%;
+  object-fit: cover;
+}
+
+.pledge-info h4 {
+  font-weight: 500;
 }
 
 .backed-list-item-project-div {
   display: flex;
+  gap: 15px;
   align-items: center;
-  gap: 2rem
 }
+
+.backing-stats-title-container, .backing-stats-container {
+  width: 100%; 
+  text-align: left; 
+}
+
+.backing-stats {
+  padding: 0 15px
+}
+
+.relevant-pledge-info {
+  margin-top: 50px;
+}
+

@@ -1,0 +1,101 @@
+.reward-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd; 
+    padding: 25px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 780px;
+    height: 480px;
+    box-sizing: border-box;
+    margin-left: 120px;
+  }
+  
+  .reward-card:hover {
+    border-color: #08CD78; 
+    box-shadow: 0 0 6px #08CD78; 
+  }
+  
+  .reward-card-details {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+  }
+  
+  .card-reward-image {
+    margin-top: 19.920px;
+  }
+  
+  .card-reward-image img {
+    width: 220px;
+    height: 150px;
+    object-fit: cover; 
+  }
+  
+  .reward-button {
+    display: flex;
+    justify-content: flex-end;
+    
+  }
+  
+
+  .pledge-detail button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #068859;
+    color: white;
+    cursor: pointer;
+    width: 220px;
+    position: relative;
+  }
+
+  .owner-action button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #068859;
+    color: white;
+    cursor: pointer;
+    width: 220px;
+  
+  }
+
+  .owner-action button:hover,
+  .pledge-detail button:hover {
+    background-color: #005738;
+  }
+  
+.card-reward-text-div > h2 {
+    font-weight:normal;
+    margin-bottom: 35px;
+}
+
+.reward-card-grey-title {
+    color: grey;
+    font-size: 11px;
+    margin-bottom: 0px
+}
+
+.reward-details-backer {
+    padding-top: 30px;
+}
+  
+.reward-details-not-title {
+    margin-top: 5px;
+    margin-bottom: 20px
+}
+
+.owner-action {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+   
+}
+
+.owner-action button {
+    width: 130px;
+}
+
+.card-reward-text-div h3{
+  font-weight: 500;
+  margin-bottom: 0;
+}

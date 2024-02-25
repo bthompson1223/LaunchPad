@@ -1,0 +1,51 @@
+.reward-list {
+    margin-bottom: 70px
+}
+
+.reward-project-title {
+    text-align: center;
+    border-top: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    background-color: #fbfbfa;
+    margin-top: 15px;
+    margin-bottom: 100px;
+    cursor: pointer
+}
+
+
+.reward-project-title h1 {
+    font-weight: 500;
+}
+
+.rewards-list-titles {
+    margin-left: 120px;
+}
+
+.rewards-list-titles h1 {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.rewards-list-titles p {
+    margin-bottom: 25px;
+    margin-top: 5px
+}
+
+#create-reward {
+    background-image: linear-gradient(to bottom, #e0e8fd, #fcf1ec);
+    color: black; 
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#create-reward:hover {
+    background-image: linear-gradient(to bottom, #ccd7f5, #f8e2da);
+}
+
+

@@ -37,7 +37,8 @@ def created_projects():
     if projects:
         return [project.to_dict() for project in projects]
     else:
-        return {"errors": {"message": "Projects not found"}}, 404
+        return []
+        # return {"errors": {"message": "Projects not found"}}, 404
     
 @login_required
 @project_routes.route('/backed-projects')
@@ -212,26 +213,47 @@ def new_reward(projectId):
         return new_reward.to_dict()
     return form.errors, 401
 
+def build_nested_comments(comments_dict, parent_id=None):
+    nested_comments = []
+    for comment_id, comment in comments_dict.items():
+        if comment['parent'] == parent_id:
+            # Recursive call to find replies to this comment
+            comment['replies'] = build_nested_comments(comments_dict, comment_id)
+            nested_comments.append(comment)
+    return nested_comments
 
 @project_routes.route('/<int:projectId>/comments')
 def get_comments(projectId):
-  comments = Comment.query.filter(Comment.project_id == projectId)
+    comments = Comment.query.filter(Comment.project_id == projectId).all()
+    comments_dict = {comment.id: comment.to_dict() for comment in comments}
 
-  return [comment.to_dict() for comment in comments]
+    nested_comments = build_nested_comments(comments_dict)
+    print("nested commements========================",nested_comments)
 
+    return nested_comments
+   
 
 @login_required
 @project_routes.route('/<int:projectId>/comments', methods=["POST"])
 def create_comment(projectId):
 
-
     data = request.json
 
+    if 'comment' in data: 
+        comment = data['comment'] 
+    else: 
+        comment =  data['reply']
+
+    if 'parentId' in data:
+        parent = data['parentId']
+    else:
+        parent = None
+
     new_comment = Comment(
-        comment = data['comment'],
+        comment = comment,
         project_id = projectId,
         user_id = current_user.id,
-        # parent = parent if parent else None
+        parent = parent
     )
     try:
         db.session.add(new_comment)
@@ -244,6 +266,14 @@ def create_comment(projectId):
     return new_comment.to_dict()
   
 
+def delete_nested_comments(comment):
+    replies = Comment.query.filter_by(parent=comment.id).all()
+    for reply in replies:
+        delete_nested_comments(reply)
+    
+    db.session.delete(comment)
+    db.session.commit()
+
 @login_required
 @project_routes.route('/<int:projectId>/comments/<int:commentId>/delete', methods=["DELETE"])
 def delete_comment(projectId, commentId):
@@ -255,7 +285,6 @@ def delete_comment(projectId, commentId):
     if current_user.id is not comment.user_id:
         return {'errors': {'message': "Unauthorized"}}, 401
     
-    db.session.delete(comment)
-    db.session.commit()
+    delete_nested_comments(comment)
 
     return {"message": f"Successfully deleted comment"}

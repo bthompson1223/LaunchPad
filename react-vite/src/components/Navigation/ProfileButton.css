@@ -13,23 +13,35 @@
   align-items: center;
   padding: 5px 5px 5px 5px;
   margin-right: 40px;
+  gap: 5px;
+}
+
+.login-logout {
+  min-width: 60px;
 }
 
 .menu {
-  border-radius: 30px;
   padding: 10px 20px 10px 20px;
   margin-right: 3.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-.fa-user-circle {
+/* .fa-user-circle {
   padding-right: 5px;
-}
+} */
 
 .lo-button {
   display: flex;
-  background-color: rgb(157, 229, 173);
+  background-color: #068859;
   border: 1px solid black;
   border-radius: 5px;
+  color: white;
+}
+
+.lo-button:hover {
+  cursor: pointer;
 }
 
 .text {
@@ -66,4 +78,12 @@ ul {
 
 .root {
   max-width: fit-content;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 10px 20px 10px 20px;
 }

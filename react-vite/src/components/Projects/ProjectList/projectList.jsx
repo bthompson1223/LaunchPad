@@ -6,6 +6,7 @@ import {
   thunkGetCategoryProjects,
   returnInitial,
 } from "../../../redux/project";
+import './ProjectList.css'
 
 const ProjectList = () => {
   const dispatch = useDispatch();
