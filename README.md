@@ -18,7 +18,49 @@ Have an awesome idea and want to see who will back it to make it happen? Post yo
 
 ## Screenshots
 
-TODO
+### Landing Page
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/2ff76337-f751-4002-ac98-cfc99c03a5c5)
+
+### Projects By Categories
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/7f0e50fc-d338-4c54-9a65-8bf6b5e8d4f4)
+
+### Project Details With Modular Story/Risks/Comments Components Selectable
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/2df0efee-5489-43cb-b78f-1651947d6ff6)
+
+### Story/Risks/Comments
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/cf6a172b-2f0f-45a0-b07d-3149c16d77a7)
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/ae6aea07-e3cb-40a8-ade3-7af86e48bfed)
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/d4d6f8d3-dfa8-49e6-a511-767bc0ff8a5a)
+
+### Edit A Project
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/44cae381-01d1-4b2d-970d-fd572dab9436)
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/6c6f4aae-e63e-4a47-bd34-65a2f87430f2)
+
+### Manage Rewards if User Owns Project
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/f20bbc99-83ce-43d6-8885-2d7be8f356c9)
+
+### View Rewards/Make a Pledge if User Not Owner of Project
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/3abbbc76-dc3f-4d5e-970d-0ba33b37f3b2)
+
+### Manage Created Projects
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/5a708e49-3c10-417a-852e-fd98fc3888fe)
+
+### Manage Backings for Projects
+
+![image](https://github.com/bthompson1223/LaunchPad/assets/114091741/81590c35-0ec9-4dde-948e-cbe3412a5d46)
+
+
 
 ## Getting started
 
