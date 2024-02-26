@@ -1,6 +1,7 @@
 .profile-dropdown {
   position: absolute;
-  margin-top: 2.4rem;
+  right: -1.5rem;
+  top: 5rem;
 }
 
 .hidden {
@@ -12,6 +13,7 @@
   align-items: center;
   justify-content: space-between;
   padding-left: 0;
+  margin: 0;
 }
 
 .nav-container li {
