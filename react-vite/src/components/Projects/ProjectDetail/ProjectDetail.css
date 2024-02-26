@@ -15,7 +15,7 @@
 .project-detail {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
   width: 100%;
   max-width: 1130px;
@@ -44,8 +44,8 @@
 }
 
 .project-detail-image img {
-  width: 750px;
-  height: 425px;
+  width: 600px;
+  height: 340px;
   object-fit: cover;
 }
 
