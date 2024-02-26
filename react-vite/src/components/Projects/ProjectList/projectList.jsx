@@ -6,14 +6,16 @@ import {
   thunkGetCategoryProjects,
   returnInitial,
 } from "../../../redux/project";
-import './ProjectList.css'
+import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
+import "./ProjectList.css";
 
 const ProjectList = () => {
   const dispatch = useDispatch();
   const projectsObj = useSelector((state) => state.projects);
   const { category } = useParams();
-  const [ page, setPage ] = useState(1)
-  const [ perPage, setPerPage ] = useState(5)
+  const [page, setPage] = useState(1);
+  const [perPage, setPerPage] = useState(5);
 
   useEffect(() => {
     dispatch(thunkGetCategoryProjects(category, page, perPage));
@@ -28,12 +30,32 @@ const ProjectList = () => {
 
   return (
     <div>
-      <form>
-      <span>Page</span>
-      <input type="number" value={page} onChange={e => setPage(e.target.value)}/>
-      <span>Projects per Page</span><input type="number" value={perPage} onChange={e => setPerPage(e.target.value)}/>
+      <form className="pagination-form">
+        <span className="pagination-header">Page</span>
+        {page > 1 &&
+        <button className="arrow-buttons" onClick={() => setPage(page - 1)}><FaAngleLeft /></button>
+        }
+        <input
+          id="page-number-input"
+          type="text"
+          value={page}
+          readOnly={true}
+          onChange={(e) => setPage(e.target.value)}
+        />
+        <button className="arrow-buttons" onClick={() => setPage(page + 1)}><FaAngleRight /></button>
+        <span className="pagination-header">Projects per Page</span>
+        <select
+          id="per-page-input"
+          value={perPage}
+          onChange={(e) => setPerPage(e.target.value)}>
+        <option value={1}>1</option>
+        <option value={5}>5</option>
+        <option value={10}>10</option>
+        <option value={15}>15</option>
+        <option value={20}>20</option>
+        </select>
       </form>
-      <ul>
+      <ul className="project-list">
         {projects.map((project) => (
           <ProjectListItem project={project} key={project.id} />
         ))}

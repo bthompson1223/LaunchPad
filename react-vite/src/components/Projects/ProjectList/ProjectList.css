@@ -7,3 +7,21 @@
   margin: 0 auto;
   gap: .75rem;
 }
+
+.pagination-form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#page-number-input {
+  width: 1rem;
+  text-align: center;
+}
+
+#per-page-input {}
+
+.arrow-buttons {
+  color: white;
+  background-color: #068859;
+  border: none;
+}
