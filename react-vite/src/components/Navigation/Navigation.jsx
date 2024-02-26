@@ -20,10 +20,10 @@ function Navigation() {
 
   return (
     <ul className="nav-container">
-      <li>
+      <li className="new-project-button-li">
         <div className="new-project-menu">{newProjectDiv}</div>
       </li>
-      <li>
+      <li className="logo-li">
         <NavLink to="/" className="logo">
           LaunchPad
         </NavLink>
