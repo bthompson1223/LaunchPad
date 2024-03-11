@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProjectListItem } from "../ProjectListItem/projectListItem";
 import { useEffect } from "react";
 import { clearUserProjects, thunkUserProjects } from "../../../redux/session";
+import './OwnedProjects.css'
 
 const OwnedProjects = () => {
   const user = useSelector((state) => state.session.user);
@@ -20,7 +21,7 @@ const OwnedProjects = () => {
   const projects = Object.values(projectsObj);
 
   return (
-    <div>
+    <div className="owned-list">
       <h1>{user.first_name}&apos;s Projects</h1>
       {!projects?.length && <h2>No projects created</h2>}
       <ul className="project-list">

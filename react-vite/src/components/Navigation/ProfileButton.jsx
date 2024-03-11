@@ -77,7 +77,7 @@ function ProfileButton() {
                     className="manage-nav"
                     onClick={toggleMenu}
                   >
-                    Manage Created Projects
+                    Created Projects
                   </NavLink>
                 </li>
                 <li>
@@ -86,7 +86,7 @@ function ProfileButton() {
                     className="manage-nav extra"
                     onClick={toggleMenu}
                   >
-                    Manage Backings
+                    Backed Projects
                   </NavLink>
                 </li>
               </ul>

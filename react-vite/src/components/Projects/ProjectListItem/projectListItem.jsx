@@ -20,7 +20,7 @@ export const ProjectListItem = ({ project }) => {
     hoursLeft = Math.round(daysToGo * 24);
   }
   const fundingPercentage = Math.round(
-    project.totalFunded / project.fundingGoal
+    project.totalFunded / project.fundingGoal * 100
   );
   const categoryName = project.category.replace("-", " & ");
 
