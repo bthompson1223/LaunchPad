@@ -8,30 +8,48 @@ project_routes = Blueprint('projects', __name__)
 
 @project_routes.route('/')
 def all_projects():
-    pagination = Project.query.paginate()
-    
-    projects = [project.to_dict() for project in pagination.items]
-    
-    pagination_data = {
-        "page": pagination.page,
-        "per_page": pagination.per_page,
-        "total_pages": pagination.pages,
-        "total_projects": pagination.total
-    }
+    category = request.args.get("category", type=str)
+    print("category", category)
 
-    response = {
-        "projects": projects,
-        "pagination": pagination_data
-    }
+    query = Project.query
 
-    return jsonify(response)
+    if 'page' in request.args and 'per_page' in request.args:
+        if category == "all":
+            pagination = query.paginate()
 
-@project_routes.route('/<category>')
-def find_category_projects(category):
-    projects = Project.query.all()
-    projects_dict = [project.to_dict() for project in projects]
+        else:
+            category_obj = Category.query.filter(Category.name == category).first()
+            filtered_projects = query.filter_by(category_id = category_obj.id)
+            pagination = filtered_projects.paginate()
 
-    return [project for project in projects_dict if project["category"].lower() == category.lower()]
+        projects = [project.to_dict() for project in pagination.items]
+        
+        if request.args.get("page", type=int) > pagination.pages:
+          return jsonify({'error': 'Invalid page number'}), 400
+        
+        pagination_data = {
+            "page": pagination.page,
+            "per_page": pagination.per_page,
+            "totalPages": pagination.pages,
+            "totalProjects": pagination.total
+        }
+
+        response = {
+            "projects": projects,
+            "pagination": pagination_data
+        }
+
+        return jsonify(response)
+    else:
+        projects = query.all()
+        return [project.to_dict() for project in projects]
+
+# @project_routes.route('/<category>')
+# def find_category_projects(category):
+#     projects = Project.query.all()
+#     projects_dict = [project.to_dict() for project in projects]
+
+#     return [project for project in projects_dict if project["category"].lower() == category.lower()]
 
 @project_routes.route('/<int:projectId>')
 def get_project(projectId):
@@ -50,7 +68,6 @@ def created_projects():
         return [project.to_dict() for project in projects]
     else:
         return []
-        # return {"errors": {"message": "Projects not found"}}, 404
     
 @login_required
 @project_routes.route('/backed-projects')

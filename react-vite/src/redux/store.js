@@ -11,6 +11,7 @@ import rewardReducer from "./reward";
 import commentReducer from "./comments";
 import backingsReducer from "./backings";
 import likesReducer from "./likes";
+import PaginationReducer from "./pagination";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   comments: commentReducer,
   backings: backingsReducer,
   likes: likesReducer,
+  pagination: PaginationReducer
 });
 
 let enhancer;
