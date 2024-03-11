@@ -24,6 +24,7 @@ const ProjectList = () => {
     };
   }, [dispatch, category, page, perPage]);
 
+  
   if (Object.values(projectsObj).length == 0) return null;
 
   const projects = Object.values(projectsObj);

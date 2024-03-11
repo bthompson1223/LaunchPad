@@ -4,6 +4,7 @@ const GET_ONE_PROJECT = "projects/GET_ONE_PROJECT";
 const DELETE_PROJECT = "projects/DELETE_PROJECT";
 const CREATE_PROJECT = "projects/CREATE_PROJECT";
 const UPDATE_PROJECT = "projects/UPDATE_PROJECT";
+const SET_PAGINATION_DATA = "projects/SET_PAGINATION_DATA"
 
 export const returnInitial = () => {
   return {
@@ -38,6 +39,11 @@ const updateProject = (project) => ({
   project,
 });
 
+const setPaginationData = (data) => ({
+  type: SET_PAGINATION_DATA,
+  data
+})
+
 export const thunkGetCategoryProjects = (category, page, perPage) => async (dispatch) => {
   let res;
   if (category == "all") {
@@ -47,8 +53,9 @@ export const thunkGetCategoryProjects = (category, page, perPage) => async (disp
   }
 
   if (res.ok) {
-    const projects = await res.json();
-    dispatch(getProjects(projects));
+    const data = await res.json();
+    dispatch(getProjects(data.projects));
+    dispatch(setPaginationData(data.pagination))
   } else {
     const errs = await res.json();
     return errs;
@@ -143,6 +150,11 @@ function projectReducer(state = initialState, action) {
     case UPDATE_PROJECT: {
       const newState = { ...state };
       newState[action.project.id] = action.project;
+      return newState;
+    }
+    case SET_PAGINATION_DATA: {
+      const newState = { ...state }
+      newState.pagination = action.data
       return newState;
     }
     default:

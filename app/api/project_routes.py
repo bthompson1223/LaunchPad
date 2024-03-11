@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import current_user, login_required
 from ..models import Project, Category, User, Backer, Reward, Comment, db
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
@@ -8,11 +8,23 @@ project_routes = Blueprint('projects', __name__)
 
 @project_routes.route('/')
 def all_projects():
-    # projects = Project.query.all()
-    # print(request.args)
-    page = db.paginate(db.select(Project))
+    pagination = Project.query.paginate()
+    
+    projects = [project.to_dict() for project in pagination.items]
+    
+    pagination_data = {
+        "page": pagination.page,
+        "per_page": pagination.per_page,
+        "total_pages": pagination.pages,
+        "total_projects": pagination.total
+    }
 
-    return [project.to_dict() for project in page]
+    response = {
+        "projects": projects,
+        "pagination": pagination_data
+    }
+
+    return jsonify(response)
 
 @project_routes.route('/<category>')
 def find_category_projects(category):
