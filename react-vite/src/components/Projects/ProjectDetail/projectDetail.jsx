@@ -19,6 +19,16 @@ const ProjectDetail = () => {
   const user = useSelector((state) => state.session.user);
   const [topic, setTopic] = useState("story");
 
+  const formatAmount = (amount) => {
+    const formatted = amount.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+    return formatted;
+  }
+
   useEffect(() => {
     dispatch(thunkGetOneProject(projectId));
   }, [dispatch, projectId]);
@@ -57,8 +67,8 @@ const ProjectDetail = () => {
             <div className="project-detail-stats">
             <ProgressBar project={project} />
               <div>
-                <h2 id="project-total-funded">${project.totalFunded}</h2>
-                <span>pledged of ${project.fundingGoal} goal</span>
+                <h2 id="project-total-funded">{formatAmount(project.totalFunded)}</h2>
+                <span>pledged of {formatAmount(project.fundingGoal)} goal</span>
               </div>
 
               <div>
