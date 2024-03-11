@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user, login_required
-from ..models import Project, Category, User, Backer, Reward, Comment, db
+from ..models import Project, Category, User, Backer, Reward, Comment, db, Like
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from ..forms import ProjectForm, RewardForm, EditProjectForm
 
@@ -286,3 +286,39 @@ def delete_comment(projectId, commentId):
     delete_nested_comments(comment)
 
     return {"message": f"Successfully deleted comment"}
+
+
+@project_routes.route('/<int:projectId>/likes', methods=["POST", "GET"])
+def like_project(projectId):
+    project = Project.query.get(projectId)
+
+    if not project:
+        return {'errors': {'message': "Project not found"}}, 404
+    
+    if request.method == "POST":
+        new_like = Like(
+            project_id = projectId,
+            user_id = current_user.id
+        )
+        db.session.add(new_like)
+        db.session.commit()
+        return new_like.to_dict()
+    else:
+        likes = Like.query.filter(Like.project_id == projectId).all()
+        return [like.to_dict() for like in likes]
+    
+@login_required
+@project_routes.route('/<int:projectId>/likes/<int:likeId>', methods=["DELETE"])
+def unlike_project(projectId, likeId):
+    like = Like.query.get(likeId)
+
+    if not like:
+        return {'errors': {'message': "Like not found"}}, 404
+    
+    if current_user.id is not like.user_id:
+        return {'errors': {'message': "Unauthorized"}}, 401
+    
+    db.session.delete(like)
+    db.session.commit()
+
+    return {"message": f"Successfully unliked project"}
