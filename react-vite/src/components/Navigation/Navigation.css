@@ -17,18 +17,16 @@
 }
 
 .nav-container li {
-  flex: 1
 }
 
 .new-project-button-li {
-  margin-right: auto;
+  margin-left: auto;
 }
 
 .button-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-left: auto
 }
 
 .logo {
@@ -36,14 +34,10 @@
   font-size: 30px;
   font-weight: bolder;
   color: #068859;
-  padding-top: 8px;
-  margin: 0 auto;
-  justify-self: center;
 }
 
 .logo-li {
   display: flex;
-  justify-content: center;
 }
 
 .new-project {
@@ -64,4 +58,16 @@
   display: flex;
   gap: 5px;
   min-width: 182px;
+}
+
+.search-li {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.1);
+  height: 40px;
 }
