@@ -11,14 +11,17 @@ const Search = () => {
   const [ searchValue, setSearchValue ] = useState("")
   
   useEffect(() => {
-    let timeoutId = setTimeout(() => {
-    dispatch(thunkSearchProjects(searchValue))
+    if (searchValue !== "") {
 
-    }, 500)
-
-    return () => {
-      clearTimeout(timeoutId)
-      dispatch(clearSearch())
+      let timeoutId = setTimeout(() => {
+        dispatch(thunkSearchProjects(searchValue))
+        
+      }, 500)
+      
+      return () => {
+        clearTimeout(timeoutId)
+        dispatch(clearSearch())
+      }
     }
   }, [dispatch, searchValue])
 
