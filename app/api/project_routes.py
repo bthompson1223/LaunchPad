@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 from ..models import Project, Category, User, Backer, Reward, Comment, db, Like
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from ..forms import ProjectForm, RewardForm, EditProjectForm
-# from sqlalchemy import or_
+from sqlalchemy import or_
 
 project_routes = Blueprint('projects', __name__)
 
@@ -11,7 +11,7 @@ project_routes = Blueprint('projects', __name__)
 def all_projects():
     search = request.args.get("search", type=str)
     if search:
-        projects = Project.query.filter(Project.title.ilike(f"%{search}%")).all()
+        projects = Project.query.filter(or_(Project.title.ilike(f"%{search}%"), Project.story.ilike(f"%{search}%"), Project.subtitle.ilike(f"%{search}%"))).all()
         return [project.to_dict() for project in projects]
 
     category = request.args.get("category", type=str)
