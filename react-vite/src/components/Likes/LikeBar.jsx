@@ -50,7 +50,7 @@ const LikeBar = ({ project, likesObj }) => {
   return (
     <div>
       <h2>{likes}</h2> <span>current like{likes !== 1 ? "s" : ""}</span>
-      {!isLoading ? (
+      {!isLoading && user ? (
         <div>
           {!hasLiked ? (
             <button onClick={handleLike}>Like</button>
