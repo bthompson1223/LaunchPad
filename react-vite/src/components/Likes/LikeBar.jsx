@@ -42,7 +42,7 @@ const LikeBar = ({ project, likesObj }) => {
   if (!likesObj) return null;
 
   const hasLiked = Object.values(likesObj).some(
-    (like) => like.user_id === user.id && like.project_id === project.id
+    (like) => like.user_id === user?.id && like.project_id === project.id
   );
 
   //   setLikes(likeNum);
