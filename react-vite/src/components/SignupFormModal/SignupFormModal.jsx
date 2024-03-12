@@ -15,6 +15,18 @@ function SignupFormModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
+  const maxFileError = "Image exceeds the maximum file size of 5Mb";
+
+  const fileWrap = (e) => {
+    const file = e.target.files[0];
+    if (file.size > 5000000) {
+      setProfileImg(maxFileError);
+      e.target.value = null;
+      return;
+    }
+
+    setProfileImg(file);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -136,9 +148,15 @@ function SignupFormModal() {
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setProfileImg(e.target.files[0])}
+            onChange={fileWrap}
           />
         </label>
+            {profileImg === maxFileError && (
+              <p className="input-errors">{profileImg}</p>
+            )}
+            {"profileImg" in errors && (
+              <p className="input-errors">{errors.profileImg}</p>
+            )}
         <button type="submit" className="signup-button">
           Sign Up
         </button>
