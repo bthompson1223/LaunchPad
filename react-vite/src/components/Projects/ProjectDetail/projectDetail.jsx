@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaRegCompass } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { thunkGetOneProject } from "../../../redux/project";
+import { thunkGetLikes } from "../../../redux/likes";
 import { Story } from "./StorySection";
 import { Risks } from "./RiskSection";
 import { Comments } from "./CommentSection";
@@ -19,6 +20,7 @@ const ProjectDetail = () => {
   const project = useSelector((state) => state.projects[projectId]);
   const user = useSelector((state) => state.session.user);
   const [topic, setTopic] = useState("story");
+  const likesObj = useSelector((state) => state.likes);
 
   const formatAmount = (amount) => {
     const formatted = amount.toLocaleString("en-US", {
@@ -32,6 +34,7 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     dispatch(thunkGetOneProject(projectId));
+    dispatch(thunkGetLikes(projectId));
   }, [dispatch, projectId]);
 
   if (!project) return null;
@@ -92,7 +95,7 @@ const ProjectDetail = () => {
                 )}
               </div>
               <div>
-                <LikeBar project={project} />
+                <LikeBar project={project} likesObj={likesObj} />
               </div>
               {!isOwner && (
                 <div className="project-detail-buttons">
