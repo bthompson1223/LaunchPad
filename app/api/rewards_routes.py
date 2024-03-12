@@ -10,7 +10,6 @@ reward_routes = Blueprint('rewards', __name__)
 @login_required
 @reward_routes.route('/<int:rewardId>/backing', methods=['POST'])
 def add_backer(rewardId):
-    print("INSIDE THE ADD BACKER FUNCTION")
     reward = Reward.query.get(rewardId)
     if not reward:
         return {'errors': {'message': "Reward not found"}}, 404
@@ -54,7 +53,6 @@ def update_reward(rewardId):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        print("🚀 ~ img_url:", "inside update reward router")
         
         # if User did not upate image (image is an url)
         img_url = form.data["img_url"]

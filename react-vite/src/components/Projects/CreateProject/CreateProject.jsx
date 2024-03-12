@@ -48,8 +48,7 @@ const CreateProject = () => {
     if (Object.values(validationErrors).length) {
       setErrors(validationErrors);
     } else {
-      // console.log(typeof category)
-      // console.log(typeof parseInt(category))
+
       const categoryNum = parseInt(category);
 
       const formData = new FormData();
