@@ -6,18 +6,21 @@ import {
   thunkGetLikes,
 } from "../../redux/likes";
 
-const LikeBar = ({ project }) => {
-  const likesObj = useSelector((state) => state.likes);
+const LikeBar = ({ project, likesObj }) => {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const [likes, setLikes] = useState(0);
+  const [likes, setLikes] = useState(Object.values(likesObj).length || 0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLike = async () => {
+    setIsLoading(true);
     await dispatch(thunkAddLike(project.id));
     setLikes((prev) => prev + 1);
+    setIsLoading(false);
   };
 
   const handleUnlike = async () => {
+    setIsLoading(true);
     const likeId = Object.values(likesObj).find(
       (like) => like.user_id === user.id && like.project_id === project.id
     ).id;
@@ -25,25 +28,39 @@ const LikeBar = ({ project }) => {
     await dispatch(thunkDeleteLike(project.id, likeId));
 
     setLikes((prev) => prev - 1);
+
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    dispatch(thunkGetLikes());
+    const loadLikes = async () => {
+      await dispatch(thunkGetLikes(project.id));
+    };
+    loadLikes();
   }, [dispatch]);
 
   if (!likesObj) return null;
 
-  const likeArr = Object.values(likesObj);
-  const currentProjectLikesArr = likeArr.filter(
-    (like) => like.projectId === project.id
+  const hasLiked = Object.values(likesObj).some(
+    (like) => like.user_id === user.id && like.project_id === project.id
   );
-  set;
+
+  //   setLikes(likeNum);
 
   return (
     <div>
-      <p>Current Likes: {likes}</p>
-      <button onClick={handleLike}>Like</button>
-      <button onClick={handleUnlike}>Unlike</button>
+      <h2>{likes}</h2> <span>current like{likes !== 1 ? "s" : ""}</span>
+      {!isLoading ? (
+        <div>
+          {!hasLiked ? (
+            <button onClick={handleLike}>Like</button>
+          ) : likes ? (
+            <button onClick={handleUnlike}>Unlike</button>
+          ) : null}
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 };

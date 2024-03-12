@@ -2,9 +2,10 @@ const GET_LIKES = "likes/GET_LIKES";
 const DELETE_LIKE = "likes/DELETE_LIKE";
 const ADD_LIKE = "likes/ADD_LIKE";
 
-const getLikes = () => {
+const getLikes = (likes) => {
   return {
     type: GET_LIKES,
+    likes,
   };
 };
 
@@ -26,7 +27,8 @@ export const thunkGetLikes = (projectId) => async (dispatch) => {
   const res = await fetch(`/api/projects/${projectId}/likes`);
 
   if (res.ok) {
-    dispatch(getLikes());
+    const likes = await res.json();
+    dispatch(getLikes(likes));
   } else {
     const errs = await res.json();
     return errs;
@@ -65,9 +67,11 @@ const initialState = {};
 function likesReducer(state = initialState, action) {
   switch (action.type) {
     case GET_LIKES: {
-      return {
-        ...state,
-      };
+      const newState = {};
+      action.likes.forEach((like) => {
+        newState[like.id] = like;
+      });
+      return newState;
     }
     case DELETE_LIKE: {
       const newState = { ...state };

@@ -304,7 +304,9 @@ def like_project(projectId):
         db.session.commit()
         return new_like.to_dict()
     else:
+        print("🚀 ~ like_project ~ projectId", projectId)
         likes = Like.query.filter(Like.project_id == projectId).all()
+        print("🚀 ~ like_project ~ likes", [like.to_dict() for like in likes])
         return [like.to_dict() for like in likes]
     
 @login_required
