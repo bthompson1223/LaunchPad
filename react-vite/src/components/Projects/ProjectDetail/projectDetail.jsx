@@ -10,6 +10,7 @@ import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
 import OpenModalButton from "../../OpenModalButton/OpenModalButton";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import "./ProjectDetail.css";
+import LikeBar from "../../Likes/LikeBar";
 
 const ProjectDetail = () => {
   const navigate = useNavigate();
@@ -20,14 +21,14 @@ const ProjectDetail = () => {
   const [topic, setTopic] = useState("story");
 
   const formatAmount = (amount) => {
-    const formatted = amount.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    const formatted = amount.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
       minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+      maximumFractionDigits: 0,
     });
     return formatted;
-  }
+  };
 
   useEffect(() => {
     dispatch(thunkGetOneProject(projectId));
@@ -65,9 +66,11 @@ const ProjectDetail = () => {
             </div>
 
             <div className="project-detail-stats">
-            <ProgressBar project={project} />
+              <ProgressBar project={project} />
               <div>
-                <h2 id="project-total-funded">{formatAmount(project.totalFunded)}</h2>
+                <h2 id="project-total-funded">
+                  {formatAmount(project.totalFunded)}
+                </h2>
                 <span>pledged of {formatAmount(project.fundingGoal)} goal</span>
               </div>
 
@@ -88,14 +91,17 @@ const ProjectDetail = () => {
                   </>
                 )}
               </div>
+              <div>
+                <LikeBar project={project} />
+              </div>
               {!isOwner && (
                 <div className="project-detail-buttons">
-                <button
-                  id="back-project-button"
-                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
-                >
-                  Back this project
-                </button>
+                  <button
+                    id="back-project-button"
+                    onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                  >
+                    Back this project
+                  </button>
                 </div>
               )}
               {isOwner && (

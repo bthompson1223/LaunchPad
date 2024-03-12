@@ -10,13 +10,17 @@ import projectReducer from "./project";
 import rewardReducer from "./reward";
 import commentReducer from "./comments";
 import backingsReducer from "./backings";
+import likesReducer from "./likes";
+import PaginationReducer from "./pagination";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   projects: projectReducer,
   rewards: rewardReducer,
   comments: commentReducer,
-  backings: backingsReducer
+  backings: backingsReducer,
+  likes: likesReducer,
+  pagination: PaginationReducer
 });
 
 let enhancer;

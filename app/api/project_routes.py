@@ -1,6 +1,6 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import current_user, login_required
-from ..models import Project, Category, User, Backer, Reward, Comment, db
+from ..models import Project, Category, User, Backer, Reward, Comment, db, Like
 from .aws_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from ..forms import ProjectForm, RewardForm, EditProjectForm
 
@@ -8,16 +8,48 @@ project_routes = Blueprint('projects', __name__)
 
 @project_routes.route('/')
 def all_projects():
-    projects = Project.query.all()
+    category = request.args.get("category", type=str)
+    print("category", category)
 
-    return [project.to_dict() for project in projects]
+    query = Project.query
 
-@project_routes.route('/<category>')
-def find_category_projects(category):
-    projects = Project.query.all()
-    projects_dict = [project.to_dict() for project in projects]
+    if 'page' in request.args and 'per_page' in request.args:
+        if category == "all":
+            pagination = query.paginate()
 
-    return [project for project in projects_dict if project["category"].lower() == category.lower()]
+        else:
+            category_obj = Category.query.filter(Category.name == category).first()
+            filtered_projects = query.filter_by(category_id = category_obj.id)
+            pagination = filtered_projects.paginate()
+
+        projects = [project.to_dict() for project in pagination.items]
+        
+        if request.args.get("page", type=int) > pagination.pages:
+          return jsonify({'error': 'Invalid page number'}), 400
+        
+        pagination_data = {
+            "page": pagination.page,
+            "per_page": pagination.per_page,
+            "totalPages": pagination.pages,
+            "totalProjects": pagination.total
+        }
+
+        response = {
+            "projects": projects,
+            "pagination": pagination_data
+        }
+
+        return jsonify(response)
+    else:
+        projects = query.all()
+        return [project.to_dict() for project in projects]
+
+# @project_routes.route('/<category>')
+# def find_category_projects(category):
+#     projects = Project.query.all()
+#     projects_dict = [project.to_dict() for project in projects]
+
+#     return [project for project in projects_dict if project["category"].lower() == category.lower()]
 
 @project_routes.route('/<int:projectId>')
 def get_project(projectId):
@@ -36,7 +68,6 @@ def created_projects():
         return [project.to_dict() for project in projects]
     else:
         return []
-        # return {"errors": {"message": "Projects not found"}}, 404
     
 @login_required
 @project_routes.route('/backed-projects')
@@ -286,3 +317,39 @@ def delete_comment(projectId, commentId):
     delete_nested_comments(comment)
 
     return {"message": f"Successfully deleted comment"}
+
+
+@project_routes.route('/<int:projectId>/likes', methods=["POST", "GET"])
+def like_project(projectId):
+    project = Project.query.get(projectId)
+
+    if not project:
+        return {'errors': {'message': "Project not found"}}, 404
+    
+    if request.method == "POST":
+        new_like = Like(
+            project_id = projectId,
+            user_id = current_user.id
+        )
+        db.session.add(new_like)
+        db.session.commit()
+        return new_like.to_dict()
+    else:
+        likes = Like.query.filter(Like.project_id == projectId).all()
+        return [like.to_dict() for like in likes]
+    
+@login_required
+@project_routes.route('/<int:projectId>/likes/<int:likeId>', methods=["DELETE"])
+def unlike_project(projectId, likeId):
+    like = Like.query.get(likeId)
+
+    if not like:
+        return {'errors': {'message': "Like not found"}}, 404
+    
+    if current_user.id is not like.user_id:
+        return {'errors': {'message': "Unauthorized"}}, 401
+    
+    db.session.delete(like)
+    db.session.commit()
+
+    return {"message": f"Successfully unliked project"}
