@@ -15,7 +15,6 @@ def all_projects():
         return [project.to_dict() for project in projects]
 
     category = request.args.get("category", type=str)
-    print("category", category)
 
     query = Project.query
 
@@ -140,13 +139,8 @@ def update_project(projectId):
         upload = None
 
         if not isinstance(cover_image, str) and cover_image is not None:
-            print("Inside image replacement")  
-            print("COVER IMAGE ============>", project.cover_image)
-            print("new cover image================================", cover_image)
             cover_image.filename = get_unique_filename(cover_image.filename)
-            print("This is content_type=============================", cover_image.content_type)
             upload = upload_file_to_s3(cover_image)
-            print("This is the upload==============================", upload)
 
             if "url" not in upload:
                 return upload
@@ -160,12 +154,8 @@ def update_project(projectId):
         project.story = form.data["story"] or project.story
         project.risks = form.data["risks"] or project.risks
         project.cover_image = upload["url"] if upload else project.cover_image
-        print("this is cover iamge url=====================================", project.cover_image)
         project.funding_goal = form.data["funding_goal"] or project.funding_goal
-        print("THIS IS THE FORM DATA END_DATE", form.data['end_date'])
         project.end_date = form.data["end_date"] or project.end_date
-        print("WE MADE IT PAST END DATE")
-        print("UPLOAD ====================>", form.data)
     
         db.session.commit()
         return project.to_dict()
@@ -177,7 +167,6 @@ def update_project(projectId):
 def delete_project(projectId):
     
     project = Project.query.get(projectId)
-    print("🚀 ~ project:", "Inside delete project route")
 
     if not project:
         return {'errors': {'message': "Project not found"}}, 404
@@ -242,8 +231,6 @@ def new_reward(projectId):
 
         db.session.add(new_reward)
         db.session.commit()
-
-        print("🚀 ~ new_reward router:", new_reward.to_dict())
     
         return new_reward.to_dict()
     return form.errors, 401
@@ -263,7 +250,6 @@ def get_comments(projectId):
     comments_dict = {comment.id: comment.to_dict() for comment in comments}
 
     nested_comments = build_nested_comments(comments_dict)
-    print("nested commements========================",nested_comments)
 
     return nested_comments
    
@@ -341,9 +327,7 @@ def like_project(projectId):
         db.session.commit()
         return new_like.to_dict()
     else:
-        print("🚀 ~ like_project ~ projectId", projectId)
         likes = Like.query.filter(Like.project_id == projectId).all()
-        print("🚀 ~ like_project ~ likes", [like.to_dict() for like in likes])
         return [like.to_dict() for like in likes]
     
 @login_required

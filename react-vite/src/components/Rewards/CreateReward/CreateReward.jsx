@@ -52,9 +52,9 @@ const CreateReward = () => {
 
       if (Object.values(validationErrors).length) {
         setErrors(validationErrors)
-        console.log("set error==================")
+
       } else {
-        console.log("inside else to hit thunkfunction==================")
+        
         const formData = new FormData();
         formData.append("name", name);
         formData.append("description", description);
