@@ -58,9 +58,8 @@ const LikeBar = ({ project, likesObj }) => {
             <button onClick={handleUnlike}>Unlike</button>
           ) : null}
         </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+      ) : null}
+      {isLoading && <p>Loading...</p>}
     </div>
   );
 };
