@@ -38,20 +38,26 @@ const ProjectList = () => {
 
   return (
     <div>
-      <form className="pagination-form">
+      <div className="pagination-div">
+        <div className="page-div">
         <span className="pagination-header">Page</span>
-        {page > 1 &&
-        <button className="arrow-buttons" onClick={() => setPage(page - 1)}><FaAngleLeft /></button>
+        <div className="page-numbers-arrows-div">
+        {page > 1 ?
+          <button className="arrow-buttons" onClick={() => setPage(page - 1)}><FaAngleLeft /></button> :
+          <button className="arrow-buttons disabled-btn" disabled><FaAngleLeft /></button>
         }
-        <input
-          id="page-number-input"
-          type="text"
-          value={page}
-          readOnly={true}
-          onChange={(e) => setPage(e.target.value)}
-        />
-        {page < paginationData.totalPages && <button className="arrow-buttons" onClick={() => setPage(page + 1)}><FaAngleRight /></button>}
+        <span>{page} of {paginationData.totalPages}</span>
+        {page < paginationData.totalPages ? 
+        <button className="arrow-buttons" onClick={() => setPage(page + 1)}><FaAngleRight /></button> :
+        <button className="arrow-buttons disabled-btn" disabled><FaAngleRight /></button>}
+        </div>
+        </div>
+
+        <div className="per-page-div">
+
         <span className="pagination-header">Projects per Page</span>
+        <div>
+
         <select
           id="per-page-input"
           value={perPage}
@@ -62,7 +68,9 @@ const ProjectList = () => {
         <option value={15}>15</option>
         <option value={20}>20</option>
         </select>
-      </form>
+        </div>
+        </div>
+      </div>
       <ul className="project-list">
         {projects.map((project) => (
           <ProjectListItem project={project} key={project.id} />
