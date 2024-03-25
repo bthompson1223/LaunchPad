@@ -8,9 +8,12 @@ project_routes = Blueprint('projects', __name__)
 
 @project_routes.route('/')
 def all_projects():
-    projects = Project.query.all()
+    name = "Arts"
+    category = Category.query.filter(name==Category.name).first()
+    if not category:
+        return {"errors": {"message": "Category not found"}},
 
-    return [project.to_dict() for project in projects]
+    return [project.to_dict() for project in category.projects]
 
 @project_routes.route('/<category>')
 def find_category_projects(category):

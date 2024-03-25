@@ -65,3 +65,17 @@
   gap: 5px;
   min-width: 182px;
 }
+
+@media (max-width: 500px) {
+  .new-project {
+    width: 30px;
+    background-color: #068859;
+    font-size: 15px;
+    padding: 10px 6px;
+  }
+
+  .nav-container new-project-button-li{
+    margin: 0;
+    
+  }
+}

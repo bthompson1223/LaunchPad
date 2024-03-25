@@ -15,7 +15,10 @@ const CategoriesNav = () => {
     <NavLink to="/categories/games">Games</NavLink>
     <NavLink to="/categories/music">Music</NavLink>
     <NavLink to="/categories/publishing">Publishing</NavLink>
-  </nav>)
+  </nav>
+  
+  
+  )
 }
 
 export default CategoriesNav;

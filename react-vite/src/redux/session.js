@@ -28,7 +28,6 @@ export const thunkAuthenticate = () => async (dispatch) => {
     if (data.errors) {
       return;
     }
-
     dispatch(setUser(data));
   }
 };
