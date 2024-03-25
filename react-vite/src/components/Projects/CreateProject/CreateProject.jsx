@@ -19,9 +19,21 @@ const CreateProject = () => {
   const [endDate, setEndDate] = useState("");
   const [errors, setErrors] = useState({});
   const [imageLoading, setImageLoading] = useState(false);
-
+  const maxFileError = "Image exceeds the maximum file size of 5Mb";
+  
   if (!user) {
     return <h2>You must be logged in to create a new project</h2>;
+  }
+  
+  const fileWrap = (e) => {
+    const file = e.target.files[0];
+    if (file.size > 5000000) {
+      setCoverImage(maxFileError);
+      e.target.value = null;
+      return;
+    }
+
+    setCoverImage(file);
   }
 
   const handleSubmit = async (e) => {
@@ -48,8 +60,7 @@ const CreateProject = () => {
     if (Object.values(validationErrors).length) {
       setErrors(validationErrors);
     } else {
-      // console.log(typeof category)
-      // console.log(typeof parseInt(category))
+
       const categoryNum = parseInt(category);
 
       const formData = new FormData();
@@ -241,11 +252,14 @@ const CreateProject = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setCoverImage(e.target.files[0])}
+              onChange={fileWrap}
               className="input-create"
             />
           </label>
           <div className="project-errors">
+            {coverImage === maxFileError && (
+              <p>{coverImage}</p>
+            )}
             {"coverImage" in errors && (
               <p>{errors.coverImage}</p>
             )}
