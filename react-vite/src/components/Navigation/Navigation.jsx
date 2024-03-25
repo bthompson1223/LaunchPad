@@ -26,6 +26,7 @@ function Navigation() {
           LaunchPad
         </NavLink>
       </li>
+      <li></li>
       <li className="search-li">
         <Search />
       </li>
