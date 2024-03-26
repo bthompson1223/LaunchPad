@@ -10,7 +10,7 @@ function Navigation() {
   const projectLink = (
     <div>
       <NavLink to="/projects/new" className="new-project">
-        Create a Project
+        Start a Project
       </NavLink>
     </div>
   );
@@ -26,7 +26,6 @@ function Navigation() {
           LaunchPad
         </NavLink>
       </li>
-      <li></li>
       <li className="search-li">
         <Search />
       </li>

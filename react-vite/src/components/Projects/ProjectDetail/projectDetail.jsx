@@ -57,13 +57,13 @@ const ProjectDetail = () => {
   return (
     <div>
       <section className="project-detail-container">
-        <div className="project-detail-section">
+        {/* <div className="project-detail-section"> */}
           <div className="project-detail-titles">
             <h1>{project.title}</h1>
             <p>{project.subtitle}</p>
           </div>
 
-          <div className="project-detail">
+          {/* <div className="project-detail"> */}
             <div className="project-detail-image">
               <img src={project.coverImage} alt="Cover image for the project" />
             </div>
@@ -133,7 +133,7 @@ const ProjectDetail = () => {
                 </div>
               )}
             </div>
-          </div>
+          {/* </div> */}
           <div className="project-detail-category-location">
             <span>
               <span className="icon-span">
@@ -149,7 +149,7 @@ const ProjectDetail = () => {
               </span>
               {project.location}
             </span>
-          </div>
+          {/* </div> */}
         </div>
       </section>
       <nav className="project-detail-nav">

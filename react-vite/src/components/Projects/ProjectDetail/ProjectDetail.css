@@ -12,14 +12,14 @@
   width: 90%;
 }
 
-.project-detail {
+/* .project-detail {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 0 auto;
   width: 100%;
   max-width: 1130px;
-}
+} */
 
 .project-detail-titles {
   display: flex;
@@ -38,10 +38,10 @@
 }
 
 
-.project-detail-image {
+/* .project-detail-image {
   display: flex;
   flex-direction: column;
-}
+} */
 
 .project-detail-image img {
   width: 600px;
