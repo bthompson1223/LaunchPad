@@ -1,15 +1,20 @@
 .project-detail-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f7f2eb;
-  border-bottom: 1px solid lightgray;
+  /* flex-direction: column; */
+
+  background-color: #FBFBFA;
+  
+  /* width: 85%; */
+
 }
 
 .project-detail-section {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* justify-content: center; */
   width: 90%;
+  margin: 0 auto;
+  max-width: 1130px;
 }
 
 /* .project-detail {
@@ -25,40 +30,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .project-detail-titles h1 {
   margin-top: 2rem;
   margin-bottom: .5rem;
   font-size: xx-large;
+  text-align: center;
+  width: 70%;
 }
 
 .project-detail-titles p {
   margin-top: 0;
 }
 
-
-/* .project-detail-image {
-  display: flex;
-  flex-direction: column;
-} */
+.project-detail-image {
+  width: 60%;
+}
 
 .project-detail-image img {
-  width: 600px;
-  height: 340px;
+  height: 400px;
+  width: 100%;
   object-fit: cover;
 }
 
-.project-detail-stats {
+.project-detail-info {
   color: rgb(118, 118, 118);
   padding-left: 2rem;
-  width: 300px;
+  width: 35%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.project-detail-stats h2 {
+.project-detail-info h2 {
   margin-bottom: 0;
   font-size: xx-large;
 }
@@ -75,14 +82,14 @@
   background-color: #068859;
   border: none;
   width: 100%;
-  max-width: 300px;
+  /* max-width: 300px; */
   padding: .75rem;
   cursor: pointer;
 }
 
 #project-total-funded {
   color: #068859;
-  margin-top: 0;
+  margin-top: 1rem;
 }
 
 .project-detail-in-depth {
@@ -92,10 +99,12 @@
   margin: 0 auto;
 }
 
-.project-detail-category-location {
+.project-detail-category-location-inner {
   margin: 1rem 0;
   display: flex;
   gap: 1rem;
+  margin-right: auto;
+  width: 100%;
 }
 
 .project-detail-category-location a {
@@ -109,6 +118,7 @@
 
 .project-detail-nav {
   height: 3rem;
+  border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   display: flex;
   align-items: center;
