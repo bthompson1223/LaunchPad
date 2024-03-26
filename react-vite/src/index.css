@@ -134,4 +134,13 @@ html {
   .project-image {
     height: 250px;
   }
+  .project-detail-sub-nav-links span {
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .project-detail-sub-nav-links span {
+    padding-right: 2rem;
+  }
 }
