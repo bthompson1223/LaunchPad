@@ -4,6 +4,7 @@ import { returnInitial, thunkGetCategoryProjects } from "../../redux/project";
 import "./splashPage.css";
 import CategoriesNav from "../Categories/CategoriesNav";
 import { FeaturedProject } from "../Projects/FeaturedProject/FeaturedProject";
+import CategoryNavScroll from "../Categories/CategoriesNavScroll"; 
 
 const SplashPage = () => {
   const projectsObj = useSelector((state) => state.projects);
