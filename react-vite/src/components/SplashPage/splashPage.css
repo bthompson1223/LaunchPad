@@ -29,7 +29,8 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  width: 85%; 
+  width: 85%;
+  max-width: 1246px; 
   margin: 0 auto;
   padding: 1rem;
 }
@@ -79,6 +80,7 @@
 .random-project {
   align-self: center;
   width:85%;
+  max-width: 1246px; 
 
 }
 
@@ -94,3 +96,5 @@
   color: #005738;
   margin-bottom: 8px;
 }
+
+

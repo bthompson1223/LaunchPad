@@ -63,6 +63,21 @@
   min-width: 182px;
 }
 
+<<<<<<< HEAD
+@media (max-width: 500px) {
+  .new-project {
+    width: 30px;
+    background-color: #068859;
+    font-size: 15px;
+    padding: 10px 6px;
+  }
+
+  .nav-container new-project-button-li{
+    margin: 0;
+    
+  }
+}
+=======
 .search-li {
   display: flex;
   align-items: center;
@@ -74,3 +89,4 @@
   box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.1);
   height: 40px;
 }
+>>>>>>> dev

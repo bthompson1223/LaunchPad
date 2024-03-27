@@ -43,7 +43,7 @@ const RewardListItem = ({
 
   return (
     <div className="reward-card" onClick={onRewardClick}>
-      <div className="reward-card-details">
+      <div className="reward-card-details" id="reward-card-details-container">
         <div className="card-reward-text-div">
           <h3>Pledge ${reward.amount}</h3>
           <div className="reward-name-description">
@@ -70,7 +70,7 @@ const RewardListItem = ({
           <div className="reward-details-backer">{reward.backers} backers</div>
         </div>
 
-        <div className="card-reward-image">
+        <div className="card-reward-image" >
           <img src={`${reward.img_url}`} alt="reward image" />
         </div>
       </div>
