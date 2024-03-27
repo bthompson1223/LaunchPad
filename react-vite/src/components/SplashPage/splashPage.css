@@ -98,3 +98,27 @@
 }
 
 
+@media (max-width: 810px) {
+  .stats-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bar {
+    width: 80%;
+    height: 50%;
+  }
+}
+
+@media (max-width: 756px) {
+  /* .categories-container .category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .category-nav a {
+    margin: 5px;
+  }  */
+}

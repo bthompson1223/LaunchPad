@@ -85,3 +85,21 @@ ul {
   object-fit: cover;
   padding: 10px 20px;
 }
+
+.manage-projects li {
+  padding: 10px 0px;
+}
+
+.manage-projects li:hover {
+  background-color: #f7f2eb;
+}
+
+.seperator {
+  margin-top: 10px;
+  margin-bottom: 5px;;
+  border-bottom: solid 1px grey;
+}
+
+.logout-button {
+  margin-top: 5px;
+}
