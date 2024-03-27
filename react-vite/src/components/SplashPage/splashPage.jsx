@@ -10,7 +10,7 @@ const SplashPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(thunkGetCategoryProjects("all"));
+    dispatch(thunkGetCategoryProjects("All"));
 
     return () => dispatch(returnInitial());
   }, [dispatch]);

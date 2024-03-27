@@ -31,7 +31,7 @@ const Search = () => {
     <>
         <FaSearch className="search-icon" id="search-icon"/>
         <input id="search-bar" type="text" placeholder="Search projects" value={searchValue} onChange={e => setSearchValue(e.target.value)}/>
-        <FaTimes id="clear-search" onClick={() => setSearchValue("")}/>
+        {searchValue && <FaTimes id="clear-search" onClick={() => setSearchValue("")}/>}
       {searchValue && <div className="search-results-div">
         {Object.values(projectsObj).length ? 
         <ul className="search-results">
