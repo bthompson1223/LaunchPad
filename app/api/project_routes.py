@@ -19,7 +19,7 @@ def all_projects():
     query = Project.query
 
     if 'page' in request.args and 'per_page' in request.args:
-        if category == "all":
+        if category == "All":
             pagination = query.paginate()
 
         else:

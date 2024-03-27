@@ -15,9 +15,10 @@
   padding-left: 0;
   margin: 0;
 }
-
+/* 
 .nav-container li {
-}
+  flex: 1;
+} */
 
 .new-project-button-li {
   margin-left: auto;
@@ -38,6 +39,8 @@
 
 .logo-li {
   display: flex;
+  padding-left: 1rem;
+  padding-right: 2rem;
 }
 
 .new-project {

@@ -10,7 +10,7 @@ function Navigation() {
   const projectLink = (
     <div>
       <NavLink to="/projects/new" className="new-project">
-        Create a Project
+        Start a Project
       </NavLink>
     </div>
   );

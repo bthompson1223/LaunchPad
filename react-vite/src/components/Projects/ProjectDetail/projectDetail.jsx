@@ -63,13 +63,14 @@ const ProjectDetail = () => {
             <p>{project.subtitle}</p>
           </div>
 
-          <div className="project-detail">
+          {/* <div className="project-detail"> */}
             <div className="project-detail-image">
               <img src={project.coverImage} alt="Cover image for the project" />
             </div>
 
-            <div className="project-detail-stats">
+            <div className="project-detail-info">
               <ProgressBar project={project} />
+              <div className="project-detail-stats">
               <div>
                 <h2 id="project-total-funded">
                   {formatAmount(project.totalFunded)}
@@ -96,6 +97,7 @@ const ProjectDetail = () => {
               </div>
               <div>
                 <LikeBar project={project} likesObj={likesObj} />
+              </div>
               </div>
               {!isOwner && (
                 <div className="project-detail-buttons">
@@ -133,8 +135,10 @@ const ProjectDetail = () => {
                 </div>
               )}
             </div>
-          </div>
+          {/* </div> */}
           <div className="project-detail-category-location">
+            <div className="project-detail-category-location-inner">
+
             <span>
               <span className="icon-span">
                 <FaRegCompass />
@@ -149,6 +153,7 @@ const ProjectDetail = () => {
               </span>
               {project.location}
             </span>
+            </div>
           </div>
         </div>
       </section>
