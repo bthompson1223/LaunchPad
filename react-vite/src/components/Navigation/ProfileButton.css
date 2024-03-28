@@ -103,3 +103,11 @@ ul {
 .logout-button {
   margin-top: 5px;
 }
+
+.login-logout li {
+  padding: 10px 20px;
+}
+
+.login-logout li:hover {
+  background-color: #f7f2eb;
+}
