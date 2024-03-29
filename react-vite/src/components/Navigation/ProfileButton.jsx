@@ -72,7 +72,7 @@ function ProfileButton() {
               <li className="text-email">{user.email}</li>
               <div className="seperator"></div>
               <ul className="manage-projects">
-                <li>
+                
                   <NavLink
                     to="/projects/created-projects"
                     className="manage-nav"
@@ -80,8 +80,8 @@ function ProfileButton() {
                   >
                     Created Projects
                   </NavLink>
-                </li>
-                <li>
+              
+                
                   <NavLink
                     to="/projects/backed-projects"
                     className="manage-nav extra"
@@ -89,7 +89,7 @@ function ProfileButton() {
                   >
                     Backed Projects
                   </NavLink>
-                </li>
+               
               </ul>
               <li className="logout-button">
                 <button onClick={logout} className="lo-button">
