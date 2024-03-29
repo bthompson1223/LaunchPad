@@ -86,11 +86,16 @@ ul {
   padding: 10px 20px;
 }
 
-.manage-projects li {
+
+.manage-projects {
+  display: flex;
+  flex-direction: column;
+}
+.manage-projects a {
   padding: 10px 0px;
 }
 
-.manage-projects li:hover {
+.manage-projects a:hover {
   background-color: #f7f2eb;
 }
 
