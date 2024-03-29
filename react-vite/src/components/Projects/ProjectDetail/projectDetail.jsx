@@ -11,9 +11,9 @@ import { DeleteProjectModal } from "../DeleteProjectModal/DeleteProjectModal";
 import OpenModalButton from "../../OpenModalButton/OpenModalButton";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import "./ProjectDetail.css";
-import LikeBar from "../../Likes/LikeBar";
 
-const ProjectDetail = () => {
+
+export const ProjectDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { projectId } = useParams();
@@ -64,13 +64,13 @@ const ProjectDetail = () => {
           </div>
 
           {/* <div className="project-detail"> */}
-            <div className="project-detail-image">
-              <img src={project.coverImage} alt="Cover image for the project" />
-            </div>
+          <div className="project-detail-image">
+            <img src={project.coverImage} alt="Cover image for the project" />
+          </div>
 
-            <div className="project-detail-info">
-              <ProgressBar project={project} />
-              <div className="project-detail-stats">
+          <div className="project-detail-info">
+            <ProgressBar project={project} />
+            <div className="project-detail-stats">
               <div>
                 <h2 id="project-total-funded">
                   {formatAmount(project.totalFunded)}
@@ -95,64 +95,62 @@ const ProjectDetail = () => {
                   </>
                 )}
               </div>
-              <div>
-                <LikeBar project={project} likesObj={likesObj} />
-              </div>
-              </div>
-              {!isOwner && (
-                <div className="project-detail-buttons">
-                  <button
-                    id="back-project-button"
-                    onClick={() => navigate(`/projects/${project.id}/rewards`)}
-                  >
-                    Back this project
-                  </button>
-                </div>
-              )}
-              {isOwner && (
-                <div className="project-detail-buttons">
-                  <button
-                    onClick={() => navigate(`/projects/${project.id}/edit`)}
-                  >
-                    Edit project
-                  </button>
-                  <button
-                    onClick={() => navigate(`/projects/${project.id}/rewards`)}
-                  >
-                    View Rewards
-                  </button>
-                  <button
-                    onClick={() =>
-                      navigate(`/projects/${project.id}/rewards/new`)
-                    }
-                  >
-                    Add a Reward
-                  </button>
-                  <OpenModalButton
-                    buttonText="Delete"
-                    modalComponent={<DeleteProjectModal project={project} />}
-                  />
-                </div>
-              )}
+
             </div>
+            {!isOwner && (
+              <div className="project-detail-buttons">
+                <button
+                  id="back-project-button"
+                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                >
+                  Back this project
+                </button>
+              </div>
+            )}
+            {isOwner && (
+              <div className="project-detail-buttons">
+                <button
+                  onClick={() => navigate(`/projects/${project.id}/edit`)}
+                >
+                  Edit project
+                </button>
+                <button
+                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                >
+                  View Rewards
+                </button>
+                <button
+                  onClick={() =>
+                    navigate(`/projects/${project.id}/rewards/new`)
+                  }
+                >
+                  Add a Reward
+                </button>
+                <OpenModalButton
+                  buttonText="Delete"
+                  modalComponent={<DeleteProjectModal project={project} />}
+                />
+              </div>
+            )}
+          </div>
           {/* </div> */}
           <div className="project-detail-category-location">
             <div className="project-detail-category-location-inner">
 
-            <span>
-              <span className="icon-span">
-                <FaRegCompass />
+              <span>
+                <span className="icon-span">
+                  <FaRegCompass />
+                </span>
+                <Link to={`/categories/${project.category}`}>
+                  {project.category}
+                </Link>
               </span>
-              <Link to={`/categories/${project.category}`}>
-                {project.category}
-              </Link>
-            </span>
-            <span>
-              <span className="icon-span">
-                <FaMapMarkerAlt />
+              <span>
+                <span className="icon-span">
+                  <FaMapMarkerAlt />
+                </span>
+                {project.location}
               </span>
-              {project.location}
-            </span>
             </div>
           </div>
         </div>
