@@ -1,9 +1,12 @@
+import { setPaginationData } from "./pagination";
+
 const GET_PROJECTS = "projects/GET_PROJECTS";
 const RETURN_INITIAL = "projects/RETURN_INITIAL";
 const GET_ONE_PROJECT = "projects/GET_ONE_PROJECT";
 const DELETE_PROJECT = "projects/DELETE_PROJECT";
 const CREATE_PROJECT = "projects/CREATE_PROJECT";
 const UPDATE_PROJECT = "projects/UPDATE_PROJECT";
+
 
 export const returnInitial = () => {
   return {
@@ -38,17 +41,16 @@ const updateProject = (project) => ({
   project,
 });
 
-export const thunkGetCategoryProjects = (category) => async (dispatch) => {
-  let res;
-  if (category == "all") {
-    res = await fetch("/api/projects");
-  } else {
-    res = await fetch(`/api/projects/${category}`);
-  }
+
+export const thunkGetCategoryProjects = (category, page, perPage) => async (dispatch) => {
+  page = page || 1;
+  perPage = perPage || 20;
+  const res = await fetch(`/api/projects?category=${category}&page=${page}&per_page=${perPage}`);
 
   if (res.ok) {
-    const projects = await res.json();
-    dispatch(getProjects(projects));
+    const data = await res.json();
+    dispatch(getProjects(data.projects));
+    dispatch(setPaginationData(data.pagination))
   } else {
     const errs = await res.json();
     return errs;

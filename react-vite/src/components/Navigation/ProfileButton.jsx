@@ -70,6 +70,7 @@ function ProfileButton() {
             <>
               <li className="text">{user.username}</li>
               <li className="text-email">{user.email}</li>
+              <div className="seperator"></div>
               <ul className="manage-projects">
                 <li>
                   <NavLink

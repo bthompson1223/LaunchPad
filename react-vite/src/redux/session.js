@@ -28,7 +28,6 @@ export const thunkAuthenticate = () => async (dispatch) => {
     if (data.errors) {
       return;
     }
-
     dispatch(setUser(data));
   }
 };
@@ -104,7 +103,6 @@ function sessionReducer(state = initialState, action) {
     case CLEAR_USER_PROJECTS: {
       const newState = { ...state };
       delete newState.user.projects
-      console.log(newState.user)
       return newState;
     }
     default:

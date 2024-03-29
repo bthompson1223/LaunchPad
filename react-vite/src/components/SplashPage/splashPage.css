@@ -29,7 +29,8 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  width: 85%; 
+  width: 85%;
+  max-width: 1246px; 
   margin: 0 auto;
   padding: 1rem;
 }
@@ -79,6 +80,7 @@
 .random-project {
   align-self: center;
   width:85%;
+  max-width: 1246px; 
 
 }
 
@@ -93,4 +95,30 @@
   font-size: 34px;
   color: #005738;
   margin-bottom: 8px;
+}
+
+
+@media (max-width: 810px) {
+  .stats-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bar {
+    width: 80%;
+    height: 50%;
+  }
+}
+
+@media (max-width: 756px) {
+  /* .categories-container .category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .category-nav a {
+    margin: 5px;
+  }  */
 }

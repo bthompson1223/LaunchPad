@@ -24,6 +24,8 @@
   
   .card-reward-image {
     margin-top: 19.920px;
+    width: 220px;
+    height: 150px;
   }
   
   .card-reward-image img {
@@ -99,3 +101,46 @@
   font-weight: 500;
   margin-bottom: 0;
 }
+
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .reward-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    max-width: 690px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: auto;
+  } 
+
+
+}
+
+@media screen and (max-width: 749px) {
+  .reward-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 90%; 
+    height: auto;
+    padding: 0px 10px;
+    
+  } 
+
+  #reward-card-details-container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: 20px;
+  }
+
+
+
+
+}
+
+

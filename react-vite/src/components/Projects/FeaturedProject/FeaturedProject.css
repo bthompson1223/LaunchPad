@@ -66,3 +66,29 @@
 .featured-project-author p span {
   font-weight: bold;
 }
+
+@media screen and (max-width:990px) {
+  .featured {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .featured li {
+    width: 47%;
+  }
+
+}
+
+@media screen and (max-width:670px) {
+  .featured {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .featured li {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
+

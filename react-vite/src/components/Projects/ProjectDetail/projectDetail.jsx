@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaRegCompass } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { thunkGetOneProject } from "../../../redux/project";
+import { thunkGetLikes } from "../../../redux/likes";
 import { Story } from "./StorySection";
 import { Risks } from "./RiskSection";
 import { Comments } from "./CommentSection";
@@ -11,26 +12,29 @@ import OpenModalButton from "../../OpenModalButton/OpenModalButton";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import "./ProjectDetail.css";
 
-const ProjectDetail = () => {
+
+export const ProjectDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { projectId } = useParams();
   const project = useSelector((state) => state.projects[projectId]);
   const user = useSelector((state) => state.session.user);
   const [topic, setTopic] = useState("story");
+  const likesObj = useSelector((state) => state.likes);
 
   const formatAmount = (amount) => {
-    const formatted = amount.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    const formatted = amount.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
       minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+      maximumFractionDigits: 0,
     });
     return formatted;
-  }
+  };
 
   useEffect(() => {
     dispatch(thunkGetOneProject(projectId));
+    dispatch(thunkGetLikes(projectId));
   }, [dispatch, projectId]);
 
   if (!project) return null;
@@ -59,15 +63,18 @@ const ProjectDetail = () => {
             <p>{project.subtitle}</p>
           </div>
 
-          <div className="project-detail">
-            <div className="project-detail-image">
-              <img src={project.coverImage} alt="Cover image for the project" />
-            </div>
+          {/* <div className="project-detail"> */}
+          <div className="project-detail-image">
+            <img src={project.coverImage} alt="Cover image for the project" />
+          </div>
 
-            <div className="project-detail-stats">
+          <div className="project-detail-info">
             <ProgressBar project={project} />
+            <div className="project-detail-stats">
               <div>
-                <h2 id="project-total-funded">{formatAmount(project.totalFunded)}</h2>
+                <h2 id="project-total-funded">
+                  {formatAmount(project.totalFunded)}
+                </h2>
                 <span>pledged of {formatAmount(project.fundingGoal)} goal</span>
               </div>
 
@@ -88,58 +95,63 @@ const ProjectDetail = () => {
                   </>
                 )}
               </div>
-              {!isOwner && (
-                <div className="project-detail-buttons">
+
+            </div>
+            {!isOwner && (
+              <div className="project-detail-buttons">
                 <button
                   id="back-project-button"
                   onClick={() => navigate(`/projects/${project.id}/rewards`)}
                 >
                   Back this project
                 </button>
-                </div>
-              )}
-              {isOwner && (
-                <div className="project-detail-buttons">
-                  <button
-                    onClick={() => navigate(`/projects/${project.id}/edit`)}
-                  >
-                    Edit project
-                  </button>
-                  <button
-                    onClick={() => navigate(`/projects/${project.id}/rewards`)}
-                  >
-                    View Rewards
-                  </button>
-                  <button
-                    onClick={() =>
-                      navigate(`/projects/${project.id}/rewards/new`)
-                    }
-                  >
-                    Add a Reward
-                  </button>
-                  <OpenModalButton
-                    buttonText="Delete"
-                    modalComponent={<DeleteProjectModal project={project} />}
-                  />
-                </div>
-              )}
-            </div>
+              </div>
+            )}
+            {isOwner && (
+              <div className="project-detail-buttons">
+                <button
+                  onClick={() => navigate(`/projects/${project.id}/edit`)}
+                >
+                  Edit project
+                </button>
+                <button
+                  onClick={() => navigate(`/projects/${project.id}/rewards`)}
+                >
+                  View Rewards
+                </button>
+                <button
+                  onClick={() =>
+                    navigate(`/projects/${project.id}/rewards/new`)
+                  }
+                >
+                  Add a Reward
+                </button>
+                <OpenModalButton
+                  buttonText="Delete"
+                  modalComponent={<DeleteProjectModal project={project} />}
+                />
+              </div>
+            )}
           </div>
+          {/* </div> */}
           <div className="project-detail-category-location">
-            <span>
-              <span className="icon-span">
-                <FaRegCompass />
+            <div className="project-detail-category-location-inner">
+
+              <span>
+                <span className="icon-span">
+                  <FaRegCompass />
+                </span>
+                <Link to={`/categories/${project.category}`}>
+                  {project.category}
+                </Link>
               </span>
-              <Link to={`/categories/${project.category}`}>
-                {project.category}
-              </Link>
-            </span>
-            <span>
-              <span className="icon-span">
-                <FaMapMarkerAlt />
+              <span>
+                <span className="icon-span">
+                  <FaMapMarkerAlt />
+                </span>
+                {project.location}
               </span>
-              {project.location}
-            </span>
+            </div>
           </div>
         </div>
       </section>
