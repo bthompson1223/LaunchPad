@@ -29,11 +29,12 @@ const UpdateProject = () => {
   const [endDate, setEndDate] = useState("");
   const [errors, setErrors] = useState({});
   const [imageLoading, setImageLoading] = useState(false);
+  const maxFileError = "Image exceeds the maximum file size of 5Mb";
   
   useEffect(() => {
     dispatch(thunkGetOneProject(projectId));
   }, [dispatch, projectId]);
-
+  
   useEffect(() => {
     if (project?.id) {
       setTitle(project.title)
@@ -58,6 +59,17 @@ const UpdateProject = () => {
 
   if (user.id != project.owner.id) {
     return <h2>You are not authorized to edit this project</h2>;
+  }
+  
+  const fileWrap = (e) => {
+    const file = e.target.files[0];
+    if (file.size > 5000000) {
+      setCoverImage(maxFileError);
+      e.target.value = null;
+      return;
+    }
+
+    setCoverImage(file);
   }
 
   const handleSubmit = async (e) => {
@@ -225,10 +237,13 @@ const UpdateProject = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setCoverImage(e.target.files[0])}
+              onChange={fileWrap}
             />
           </label>
           <div className="project-errors">
+            {coverImage === maxFileError && (
+              <p>{coverImage}</p>
+            )}
             {"coverImage" in errors && <p>{errors.coverImage}</p>}
           </div>
         </div>

@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { returnInitial, thunkGetCategoryProjects } from "../../redux/project";
-import { NavLink } from "react-router-dom";
-import { ProjectListItem } from "../Projects/ProjectListItem/projectListItem";
 import "./splashPage.css";
+import CategoriesNav from "../Categories/CategoriesNav";
+import { FeaturedProject } from "../Projects/FeaturedProject/FeaturedProject";
 
 const SplashPage = () => {
   const projectsObj = useSelector((state) => state.projects);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(thunkGetCategoryProjects("all"));
+    dispatch(thunkGetCategoryProjects("All"));
 
     return () => dispatch(returnInitial());
   }, [dispatch]);
@@ -40,24 +40,14 @@ const SplashPage = () => {
     return choiceArr[index];
   };
 
-  const randomProject = randomChoice(projectsArr);
+  const randomProject1 = randomChoice(projectsArr);
+  const randomProject2 = randomChoice(projectsArr);
+  const randomProject3 = randomChoice(projectsArr);
 
   return (
     <div className="splash-container">
-      <div className="splash-categories-container">
-        <nav className="splash-categories-nav">
-          <NavLink to="/categories/all">All</NavLink>
-          <NavLink to="/categories/arts">Arts</NavLink>
-          <NavLink to="/categories/comics-illustration">
-            Comics & Illustration
-          </NavLink>
-          <NavLink to="/categories/design-tech">Design & Tech</NavLink>
-          <NavLink to="/categories/film">Film</NavLink>
-          <NavLink to="/categories/food-craft">Food & Craft</NavLink>
-          <NavLink to="/categories/games">Games</NavLink>
-          <NavLink to="/categories/music">Music</NavLink>
-          <NavLink to="/categories/publishing">Publishing</NavLink>
-        </nav>
+      <div className="categories-container">
+        <CategoriesNav />
       </div>
       <h1 className="splash-title">Bring a creative project to life</h1>
       <div className="splash-stats">
@@ -83,7 +73,15 @@ const SplashPage = () => {
       </div>
       <div className="random-project">
         <h3>Featured Project:</h3>
-        <ProjectListItem project={randomProject} />
+        <ul className="featured">
+
+          <FeaturedProject className='featured-project' project={randomProject1} />
+
+          <FeaturedProject className='featured-project' project={randomProject2} />
+
+          <FeaturedProject className='featured-project' project={randomProject3} />
+
+        </ul>
       </div>
     </div>
   );

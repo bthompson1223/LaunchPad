@@ -19,6 +19,7 @@
   
   .delete-project-modal p {
     color: #666;
+    margin-bottom: 40px;
   }
   
   .delete-project-modal button {

@@ -31,6 +31,7 @@ const EditReward = () => {
     const [image, setImage] = useState(reward?.img_url)
     const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState({});
+    const maxFileError = "Image exceeds the maximum file size of 5Mb";
     
     useEffect(() => {
         dispatch(thunkGetOneReward(rewardId))
@@ -43,6 +44,17 @@ const EditReward = () => {
     if (user?.id != reward?.owner_id) {
         return <h2>You must be the project owner to update a reward</h2>
     }
+
+    const fileWrap = (e) => {
+      const file = e.target.files[0];
+      if (file.size > 5000000) {
+        setImage(maxFileError);
+        e.target.value = null;
+        return;
+      }
+  
+      setImage(file);
+    };
 
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -176,10 +188,13 @@ const EditReward = () => {
                     <input 
                       type = "file"
                       accept="image/*"
-                      onChange={(e) => setImage(e.target.files[0])}
+                      onChange={fileWrap}
                     />
                   </label>
                   <div className="reward-errors">
+                      {image === maxFileError && (
+                        <p>{image}</p>
+                      )}
                       {"image" in errors && <p>{errors.image}</p> }
                   </div>
                   {imageLoading && <p>Loading...</p>}

@@ -1,0 +1,57 @@
+.project-list {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  gap: .75rem;
+}
+
+.pagination-div {
+  width: 90%;
+  margin: 0 auto;
+  display: flex; 
+  gap: 2rem;
+  font-size: 12px;
+}
+
+.page-div,
+.per-page-div {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  /* margin: 0 auto; */
+}
+
+.page-numbers-arrows-div {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  border: .5px solid grey;
+}
+
+#per-page-input {
+  border: 1px solid #068859;
+  cursor: pointer;
+  text-align: center;
+}
+
+#per-page-input:focus {
+  outline: none;
+  border: 1px solid #068859;
+}
+
+.arrow-buttons {
+  color: white;
+  background-color: #068859;
+  border: none;
+  cursor: pointer;
+}
+
+.disabled-btn {
+  color: white;
+  background-color: grey;
+  border: none;
+  cursor: not-allowed;
+}

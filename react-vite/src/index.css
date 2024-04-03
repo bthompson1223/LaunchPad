@@ -5,9 +5,148 @@
     font-style: normal;
   }
   
-/* html, body, #root {
+html, body, #root {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-} */
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.green {
+  color: #068859;;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 1024px){
+  .project-detail-section {
+    width: 100%;
+  }
+
+  .project-detail-titles {
+    order: 1;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .project-detail-info {
+    order: 2;
+    max-width: 100%;
+    width: 80%;
+    padding-left: 0;
+    margin: 0 auto 2rem;
+  }
+
+  .project-detail-image {
+    width: 100%;
+  }
+  .project-detail-image img {
+    width: 100%;
+  }
+  .project-detail-stats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .project-detail-stats h2 {
+    margin-top: 2rem;
+  }
+  #project-total-funded {
+    margin-top: 2rem;
+  }
+  .project-detail-category-location {
+    /* padding-bottom: 1rem;
+    padding-top: 1rem; */
+    /* padding-left: 6rem; */
+    width: 100%;
+    order: 3;
+    margin: 0 auto;
+    border-top: 1px solid lightgray;
+  }
+  .project-detail-category-location-inner {
+    width: 80%;
+    margin: 1rem auto;
+  }
+  .project-detail-buttons button{
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .project-list {
+    justify-content: space-between;
+  }
+  
+  .project-container {
+    width: 48%;
+  }
+
+  .category-nav {
+    gap: 15px
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+  
+  .logo-li {
+    width: 30%;
+  }
+
+  .search-li {
+    width: 100%;
+    order: 1;
+    margin-bottom: 1rem;
+  }
+
+  .search-results-div {
+    top: 7.5rem
+  }
+
+  .category-nav {
+    justify-content: space-between;
+  }
+
+  .category-nav a {
+    /* width: -moz-min-content;
+    width: -webkit-min-content; */
+    width: min-content;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .project-list {
+    flex-direction: column;
+  }
+
+  .project-container {
+    width: 100%;
+  }
+
+  .card-project-image {
+    height: 250px;
+  }
+
+  .project-image {
+    height: 250px;
+  }
+  .project-detail-sub-nav-links span {
+    padding-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .project-detail-sub-nav-links span {
+    padding-right: 2rem;
+  }
+}

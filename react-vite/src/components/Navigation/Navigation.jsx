@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { useSelector } from "react-redux";
+import Search from "../Search/SearchBar/Search";
 
 function Navigation() {
   const user = useSelector((state) => state.session.user);
@@ -9,7 +10,7 @@ function Navigation() {
   const projectLink = (
     <div>
       <NavLink to="/projects/new" className="new-project">
-        Create a Project
+        Start a Project
       </NavLink>
     </div>
   );
@@ -20,15 +21,17 @@ function Navigation() {
 
   return (
     <ul className="nav-container">
-      <li>
-        <div className="new-project-menu">{newProjectDiv}</div>
-      </li>
-      <li>
+      <li className="logo-li">
         <NavLink to="/" className="logo">
           LaunchPad
         </NavLink>
       </li>
-
+      <li className="search-li">
+        <Search />
+      </li>
+      <li className="new-project-button-li">
+        <div className="new-project-menu">{newProjectDiv}</div>
+      </li>
       <li className="button-container">
         <ProfileButton />
       </li>

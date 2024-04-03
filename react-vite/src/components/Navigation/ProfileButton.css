@@ -3,42 +3,50 @@
 }
 
 .profile-dropdown {
-  border: 2px solid black;
-  border-radius: 10px;
+  border: 1px solid grey;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 0px;
-  align-items: center;
-  padding: 5px 5px 5px 5px;
+  padding: 1rem;
   margin-right: 40px;
+  gap: 5px;
+  box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+}
+
+.login-logout {
+  min-width: 60px;
+}
+
+.login-logout li {
+  cursor: pointer;
 }
 
 .menu {
-  border-radius: 30px;
   padding: 10px 20px 10px 20px;
   margin-right: 3.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-.fa-user-circle {
-  padding-right: 5px;
+.logout-button {
+  margin-top: 1rem;
+  border-top: 1px solid grey;
 }
 
 .lo-button {
   display: flex;
   background-color: #068859;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: none;
   color: white;
-}
-
-.lo-button:hover {
-  cursor: pointer;
+  cursor: pointer;  
+  padding: .5rem;
+  margin-top: 1rem;
 }
 
 .text {
-  padding-left: 0px;
+  font-weight: 500;
 }
 
 .text-email {
@@ -48,10 +56,7 @@
 
 .manage-projects {
   padding-left: 0px;
-}
-
-.logout-button {
-  padding-left: 0px;
+  font-weight: 500;
 }
 
 .buttoncontainer {
@@ -78,4 +83,36 @@ ul {
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  padding: 10px 20px;
+}
+
+
+.manage-projects {
+  display: flex;
+  flex-direction: column;
+}
+.manage-projects a {
+  padding: 10px 0px;
+}
+
+.manage-projects a:hover {
+  background-color: #f7f2eb;
+}
+
+.seperator {
+  margin-top: 10px;
+  margin-bottom: 5px;;
+  border-bottom: solid 1px grey;
+}
+
+.logout-button {
+  margin-top: 5px;
+}
+
+.login-logout li {
+  padding: 10px 20px;
+}
+
+.login-logout li:hover {
+  background-color: #f7f2eb;
 }

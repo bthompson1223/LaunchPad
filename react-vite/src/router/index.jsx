@@ -3,7 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import Categories from '../components/Categories/categories';
-import ProjectDetail from '../components/Projects/ProjectDetail/projectDetail';
+import { ProjectDetail } from '../components/Projects/ProjectDetail/projectDetail';
 import RewardList from '../components/Rewards/RewardList/rewardList';
 import CreateProject from '../components/Projects/CreateProject/CreateProject';
 import EditProject from '../components/Projects/EditProject/EditProject';
@@ -42,52 +42,52 @@ export const router = createBrowserRouter([
       {
         path: "projects",
         element: <Outlet />,
-        children:[
-            {
-                path: ":projectId",
+        children: [
+          {
+            path: ":projectId",
+            element: <Outlet />,
+            children: [
+              {
+                index: true,
+                element: <ProjectDetail />,
+              },
+              {
+                path: "rewards",
                 element: <Outlet />,
                 children: [
                   {
                     index: true,
-                    element: <ProjectDetail />,
+                    element: <RewardList />
                   },
                   {
-                    path: "rewards",
-                    element: <Outlet />,
-                    children: [
-                      {
-                        index: true,
-                        element: <RewardList />
-                      }, 
-                      {
-                        path: 'new',
-                        element: <CreateReward />
-                      }, 
-                      {
-                        path: ':rewardId/edit',
-                        element: <EditReward />
-                      }
-                    ]
-                    
+                    path: 'new',
+                    element: <CreateReward />
                   },
                   {
-                    path: "edit",
-                    element: <EditProject />
+                    path: ':rewardId/edit',
+                    element: <EditReward />
                   }
                 ]
-            },
-            {
-              path: "new",
-              element: <CreateProject />
-            },
-            {
-              path: "created-projects",
-              element: <OwnedProjects />
-            },
-            {
-              path: "backed-projects",
-              element: <BackedProjects />
-            }
+
+              },
+              {
+                path: "edit",
+                element: <EditProject />
+              }
+            ]
+          },
+          {
+            path: "new",
+            element: <CreateProject />
+          },
+          {
+            path: "created-projects",
+            element: <OwnedProjects />
+          },
+          {
+            path: "backed-projects",
+            element: <BackedProjects />
+          }
         ]
       }
     ],

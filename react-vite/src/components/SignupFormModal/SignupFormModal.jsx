@@ -15,6 +15,18 @@ function SignupFormModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
+  const maxFileError = "Image exceeds the maximum file size of 5Mb";
+
+  const fileWrap = (e) => {
+    const file = e.target.files[0];
+    if (file.size > 5000000) {
+      setProfileImg(maxFileError);
+      e.target.value = null;
+      return;
+    }
+
+    setProfileImg(file);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,95 +70,93 @@ function SignupFormModal() {
   };
 
   return (
-    <div className="signup-container">
+    <div className="login-signup-container">
       <h1 className="login-signup">Sign Up</h1>
       {errors.server && <p className="input-error">{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
+      <form className="login-signup-form" onSubmit={handleSubmit}>
         <label>
-          Email
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            placeholder="Enter Your Email"
-            className="input"
+            placeholder="Email"
           />
         </label>
-        {errors.email && <p className="input-error">{errors.email}</p>}
+        {errors.email && <p className="input-errors">{errors.email}</p>}
         <label>
-          Username
+       
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            placeholder="Enter Your Username"
-            className="input"
+            placeholder="Username"
           />
         </label>
         {errors.username && <p className="input-errors">{errors.username}</p>}
         <label>
-          First Name
+         
           <input
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
-            placeholder="Enter Your First Name"
-            className="input"
+            placeholder="First Name"
           />
         </label>
         {errors.first_name && (
           <p className="input-errors">{errors.first_name}</p>
         )}
         <label>
-          Last Name
+          
           <input
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required
-            placeholder="Enter Your Last Name"
-            className="input"
+            placeholder="Last Name"
           />
         </label>
         {errors.last_name && <p className="input-errors">{errors.last_name}</p>}
         <label>
-          Password
+          
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            placeholder="Enter Your Password"
-            className="input"
+            placeholder="Password"
           />
         </label>
         {errors.password && <p className="input-errors">{errors.password}</p>}
         <label>
-          Confirm Password
+      
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
             placeholder="Confirm Your Password"
-            className="input"
           />
         </label>
         {errors.confirmPassword && (
           <p className="input-errors">{errors.confirmPassword}</p>
         )}
         <label>
-          Profile Image (Optional)
+         <p className="profile-img">Profile Image (Optional)</p>
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setProfileImg(e.target.files[0])}
-            className="input"
+            onChange={fileWrap}
           />
         </label>
+            {profileImg === maxFileError && (
+              <p className="input-errors">{profileImg}</p>
+            )}
+            {"profileImg" in errors && (
+              <p className="input-errors">{errors.profileImg}</p>
+            )}
         <button type="submit" className="signup-button">
           Sign Up
         </button>

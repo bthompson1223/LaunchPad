@@ -1,0 +1,42 @@
+.dev-credits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.meet-the-devs {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.individual-details {
+    flex: 1 1 300px;
+    margin: 10px;
+    text-align: center;
+}
+
+.individual-details h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.individual-details p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.individual-details a {
+    color: #3b5249;
+    text-decoration: none;
+}
+
+.individual-details a:hover {
+    text-decoration: underline;
+}
