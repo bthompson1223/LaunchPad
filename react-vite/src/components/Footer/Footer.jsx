@@ -37,14 +37,14 @@ export const Footer = () => {
             </section>
             <section className='individual-details'>
                 <Link to='https://leileili1010.github.io/'>
-                    <h3>Lei Li</h3>
+                    <h3>Fiona(Lei Li)</h3>
 
                 </Link>
                 <Link to='https://github.com/leileili1010'>
                     <p> Github <FaGithub /></p>
 
                 </Link>
-                <Link to='https://www.linkedin.com/in/leileili/'>
+                <Link to='https://www.linkedin.com/in/fiona-lei-li/'>
                     <p> LinkedIn <FaLinkedin /></p>
 
                 </Link>
