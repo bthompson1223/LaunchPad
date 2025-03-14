@@ -207,4 +207,4 @@ Have an awesome idea and want to see who will back it to make it happen? Post yo
 
 - Bryan Thompson [Github](https://github.com/bthompson1223) | [LinkedIn](https://www.linkedin.com/in/bryan-thompson-933a47251/)
 - Chase Agee [Github](https://github.com/thechee) | [LinkedIn](https://www.linkedin.com/in/chase-agee/)
-- Lei Li [Github](https://github.com/leileili1010) | [LinkedIn](https://www.linkedin.com/in/fiona-lei-li/)
+- Fiona(Lei) Li [Github](https://github.com/leileili1010) | [LinkedIn](https://www.linkedin.com/in/fiona-lei-li/)
