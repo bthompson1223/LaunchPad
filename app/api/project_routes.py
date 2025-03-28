@@ -253,7 +253,7 @@ def get_comments(projectId):
 
     return nested_comments
    
-
+# add comment
 @login_required
 @project_routes.route('/<int:projectId>/comments', methods=["POST"])
 def create_comment(projectId):

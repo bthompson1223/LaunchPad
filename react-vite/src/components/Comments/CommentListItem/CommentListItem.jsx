@@ -58,25 +58,25 @@ const CommentListItem = ({ comment }) => {
 
   return (
     <div className="comment-container">
-        <div className="commenter-div">
-          <div>
-            <img id='commenter-profile-image' src={comment.user_image} alt="" />
-          </div>
-          <div className="commenter-data">
-            <h4>{comment.username}</h4>
-            {postedDaysAgo == 0 && <p>posted {hoursAfterPosting} hours ago</p>}
-            {postedDaysAgo > 0 && <p>{postedDaysAgo} {postedDaysAgo > 1 ? "days" : "day"} ago</p>}
-          </div>
-          {isCommenter && <div className="comment-delete-container">
-            <OpenModalButton
-              buttonText={<FaTimes />}
-              modalComponent={<DeleteCommentModal comment={comment} />} />
-          </div>}
+      <div className="commenter-div">
+        <div>
+          <img id='commenter-profile-image' src={comment.user_image} alt="" />
         </div>
-        <div className="comment">
-          <p>{comment.comment}</p>
+        <div className="commenter-data">
+          <h4>{comment.username}</h4>
+          {postedDaysAgo == 0 && <p>posted {hoursAfterPosting} hours ago</p>}
+          {postedDaysAgo > 0 && <p>{postedDaysAgo} {postedDaysAgo > 1 ? "days" : "day"} ago</p>}
         </div>
-        <div className="new-reply-div">
+        {isCommenter && <div className="comment-delete-container">
+          <OpenModalButton
+            buttonText={<FaTimes />}
+            modalComponent={<DeleteCommentModal comment={comment} />} />
+        </div>}
+      </div>
+      <div className="comment">
+        <p>{comment.comment}</p>
+      </div>
+      <div className="new-reply-div">
         {!showReplyField && user && <button id="reply-button" onClick={() => setShowReplyField(true)}>Reply</button>}
         {showReplyField &&
           <div className="comment-replies">
@@ -86,29 +86,29 @@ const CommentListItem = ({ comment }) => {
               onChange={(e) => setReply(e.target.value)}
             />
             <div className="comments-errors-buttons">
-            <div className="errors">
-            {"reply" in errors && 
-              <span>{errors.reply}</span>
-            }
+              <div className="errors">
+                {"reply" in errors &&
+                  <span>{errors.reply}</span>
+                }
+              </div>
+              <div className="comments-submit-cancel">
+                <button onClick={() => setShowReplyField(false)}>Cancel</button>
+                <button onClick={handleSubmit}>Submit</button>
+              </div>
             </div>
-            <div className="comments-submit-cancel">
-              <button onClick={() => setShowReplyField(false)}>Cancel</button>
-              <button onClick={handleSubmit}>Submit</button>
-            </div>
-          </div>
-            
+
           </div>
         }
-        </div>
-        <div className="comment-replies">
-            {hasReplies && (
-              <div className="replies-container">
-                {comment.replies.map(reply => (
-                  <CommentListItem key={reply.id} comment={reply} />
-                ))}
-              </div>
-            )}
-        </div>
+      </div>
+      <div className="comment-replies">
+        {hasReplies && (
+          <div className="replies-container">
+            {comment.replies.map(reply => (
+              <CommentListItem key={reply.id} comment={reply} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }
